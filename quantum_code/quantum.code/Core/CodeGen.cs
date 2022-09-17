@@ -105,6 +105,28 @@ namespace Quantum {
     }
     [System.ObsoleteAttribute("Use instance Set method instead. This method will be removed with 2.1 release.")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static void Set(BitSet20* set, Int32 bit) {
+      Assert.Check(bit >= 0 && bit < 20);
+      (((UInt64*)set)[bit/64]) |= (1UL<<(bit%64));
+    }
+    [System.ObsoleteAttribute("Use instance Clear method instead. This method will be removed with 2.1 release.")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static void Clear(BitSet20* set, Int32 bit) {
+      Assert.Check(bit >= 0 && bit < 20);
+      (((UInt64*)set)[bit/64]) &= ~(1UL<<(bit%64));
+    }
+    [System.ObsoleteAttribute("Use instance ClearAll method instead. This method will be removed with 2.1 release.")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static void ClearAll(BitSet20* set) {
+      Native.Utils.Clear(((UInt64*)set), 8);
+    }
+    [System.ObsoleteAttribute("Use instance IsSet method instead. This method will be removed with 2.1 release.")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Boolean IsSet(BitSet20* set, Int32 bit) {
+      return ((((UInt64*)set)[bit/64])&(1UL<<(bit%64))) != 0UL;
+    }
+    [System.ObsoleteAttribute("Use instance Set method instead. This method will be removed with 2.1 release.")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void Set(BitSet2048* set, Int32 bit) {
       Assert.Check(bit >= 0 && bit < 2048);
       (((UInt64*)set)[bit/64]) |= (1UL<<(bit%64));
@@ -189,28 +211,6 @@ namespace Quantum {
     [System.ObsoleteAttribute("Use instance IsSet method instead. This method will be removed with 2.1 release.")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Boolean IsSet(BitSet512* set, Int32 bit) {
-      return ((((UInt64*)set)[bit/64])&(1UL<<(bit%64))) != 0UL;
-    }
-    [System.ObsoleteAttribute("Use instance Set method instead. This method will be removed with 2.1 release.")]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void Set(BitSet6* set, Int32 bit) {
-      Assert.Check(bit >= 0 && bit < 6);
-      (((UInt64*)set)[bit/64]) |= (1UL<<(bit%64));
-    }
-    [System.ObsoleteAttribute("Use instance Clear method instead. This method will be removed with 2.1 release.")]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void Clear(BitSet6* set, Int32 bit) {
-      Assert.Check(bit >= 0 && bit < 6);
-      (((UInt64*)set)[bit/64]) &= ~(1UL<<(bit%64));
-    }
-    [System.ObsoleteAttribute("Use instance ClearAll method instead. This method will be removed with 2.1 release.")]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ClearAll(BitSet6* set) {
-      Native.Utils.Clear(((UInt64*)set), 8);
-    }
-    [System.ObsoleteAttribute("Use instance IsSet method instead. This method will be removed with 2.1 release.")]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Boolean IsSet(BitSet6* set, Int32 bit) {
       return ((((UInt64*)set)[bit/64])&(1UL<<(bit%64))) != 0UL;
     }
   }
@@ -359,6 +359,78 @@ namespace Quantum {
     }
   }
   [StructLayout(LayoutKind.Explicit)]
+  public unsafe partial struct BitSet20 {
+    public const Int32 SIZE = 8;
+    public const Int32 ALIGNMENT = 8;
+    [FieldOffset(0)]
+    private fixed UInt64 bits[1];
+    public const Int32 BitsSize = 20;
+    public Int32 Length {
+      get {
+        return 20;
+      }
+    }
+    public static void Print(void* ptr, FramePrinter printer) {
+      var p = (BitSet20*)ptr;
+      printer.ScopeBegin();
+      UnmanagedUtils.PrintBytesBits((byte*)&p->bits, 20, 64, printer);
+      printer.ScopeEnd();
+    }
+    [System.ObsoleteAttribute("Use instance Set method instead")]
+    public static void Set(BitSet20* set, Int32 bit) {
+      set->bits[bit/64] |= (1UL<<(bit%64));
+    }
+    [System.ObsoleteAttribute("Use instance Clear method instead")]
+    public static void Clear(BitSet20* set, Int32 bit) {
+      set->bits[bit/64] &= ~(1UL<<(bit%64));
+    }
+    [System.ObsoleteAttribute("Use instance ClearAll method instead")]
+    public static void ClearAll(BitSet20* set) {
+      Native.Utils.Clear(&set->bits[0], 8);
+    }
+    [System.ObsoleteAttribute("Use instance IsSet method instead")]
+    public static Boolean IsSet(BitSet20* set, Int32 bit) {
+      return (set->bits[bit/64]&(1UL<<(bit%64))) != 0UL;
+    }
+    public static BitSet20 FromArray(UInt64[] values) {
+      Assert.Always(1 == values.Length);
+      BitSet20 result = default;
+      for (int i = 0; i < 1; ++i) {
+        result.bits[i] = values[i];
+      }
+      return result;
+    }
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Set(Int32 bit) {
+      Assert.Check(bit >= 0 && bit < 20);
+      fixed (UInt64* p = bits) (p[bit/64]) |= (1UL<<(bit%64));
+    }
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Clear(Int32 bit) {
+      Assert.Check(bit >= 0 && bit < 20);
+      fixed (UInt64* p = bits) (p[bit/64]) &= ~(1UL<<(bit%64));
+    }
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void ClearAll() {
+      fixed (UInt64* p = bits) Native.Utils.Clear(p, 8);
+    }
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public Boolean IsSet(Int32 bit) {
+      fixed (UInt64* p = bits) return ((p[bit/64])&(1UL<<(bit%64))) != 0UL;
+    }
+    public override Int32 GetHashCode() {
+      unchecked { 
+        var hash = 43;
+        fixed (UInt64* p = bits) hash = hash * 31 + HashCodeUtils.GetArrayHashCode(p, 1);
+        return hash;
+      }
+    }
+    public static void Serialize(void* ptr, FrameSerializer serializer) {
+        var p = (BitSet20*)ptr;
+        serializer.Stream.SerializeBuffer(&p->bits[0], 1);
+    }
+  }
+  [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct BitSet2048 {
     public const Int32 SIZE = 256;
     public const Int32 ALIGNMENT = 8;
@@ -420,7 +492,7 @@ namespace Quantum {
     }
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 43;
+        var hash = 47;
         fixed (UInt64* p = bits) hash = hash * 31 + HashCodeUtils.GetArrayHashCode(p, 32);
         return hash;
       }
@@ -492,7 +564,7 @@ namespace Quantum {
     }
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 47;
+        var hash = 53;
         fixed (UInt64* p = bits) hash = hash * 31 + HashCodeUtils.GetArrayHashCode(p, 4);
         return hash;
       }
@@ -564,7 +636,7 @@ namespace Quantum {
     }
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 53;
+        var hash = 59;
         fixed (UInt64* p = bits) hash = hash * 31 + HashCodeUtils.GetArrayHashCode(p, 64);
         return hash;
       }
@@ -636,7 +708,7 @@ namespace Quantum {
     }
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 59;
+        var hash = 61;
         fixed (UInt64* p = bits) hash = hash * 31 + HashCodeUtils.GetArrayHashCode(p, 8);
         return hash;
       }
@@ -644,78 +716,6 @@ namespace Quantum {
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (BitSet512*)ptr;
         serializer.Stream.SerializeBuffer(&p->bits[0], 8);
-    }
-  }
-  [StructLayout(LayoutKind.Explicit)]
-  public unsafe partial struct BitSet6 {
-    public const Int32 SIZE = 8;
-    public const Int32 ALIGNMENT = 8;
-    [FieldOffset(0)]
-    private fixed UInt64 bits[1];
-    public const Int32 BitsSize = 6;
-    public Int32 Length {
-      get {
-        return 6;
-      }
-    }
-    public static void Print(void* ptr, FramePrinter printer) {
-      var p = (BitSet6*)ptr;
-      printer.ScopeBegin();
-      UnmanagedUtils.PrintBytesBits((byte*)&p->bits, 6, 64, printer);
-      printer.ScopeEnd();
-    }
-    [System.ObsoleteAttribute("Use instance Set method instead")]
-    public static void Set(BitSet6* set, Int32 bit) {
-      set->bits[bit/64] |= (1UL<<(bit%64));
-    }
-    [System.ObsoleteAttribute("Use instance Clear method instead")]
-    public static void Clear(BitSet6* set, Int32 bit) {
-      set->bits[bit/64] &= ~(1UL<<(bit%64));
-    }
-    [System.ObsoleteAttribute("Use instance ClearAll method instead")]
-    public static void ClearAll(BitSet6* set) {
-      Native.Utils.Clear(&set->bits[0], 8);
-    }
-    [System.ObsoleteAttribute("Use instance IsSet method instead")]
-    public static Boolean IsSet(BitSet6* set, Int32 bit) {
-      return (set->bits[bit/64]&(1UL<<(bit%64))) != 0UL;
-    }
-    public static BitSet6 FromArray(UInt64[] values) {
-      Assert.Always(1 == values.Length);
-      BitSet6 result = default;
-      for (int i = 0; i < 1; ++i) {
-        result.bits[i] = values[i];
-      }
-      return result;
-    }
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void Set(Int32 bit) {
-      Assert.Check(bit >= 0 && bit < 6);
-      fixed (UInt64* p = bits) (p[bit/64]) |= (1UL<<(bit%64));
-    }
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void Clear(Int32 bit) {
-      Assert.Check(bit >= 0 && bit < 6);
-      fixed (UInt64* p = bits) (p[bit/64]) &= ~(1UL<<(bit%64));
-    }
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void ClearAll() {
-      fixed (UInt64* p = bits) Native.Utils.Clear(p, 8);
-    }
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public Boolean IsSet(Int32 bit) {
-      fixed (UInt64* p = bits) return ((p[bit/64])&(1UL<<(bit%64))) != 0UL;
-    }
-    public override Int32 GetHashCode() {
-      unchecked { 
-        var hash = 61;
-        fixed (UInt64* p = bits) hash = hash * 31 + HashCodeUtils.GetArrayHashCode(p, 1);
-        return hash;
-      }
-    }
-    public static void Serialize(void* ptr, FrameSerializer serializer) {
-        var p = (BitSet6*)ptr;
-        serializer.Stream.SerializeBuffer(&p->bits[0], 1);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
@@ -2190,7 +2190,7 @@ namespace Quantum {
     public FP ViewHorizontal;
     [FieldOffset(24)]
     public FP ViewVertical;
-    public const int MAX_COUNT = 6;
+    public const int MAX_COUNT = 20;
     public override Int32 GetHashCode() {
       unchecked { 
         var hash = 263;
@@ -2378,7 +2378,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct _globals_ {
-    public const Int32 SIZE = 1112;
+    public const Int32 SIZE = 2456;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(48)]
     public BotSDKData BotSDKData;
@@ -2390,20 +2390,20 @@ namespace Quantum {
     public AssetRefMap Map;
     [FieldOffset(24)]
     public NavMeshRegionMask NavMeshRegions;
-    [FieldOffset(816)]
+    [FieldOffset(2160)]
     public PhysicsSceneSettings PhysicsSettings;
     [FieldOffset(8)]
-    public BitSet6 PlayerLastConnectionState;
+    public BitSet20 PlayerLastConnectionState;
     [FieldOffset(32)]
     public RNGSession RngSession;
-    [FieldOffset(688)]
+    [FieldOffset(2032)]
     public BitSet1024 Systems;
     [FieldOffset(112)]
-    [FramePrinter.FixedArrayAttribute(typeof(Input), 6)]
-    private fixed Byte _input_[576];
+    [FramePrinter.FixedArrayAttribute(typeof(Input), 20)]
+    private fixed Byte _input_[1920];
     public FixedArray<Input> input {
       get {
-        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 96, 6); }
+        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 96, 20); }
       }
     }
     public override Int32 GetHashCode() {
@@ -2425,7 +2425,7 @@ namespace Quantum {
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (_globals_*)ptr;
         AssetRefMap.Serialize(&p->Map, serializer);
-        Quantum.BitSet6.Serialize(&p->PlayerLastConnectionState, serializer);
+        Quantum.BitSet20.Serialize(&p->PlayerLastConnectionState, serializer);
         FP.Serialize(&p->DeltaTime, serializer);
         NavMeshRegionMask.Serialize(&p->NavMeshRegions, serializer);
         RNGSession.Serialize(&p->RngSession, serializer);
@@ -4171,6 +4171,7 @@ namespace Quantum {
   }
   public static unsafe partial class Constants {
     public const Int32 MAX_PLAN_SIZE = 6;
+    public const Int32 PLAYER_COUNT = 20;
   }
   public static unsafe partial class StaticDelegates {
     public static FrameSerializer.Delegate SerializeBlackboardEntry;
@@ -4256,11 +4257,11 @@ namespace Quantum {
       Register(typeof(Quantum.BTDataValue), Quantum.BTDataValue.SIZE);
       Register(typeof(Quantum.BitSet1024), Quantum.BitSet1024.SIZE);
       Register(typeof(Quantum.BitSet128), Quantum.BitSet128.SIZE);
+      Register(typeof(Quantum.BitSet20), Quantum.BitSet20.SIZE);
       Register(typeof(Quantum.BitSet2048), Quantum.BitSet2048.SIZE);
       Register(typeof(Quantum.BitSet256), Quantum.BitSet256.SIZE);
       Register(typeof(Quantum.BitSet4096), Quantum.BitSet4096.SIZE);
       Register(typeof(Quantum.BitSet512), Quantum.BitSet512.SIZE);
-      Register(typeof(Quantum.BitSet6), Quantum.BitSet6.SIZE);
       Register(typeof(Quantum.BlackboardEntry), Quantum.BlackboardEntry.SIZE);
       Register(typeof(Quantum.BlackboardValue), Quantum.BlackboardValue.SIZE);
       Register(typeof(Quantum.BotSDKData), Quantum.BotSDKData.SIZE);

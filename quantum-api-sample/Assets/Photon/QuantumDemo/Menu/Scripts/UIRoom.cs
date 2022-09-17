@@ -79,7 +79,8 @@ namespace Quantum.Demo {
     }
 
     public void OnPlayerCountChanged(int value) {
-      if (UIMain.Client != null && UIMain.Client.InRoom && UIMain.Client.LocalPlayer.IsMasterClient) {
+            
+            if (UIMain.Client != null && UIMain.Client.InRoom && UIMain.Client.LocalPlayer.IsMasterClient) {
         // Set the dropdown value back, only change this on server validation.
         ClientCountDropdown.value            = UIMain.Client.CurrentRoom.MaxPlayers - 1;
         UIMain.Client.CurrentRoom.MaxPlayers = (byte)(value + 1);
@@ -156,7 +157,8 @@ namespace Quantum.Demo {
       HideRoomOnStartToggle.interactable    = isMasterClient;
 
       RoomName.text = UIMain.Client.CurrentRoom.Name;
-      Region.text = UIMain.Client.CloudRegion.ToUpper();
+           
+            Region.text = UIMain.Client.CloudRegion.ToUpper();
 
       if (UIMain.Client.CurrentRoom.CustomProperties.TryGetValue("HIDE-ROOM", out var hideRoomOnStart)) {
         HideRoomOnStartToggle.isOn = (bool)hideRoomOnStart;

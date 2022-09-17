@@ -1,2 +1,4 @@
-﻿component KillZone{
+﻿#define PLAYER_COUNT 20
+#pragma max_players PLAYER_COUNT
+component KillZone{
 }

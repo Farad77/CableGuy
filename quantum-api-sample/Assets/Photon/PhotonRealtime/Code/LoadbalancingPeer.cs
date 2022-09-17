@@ -189,6 +189,7 @@ namespace Photon.Realtime
             gameProperties.MergeStringKeys(roomOptions.CustomRoomProperties);
             if (roomOptions.MaxPlayers > 0)
             {
+                
                 gameProperties[GamePropertyKey.MaxPlayers] = roomOptions.MaxPlayers;
             }
 
@@ -1828,7 +1829,7 @@ namespace Photon.Realtime
         private bool isOpen = true;
 
         /// <summary>Max number of players that can be in the room at any time. 0 means "no limit".</summary>
-        public byte MaxPlayers;
+        public byte MaxPlayers=0;
 
         /// <summary>Time To Live (TTL) for an 'actor' in a room. If a client disconnects, this actor is inactive first and removed after this timeout. In milliseconds.</summary>
         public int PlayerTtl;
