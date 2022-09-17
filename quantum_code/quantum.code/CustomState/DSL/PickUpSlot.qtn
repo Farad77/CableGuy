@@ -1,0 +1,3 @@
+﻿component PickUpSlot {
+    asset_ref<ItemBase> Item;
+}

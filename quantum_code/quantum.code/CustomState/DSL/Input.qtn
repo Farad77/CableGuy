@@ -1,0 +1,14 @@
+﻿input {
+	FP MovementHorizontal;
+	FP MovementVertical;
+	button MoveBack;
+
+	FP ViewHorizontal;
+	FP ViewVertical;
+
+	button Action;
+	button Attack;
+	button Defend;
+	button Jump;
+	
+}

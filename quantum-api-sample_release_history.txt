@@ -1,0 +1,8 @@
+# 2.1.0
+
+## Build 12 (Mar 22, 2022)
+
+**Changes**
+
+- Updated DeterministicCommandSetup to match new system
+

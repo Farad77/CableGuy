@@ -1,0 +1,6 @@
+﻿struct Damage {
+    FP Amount;
+    bool IsDiscrete;
+    EntityRef Target;
+    EntityRef Origin;
+}

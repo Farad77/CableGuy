@@ -1,0 +1,41 @@
+﻿// Animation trigger events
+event PlayerAttack {
+    PlayerRef PlayerRef;
+}
+
+event PlayerJump {
+    PlayerRef PlayerRef;
+}
+
+event PlayerWeaponEquip {
+    PlayerRef PlayerRef;
+    QBoolean Equip;
+}
+
+event EnemyDeath {
+    EntityRef EntityRef;
+}
+
+// Resources management events
+abstract event ResourceEvent{
+	FP Amount;
+	EntityRef Target;
+}
+
+synced event OnDamageDealt : ResourceEvent{
+}
+
+synced event OnUsedHealthPotion : ResourceEvent{
+}
+
+synced event OnUsedManaPotion : ResourceEvent{
+}
+
+synced event OnPickUpHealthPotion : ResourceEvent{
+}
+
+synced event OnPickUpManaPotion : ResourceEvent{
+}
+
+synced event OnPickUpCoins : ResourceEvent{
+}

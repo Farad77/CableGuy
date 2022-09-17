@@ -1,0 +1,6 @@
+﻿component Hazard {
+    [HideInInspector] list<EntityTimer> AlreadyDamaged;
+    [HideInInspector] dictionary<EntityRef, FP> DamageDealt;
+    FP DamageInterval;
+    FP DamageAmount;
+}

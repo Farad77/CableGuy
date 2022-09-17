@@ -1,0 +1,4 @@
+component Shield{
+    [HideInInspector] QBoolean IsBlocking;
+    FP BlockPercentage;
+}

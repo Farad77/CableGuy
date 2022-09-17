@@ -1,0 +1,5 @@
+﻿component CharacterInventory {
+    FP Wallet;
+    FP PotionsMana;
+    FP PotionsHealth;
+}

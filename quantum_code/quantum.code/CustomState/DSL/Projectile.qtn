@@ -1,0 +1,6 @@
+﻿component Projectile {
+    FP Speed;
+    asset_ref<WeaponSpec> WeaponSpec;
+    Int32 PathQueryIndex; 
+    Int32 DamageZoneQueryIndex; 
+}

@@ -1,0 +1,3 @@
+﻿component PlayerID {
+	[HideInInspector] player_ref PlayerRef;
+}

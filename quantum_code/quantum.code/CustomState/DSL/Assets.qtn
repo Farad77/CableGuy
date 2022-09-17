@@ -1,0 +1,6 @@
+﻿asset ClipData;
+asset GameInitData;
+asset WeaponSpec;
+
+asset ItemBase;
+

@@ -1,0 +1,348 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd8e95ae0daaec4496511105240e8a3, type: 3}
+  m_Name: AssetResources
+  m_EditorClassIdentifier: 
+  AssetBundlesGroup:
+    _resources: []
+  ResourcesGroup:
+    _resources:
+    - Path: Resources/DB/Configs/DefaultPhysicsMaterial
+      AssetRef:
+        Id:
+          Value: 1
+      ResourcePath: DB/Configs/DefaultPhysicsMaterial
+    - Path: Resources/DB/Configs/DefaultNavMeshAgentConfig
+      AssetRef:
+        Id:
+          Value: 2
+      ResourcePath: DB/Configs/DefaultNavMeshAgentConfig
+    - Path: Resources/DB/Configs/DefaultCharacterController2D
+      AssetRef:
+        Id:
+          Value: 3
+      ResourcePath: DB/Configs/DefaultCharacterController2D
+    - Path: Resources/DB/Configs/DefaultCharacterController3D
+      AssetRef:
+        Id:
+          Value: 4
+      ResourcePath: DB/Configs/DefaultCharacterController3D
+    - Path: Resources/DB/Configs/SimulationConfig
+      AssetRef:
+        Id:
+          Value: 5
+      ResourcePath: DB/Configs/SimulationConfig
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Go to Target Position_3
+      AssetRef:
+        Id:
+          Value: 101213734036231929
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/Configs/SimulationConfigDefault
+      AssetRef:
+        Id:
+          Value: 133579999688719176
+      ResourcePath: DB/Configs/SimulationConfigDefault
+    - Path: Resources/DB/EntityPrototypes/Lion QPrefab|EntityView
+      AssetRef:
+        Id:
+          Value: 143402947661311852
+      ResourcePath: DB/EntityPrototypes/Lion QPrefab
+    - Path: Resources/DB/QAssets/DefaultGameInitData
+      AssetRef:
+        Id:
+          Value: 301954010556029139
+      ResourcePath: DB/QAssets/DefaultGameInitData
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Flee_4
+      AssetRef:
+        Id:
+          Value: 343462908344631734
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SelectTargetPositionRandom_5
+      AssetRef:
+        Id:
+          Value: 453968868590482770
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/QAssets/DefaultPotionHealth
+      AssetRef:
+        Id:
+          Value: 528287289950168359
+      ResourcePath: DB/QAssets/DefaultPotionHealth
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot|Hello Human State_1
+      AssetRef:
+        Id:
+          Value: 630547417091587576
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot|TrueDecision_0
+      AssetRef:
+        Id:
+          Value: 693217949711427064
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot|IdleAction_0
+      AssetRef:
+        Id:
+          Value: 754629170766670947
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|HasReachedPosition_3
+      AssetRef:
+        Id:
+          Value: 790202748179037258
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/ExampleScene_Map_mesh
+      AssetRef:
+        Id:
+          Value: 818575008334656597
+      ResourcePath: DB/ExampleScene_Map_mesh
+    - Path: Resources/DB/QAssets/DefaultAttackClip
+      AssetRef:
+        Id:
+          Value: 890473571884936016
+      ResourcePath: DB/QAssets/DefaultAttackClip
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|ResetNavMeshTarget_2
+      AssetRef:
+        Id:
+          Value: 1083790070355194773
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/Blackboard_Assets/SlimeAIBlackboard
+      AssetRef:
+        Id:
+          Value: 1149378074360189638
+      ResourcePath: DB/CircuitExport/Blackboard_Assets/SlimeAIBlackboard
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot|TrueDecision_1
+      AssetRef:
+        Id:
+          Value: 1203337582948578655
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/EntityPrototypes/Stone Round QPrefab|EntityView
+      AssetRef:
+        Id:
+          Value: 1254673008749246085
+      ResourcePath: DB/EntityPrototypes/Stone Round QPrefab
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetTimerDazed_1
+      AssetRef:
+        Id:
+          Value: 1300868503204719856
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Idle_1
+      AssetRef:
+        Id:
+          Value: 1324923448660611412
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetNavMeshAgent_8
+      AssetRef:
+        Id:
+          Value: 1490170775204662803
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SelectTargetFleeFromPredator_9
+      AssetRef:
+        Id:
+          Value: 1562936613862050415
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetTimerRandom_4
+      AssetRef:
+        Id:
+          Value: 1583348271447699218
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/EntityPrototypes/Lion QPrefab|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 1775941955512227993
+      ResourcePath: DB/EntityPrototypes/Lion QPrefab
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Find Target Position_2
+      AssetRef:
+        Id:
+          Value: 1813617872600279405
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|HasTimerEnded_4
+      AssetRef:
+        Id:
+          Value: 1885450974166878644
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot
+      AssetRef:
+        Id:
+          Value: 2080219246625573822
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|DecreaseTimer_3
+      AssetRef:
+        Id:
+          Value: 2159548190557141830
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot|Hello World State_2
+      AssetRef:
+        Id:
+          Value: 2270973423670692947
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/ExampleScene_Map_NavMesh_data
+      AssetRef:
+        Id:
+          Value: 2372440079921492754
+      ResourcePath: DB/ExampleScene_Map_NavMesh_data
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|TrueDecision_5
+      AssetRef:
+        Id:
+          Value: 2584945696169812647
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot|SimpleDebugAction_2
+      AssetRef:
+        Id:
+          Value: 2648745172208293610
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/ExampleScene_Map
+      AssetRef:
+        Id:
+          Value: 2701084311577885596
+      ResourcePath: DB/ExampleScene_Map
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Dazed_0
+      AssetRef:
+        Id:
+          Value: 2734409539278796592
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/EntityPrototypes/PotionMana QPrefab|EntityView
+      AssetRef:
+        Id:
+          Value: 2786440482268098820
+      ResourcePath: DB/EntityPrototypes/PotionMana QPrefab
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|CoinFlipFiftyFifty_2
+      AssetRef:
+        Id:
+          Value: 2795126084864951477
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|HasTimerEnded_6
+      AssetRef:
+        Id:
+          Value: 2813930473233246397
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/EntityPrototypes/PotionHealth QPrefab|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 2842688805286411194
+      ResourcePath: DB/EntityPrototypes/PotionHealth QPrefab
+    - Path: Resources/DB/QAssets/SlimeNavMeshAgentFlee
+      AssetRef:
+        Id:
+          Value: 2960226144057084898
+      ResourcePath: DB/QAssets/SlimeNavMeshAgentFlee
+    - Path: Resources/DB/EntityPrototypes/Slime QPrefab|EntityView
+      AssetRef:
+        Id:
+          Value: 3028807234264506167
+      ResourcePath: DB/EntityPrototypes/Slime QPrefab
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot|SimpleDebugAction_1
+      AssetRef:
+        Id:
+          Value: 3043672044863171840
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/EntityPrototypes/Stone Round QPrefab|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 3084711883603238359
+      ResourcePath: DB/EntityPrototypes/Stone Round QPrefab
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|DecreaseTimer_0
+      AssetRef:
+        Id:
+          Value: 3110365119871504043
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/Blackboard_Assets/SlimeAIBlackboardInitializer
+      AssetRef:
+        Id:
+          Value: 3121432616218975739
+      ResourcePath: DB/CircuitExport/Blackboard_Assets/SlimeAIBlackboardInitializer
+    - Path: Resources/DB/EntityPrototypes/Stone Square QPrefab|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 3206195024203956000
+      ResourcePath: DB/EntityPrototypes/Stone Square QPrefab
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI
+      AssetRef:
+        Id:
+          Value: 3232726866959085882
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/QAssets/DefaultWeapon
+      AssetRef:
+        Id:
+          Value: 3274412228143879235
+      ResourcePath: DB/QAssets/DefaultWeapon
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot|Do Nothing State_0
+      AssetRef:
+        Id:
+          Value: 3310866207977209541
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/ExampleScene_Map_NavMesh
+      AssetRef:
+        Id:
+          Value: 3455924485288713057
+      ResourcePath: DB/ExampleScene_Map_NavMesh
+    - Path: Resources/DB/EntityPrototypes/PotionHealth QPrefab|EntityView
+      AssetRef:
+        Id:
+          Value: 3505610095514768427
+      ResourcePath: DB/EntityPrototypes/PotionHealth QPrefab
+    - Path: Resources/DB/EntityPrototypes/PotionMana QPrefab|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 3534341675076183999
+      ResourcePath: DB/EntityPrototypes/PotionMana QPrefab
+    - Path: Resources/DB/QAssets/DefaultPotionMana
+      AssetRef:
+        Id:
+          Value: 3548975581746519400
+      ResourcePath: DB/QAssets/DefaultPotionMana
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetNavMeshTarget_7
+      AssetRef:
+        Id:
+          Value: 3960228661526493843
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|CoinFlipFiftyFifty_1
+      AssetRef:
+        Id:
+          Value: 4022301042981346495
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|To Idle Or Not To Idle
+      AssetRef:
+        Id:
+          Value: 4193293021828712494
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/EntityPrototypes/Stone Square QPrefab|EntityView
+      AssetRef:
+        Id:
+          Value: 4208658567802493942
+      ResourcePath: DB/EntityPrototypes/Stone Square QPrefab
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|TrueDecision_7
+      AssetRef:
+        Id:
+          Value: 4235004592250896749
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/QAssets/DefaultDazedClip
+      AssetRef:
+        Id:
+          Value: 4363958313672321427
+      ResourcePath: DB/QAssets/DefaultDazedClip
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetNavMeshAgent_6
+      AssetRef:
+        Id:
+          Value: 4370697924318058966
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/QAssets/SlimeNavMeshAgentDefault
+      AssetRef:
+        Id:
+          Value: 4415777482890682053
+      ResourcePath: DB/QAssets/SlimeNavMeshAgentDefault
+    - Path: Resources/DB/EntityPrototypes/Slime QPrefab|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 4416498682920012441
+      ResourcePath: DB/EntityPrototypes/Slime QPrefab
+    - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|HFSMNotDecision_0
+      AssetRef:
+        Id:
+          Value: 4421376895616627221
+      ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI

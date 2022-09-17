@@ -1,0 +1,740 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8342341370905541492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8d239a809634e42930fdae4a426568, type: 3}
+  m_Name: HFSMNotDecision_0
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|HFSMNotDecision_0
+      Guid:
+        Value: 4421376895616627221
+    Label: 
+    Decisions:
+    - Id:
+        Value: 4022301042981346495
+--- !u!114 &-6563429386110249433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be638a8f3d2d41740abb9c03c56e8bbe, type: 3}
+  m_Name: DecreaseTimer_3
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|DecreaseTimer_3
+      Guid:
+        Value: 2159548190557141830
+    Label: 
+    CurrentTimerKey:
+      Key: IdleTimer
+--- !u!114 &-6561832937357542757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be638a8f3d2d41740abb9c03c56e8bbe, type: 3}
+  m_Name: DecreaseTimer_0
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|DecreaseTimer_0
+      Guid:
+        Value: 3110365119871504043
+    Label: 
+    CurrentTimerKey:
+      Key: IdleTimer
+--- !u!114 &-5986286957216505015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e303decef97d4740ad5ebee4409a914, type: 3}
+  m_Name: HasTimerEnded_6
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|HasTimerEnded_6
+      Guid:
+        Value: 2813930473233246397
+    Label: 
+    CurrentTimeKey:
+      Key: IdleTimer
+--- !u!114 &-4693457478749958611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e77fe81e5be654c8ac2483d70afca6, type: 3}
+  m_Name: SetNavMeshAgent_6
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetNavMeshAgent_6
+      Guid:
+        Value: 4370697924318058966
+    Label: 
+    NavMeshAgentConfig:
+      Id:
+        Value: 4415777482890682053
+--- !u!114 &-3662140968735411245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c319d762abdcf024eabe554534c58e42, type: 3}
+  m_Name: SetNavMeshTarget_7
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetNavMeshTarget_7
+      Guid:
+        Value: 3960228661526493843
+    Label: 
+    CurrentTargetKey:
+      Key: CurrentTargetPos
+--- !u!114 &-1430003767841396143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2281e5a3df295ff4091dc44cb064c10b, type: 3}
+  m_Name: CoinFlipFiftyFifty_2
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|CoinFlipFiftyFifty_2
+      Guid:
+        Value: 2795126084864951477
+    Label: 
+--- !u!114 &-1145488643745294107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33b24b03bf2f4549a1ccfcb53956b79, type: 3}
+  m_Name: SetTimerDazed_1
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetTimerDazed_1
+      Guid:
+        Value: 1300868503204719856
+    Label: 
+    CurrentTimeKey:
+      Key: IdleTimer
+    DazedClipData:
+      Id:
+        Value: 4363958313672321427
+--- !u!114 &-807948179777605873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e77fe81e5be654c8ac2483d70afca6, type: 3}
+  m_Name: SetNavMeshAgent_8
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetNavMeshAgent_8
+      Guid:
+        Value: 1490170775204662803
+    Label: 
+    NavMeshAgentConfig:
+      Id:
+        Value: 2960226144057084898
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe9e78b4c545104299ddb9cae7da060, type: 3}
+  m_Name: SlimeAI
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI
+      Guid:
+        Value: 3232726866959085882
+    Label: SlimeAI
+    StatesLinks:
+    - Id:
+        Value: 1813617872600279405
+    - Id:
+        Value: 1324923448660611412
+    - Id:
+        Value: 2734409539278796592
+    - Id:
+        Value: 101213734036231929
+    - Id:
+        Value: 343462908344631734
+    EventsNames:
+    - OnSawPredator
+    - OnTakeDamage
+--- !u!114 &33123365147839092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0fd7146fa87ab428b0d094cd2a8269, type: 3}
+  m_Name: To Idle Or Not To Idle
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|To Idle Or Not To Idle
+      Guid:
+        Value: 4193293021828712494
+    Label: To Idle Or Not To Idle
+    PrerequisiteLink:
+      Id:
+        Value: 0
+    Transitions:
+    - Id: dafabb5f-0082-4818-b17c-0bde45f93204
+      EventKey: 0
+      DecisionLink:
+        Id:
+          Value: 4421376895616627221
+      StateLink:
+        Id:
+          Value: 1813617872600279405
+      TransitionSetLink:
+        Id:
+          Value: 0
+    - Id: 1fb8b808-3cac-4391-b171-b9f6be0ac103
+      EventKey: 0
+      DecisionLink:
+        Id:
+          Value: 2795126084864951477
+      StateLink:
+        Id:
+          Value: 1324923448660611412
+      TransitionSetLink:
+        Id:
+          Value: 0
+--- !u!114 &868093228286594427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6763e95db253dec40a8798a106ee3f0a, type: 3}
+  m_Name: Idle_1
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Idle_1
+      Guid:
+        Value: 1324923448660611412
+    Label: Idle
+    OnUpdateLinks:
+    - Id:
+        Value: 2159548190557141830
+    OnEnterLinks:
+    - Id:
+        Value: 1583348271447699218
+    OnExitLinks: []
+    Transitions:
+    - Id: 19510e26-1a25-47bd-bc7a-52092451c7f9
+      EventKey: 1
+      DecisionLink:
+        Id:
+          Value: 0
+      StateLink:
+        Id:
+          Value: 343462908344631734
+      TransitionSetLink:
+        Id:
+          Value: 0
+    - Id: 4a586c5b-78c2-4c1d-8d33-fef0e4f76836
+      EventKey: 2
+      DecisionLink:
+        Id:
+          Value: 0
+      StateLink:
+        Id:
+          Value: 2734409539278796592
+      TransitionSetLink:
+        Id:
+          Value: 0
+    - Id: 73f52019-c08a-4855-82c9-538b5fe364de
+      EventKey: 0
+      DecisionLink:
+        Id:
+          Value: 1885450974166878644
+      StateLink:
+        Id:
+          Value: 1813617872600279405
+      TransitionSetLink:
+        Id:
+          Value: 0
+    ChildrenLinks: []
+    ParentLink:
+      Id:
+        Value: 0
+    Level: 0
+--- !u!114 &1418939633943262731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acd74de58185ea54f873040487aba552, type: 3}
+  m_Name: SelectTargetPositionRandom_5
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SelectTargetPositionRandom_5
+      Guid:
+        Value: 453968868590482770
+    Label: 
+    CurrentTargetKey:
+      Key: CurrentTargetPos
+--- !u!114 &2493386660683167533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2281e5a3df295ff4091dc44cb064c10b, type: 3}
+  m_Name: CoinFlipFiftyFifty_1
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|CoinFlipFiftyFifty_1
+      Guid:
+        Value: 4022301042981346495
+    Label: 
+--- !u!114 &2653177545282377186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6763e95db253dec40a8798a106ee3f0a, type: 3}
+  m_Name: Flee_4
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Flee_4
+      Guid:
+        Value: 343462908344631734
+    Label: Flee
+    OnUpdateLinks: []
+    OnEnterLinks:
+    - Id:
+        Value: 1490170775204662803
+    - Id:
+        Value: 1562936613862050415
+    OnExitLinks: []
+    Transitions:
+    - Id: 4a586c5b-78c2-4c1d-8d33-fef0e4f76836
+      EventKey: 2
+      DecisionLink:
+        Id:
+          Value: 0
+      StateLink:
+        Id:
+          Value: 2734409539278796592
+      TransitionSetLink:
+        Id:
+          Value: 0
+    - Id: 298912ce-4fe3-4a2c-a51e-582d6bc2a946
+      EventKey: 0
+      DecisionLink:
+        Id:
+          Value: 2584945696169812647
+      StateLink:
+        Id:
+          Value: 101213734036231929
+      TransitionSetLink:
+        Id:
+          Value: 0
+    ChildrenLinks: []
+    ParentLink:
+      Id:
+        Value: 0
+    Level: 0
+--- !u!114 &3821062227156290246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c94e70338feedbf4383ed00770c1c560, type: 3}
+  m_Name: SetTimerRandom_4
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetTimerRandom_4
+      Guid:
+        Value: 1583348271447699218
+    Label: 
+    CurrentTimeKey:
+      Key: IdleTimer
+    MinIdleTime:
+      RawValue: 65536
+    MaxIdleTime:
+      RawValue: 196608
+--- !u!114 &3854414062667581032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196e2119f35f6524e922b6901e38bf17, type: 3}
+  m_Name: SelectTargetFleeFromPredator_9
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SelectTargetFleeFromPredator_9
+      Guid:
+        Value: 1562936613862050415
+    Label: 
+    FleeCoefficient:
+      RawValue: 131072
+    CurrentTargetPosition:
+      Key: CurrentTargetPos
+    PredatorPosition:
+      Key: NearestPredator
+--- !u!114 &4993756135785876307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85282637bddb7a4dbf1ca71e5a62a48, type: 3}
+  m_Name: TrueDecision_5
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|TrueDecision_5
+      Guid:
+        Value: 2584945696169812647
+    Label: 
+--- !u!114 &5112443529531586755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6763e95db253dec40a8798a106ee3f0a, type: 3}
+  m_Name: Dazed_0
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Dazed_0
+      Guid:
+        Value: 2734409539278796592
+    Label: Dazed
+    OnUpdateLinks:
+    - Id:
+        Value: 3110365119871504043
+    OnEnterLinks:
+    - Id:
+        Value: 1300868503204719856
+    - Id:
+        Value: 1083790070355194773
+    OnExitLinks: []
+    Transitions:
+    - Id: 19510e26-1a25-47bd-bc7a-52092451c7f9
+      EventKey: 1
+      DecisionLink:
+        Id:
+          Value: 0
+      StateLink:
+        Id:
+          Value: 343462908344631734
+      TransitionSetLink:
+        Id:
+          Value: 0
+    - Id: 4fd770db-fc4a-4f3b-a324-2c774b688981
+      EventKey: 0
+      DecisionLink:
+        Id:
+          Value: 2813930473233246397
+      StateLink:
+        Id:
+          Value: 1813617872600279405
+      TransitionSetLink:
+        Id:
+          Value: 0
+    ChildrenLinks: []
+    ParentLink:
+      Id:
+        Value: 0
+    Level: 0
+--- !u!114 &5185536904818725288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a194b392f7b257f4b97396fc1a824ee4, type: 3}
+  m_Name: ResetNavMeshTarget_2
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|ResetNavMeshTarget_2
+      Guid:
+        Value: 1083790070355194773
+    Label: 
+--- !u!114 &6582763784487994622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e303decef97d4740ad5ebee4409a914, type: 3}
+  m_Name: HasTimerEnded_4
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|HasTimerEnded_4
+      Guid:
+        Value: 1885450974166878644
+    Label: 
+    CurrentTimeKey:
+      Key: IdleTimer
+--- !u!114 &6605897001049918879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85282637bddb7a4dbf1ca71e5a62a48, type: 3}
+  m_Name: TrueDecision_7
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|TrueDecision_7
+      Guid:
+        Value: 4235004592250896749
+    Label: 
+--- !u!114 &6856320471456275653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6763e95db253dec40a8798a106ee3f0a, type: 3}
+  m_Name: Go to Target Position_3
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Go to Target Position_3
+      Guid:
+        Value: 101213734036231929
+    Label: Go to Target Position
+    OnUpdateLinks: []
+    OnEnterLinks:
+    - Id:
+        Value: 3960228661526493843
+    OnExitLinks: []
+    Transitions:
+    - Id: 19510e26-1a25-47bd-bc7a-52092451c7f9
+      EventKey: 1
+      DecisionLink:
+        Id:
+          Value: 0
+      StateLink:
+        Id:
+          Value: 343462908344631734
+      TransitionSetLink:
+        Id:
+          Value: 0
+    - Id: 4a586c5b-78c2-4c1d-8d33-fef0e4f76836
+      EventKey: 2
+      DecisionLink:
+        Id:
+          Value: 0
+      StateLink:
+        Id:
+          Value: 2734409539278796592
+      TransitionSetLink:
+        Id:
+          Value: 0
+    - Id: 8c275f9e-f952-4583-911c-78bd8e541339
+      EventKey: 0
+      DecisionLink:
+        Id:
+          Value: 790202748179037258
+      StateLink:
+        Id:
+          Value: 0
+      TransitionSetLink:
+        Id:
+          Value: 4193293021828712494
+    ChildrenLinks: []
+    ParentLink:
+      Id:
+        Value: 0
+    Level: 0
+--- !u!114 &7120246986800086650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6763e95db253dec40a8798a106ee3f0a, type: 3}
+  m_Name: Find Target Position_2
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Find Target Position_2
+      Guid:
+        Value: 1813617872600279405
+    Label: Find Target Position
+    OnUpdateLinks: []
+    OnEnterLinks:
+    - Id:
+        Value: 453968868590482770
+    OnExitLinks:
+    - Id:
+        Value: 4370697924318058966
+    Transitions:
+    - Id: 19510e26-1a25-47bd-bc7a-52092451c7f9
+      EventKey: 1
+      DecisionLink:
+        Id:
+          Value: 0
+      StateLink:
+        Id:
+          Value: 343462908344631734
+      TransitionSetLink:
+        Id:
+          Value: 0
+    - Id: 4a586c5b-78c2-4c1d-8d33-fef0e4f76836
+      EventKey: 2
+      DecisionLink:
+        Id:
+          Value: 0
+      StateLink:
+        Id:
+          Value: 2734409539278796592
+      TransitionSetLink:
+        Id:
+          Value: 0
+    - Id: 42ad3839-3e9d-4301-bb61-cb36f2f388c6
+      EventKey: 0
+      DecisionLink:
+        Id:
+          Value: 4235004592250896749
+      StateLink:
+        Id:
+          Value: 101213734036231929
+      TransitionSetLink:
+        Id:
+          Value: 0
+    ChildrenLinks: []
+    ParentLink:
+      Id:
+        Value: 0
+    Level: 0
+--- !u!114 &7804522955205788353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2440012615a3054dae7e49e6e478a28, type: 3}
+  m_Name: HasReachedPosition_3
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|HasReachedPosition_3
+      Guid:
+        Value: 790202748179037258
+    Label: 
+    CurrentTargetKey:
+      Key: CurrentTargetPos

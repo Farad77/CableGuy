@@ -1,0 +1,3 @@
+﻿component Mana {
+    FP Amount;
+}

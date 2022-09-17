@@ -1,0 +1,4 @@
+﻿struct EntityTimer {
+    EntityRef Entity;
+    FP Timer;
+}

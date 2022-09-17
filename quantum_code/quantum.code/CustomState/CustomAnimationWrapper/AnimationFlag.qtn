@@ -1,0 +1,6 @@
+﻿// TODO: investigate use of flags
+enum AnimationFlag { 
+    None, 
+    Start, 
+    End 
+}
