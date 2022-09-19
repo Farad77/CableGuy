@@ -7,11 +7,11 @@ using System.Text;
 namespace Quantum {
   public static class SystemSetup {
     public static SystemBase[] CreateSystems(RuntimeConfig gameConfig, SimulationConfig simulationConfig) {
-      return new SystemBase[] {
+            return new SystemBase[] {
         // 2D / 3D related systems can be deleted if you only use either or neither.
 
         // pre-defined core systems
-        new Core.CullingSystem2D(), 
+        new Core.CullingSystem2D(),
         new Core.CullingSystem3D(),
 
         // Uncomment injection and retrieval system activate projectiles
@@ -19,7 +19,7 @@ namespace Quantum {
         
         new Core.PhysicsSystem2D(),
         new Core.PhysicsSystem3D(),
-        
+
         new Core.NavigationSystem(),
         new Core.EntityPrototypeSystem(),
         
@@ -28,21 +28,23 @@ namespace Quantum {
         
         // user systems go here
         // new ProjectileHitRetrievalSystem(), 
-        new PlayerInitSystem(), 
-        new ComponentsAddedRemovedSystem(), 
-        new TimeLapsedSystem(), 
+        new PlayerInitSystem(),
+        new ComponentsAddedRemovedSystem(),
+        new TimeLapsedSystem(),
         new MovementSystem(),
-        new HazardSystem(), 
+        new HazardSystem(),
         new AttackSystem(),
-        new DefendSystem(), 
-        new HealthSystem(), 
-        new PickUpSystem(), 
-        new EntitySpawnSystem(), 
+        new DefendSystem(),
+        new HealthSystem(),
+        new PickUpSystem(),
+        new EntitySpawnSystem(),
         new AISystem(),
         
         // user command related systems
         new PlayerCommandsSystem(),
-        
+        new DynamicObstacleSystem(),
+
+
 
       };
     }

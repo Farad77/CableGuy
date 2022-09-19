@@ -46,6 +46,11 @@ MonoBehaviour:
         Id:
           Value: 101213734036231929
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/DynamicObstacleCharacterController
+      AssetRef:
+        Id:
+          Value: 124977619021006129
+      ResourcePath: DB/DynamicObstacleCharacterController
     - Path: Resources/DB/Configs/SimulationConfigDefault
       AssetRef:
         Id:

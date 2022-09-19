@@ -21,11 +21,17 @@ MonoBehaviour:
       AvoidanceRange:
         RawValue: 524288
       MaxAvoidanceCandidates: 64
+      EnableAvoidance: 1
       DefaultNavMeshAgent:
         Id:
           Value: 2
-      EnableSteeringCallbacks: 0
-      EnableAvoidanceCallbacks: 0
+      EnableNavigationCallbacks: 0
+      HeightThresholdForWaypoints:
+        RawValue: 65536
+      HeightThresholdForAvoidance:
+        RawValue: 65536
+      VelocityObstacleTruncationFactor:
+        RawValue: 72089
     Physics:
       Gravity:
         X:
@@ -35,15 +41,25 @@ MonoBehaviour:
         Z:
           RawValue: 0
       SolverIterations: 4
+      PositionSolverIterations: 2
+      UseJoints: 1
       UseAngularVelocity: 1
       UseVerticalTransform: 0
-      IsMultithreaded: 0
       PenetrationAllowance:
         RawValue: 655
       PenetrationCorrection:
         RawValue: 32768
       MinLinearIntegration:
         RawValue: 0
+      MinAngularIntegration:
+        RawValue: 0
+      SimplexMinBitShift: 0
+      SimplexMaxBitShift: 2
+      ShapeCastMaxIterations: 16
+      ShapeCastHardTolerance:
+        RawValue: 655
+      ShapeCastSoftTolerance:
+        RawValue: 3275
       AllowSleeping: 0
       SleepTimeSec:
         RawValue: 32768
@@ -51,6 +67,24 @@ MonoBehaviour:
         RawValue: 1310
       AngularSleepToleranceInRad:
         RawValue: 2286
+      AllowCCD: 1
+      CCDLinearVelocityThreshold:
+        RawValue: 196608
+      CCDAngularVelocityThreshold:
+        RawValue: 196608
+      CCDDistanceTolerance:
+        RawValue: 65
+      MaxTimeOfImpactIterations: 16
+      MaxRootFindingIterations: 32
+      DefaultEntriesCapacity: 2048
+      DefaultStaticsCapacity: 1024
+      DefaultQueriesCapacity: 1024
+      DefaultQueryItemsCapacity: 4096
+      DefaultHitCollectionItemsCapacity: 32
+      DefaultBucketsCapacity: 16
+      DefaultIslandsCapacity: 512
+      DefaultManifoldsCapacity: 1024
+      DefaultJointsCapacity: 64
       DefaultPhysicsMaterial:
         Id:
           Value: 1
@@ -94,10 +128,17 @@ MonoBehaviour:
       - 
       - 
       LayerMatrix: fffefffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+    Entities:
+      CommitCommandsMode: 0
+      DefaultEntityCapacity: 1024
+      DefaultComponentBlockCapacity: 128
+      ComponentTypeConfiguration: []
     AutoLoadSceneFromMap: 1
     DeltaTimeType: 0
-    UsePredictionArea: 0
     HeapPageShift: 13
     HeapPageCount: 256
-    ThreadCountOverrideEnabled: 0
-    ThreadCountOverride: 0
+    HeapExtraCount: 0
+    ThreadCount: 2
+    ChecksumSnapshotHistoryLengthSeconds:
+      RawValue: 196608
+    ChecksumErrorDumpOptions: 0

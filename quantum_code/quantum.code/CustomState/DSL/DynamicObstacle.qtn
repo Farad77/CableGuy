@@ -1,0 +1,8 @@
+﻿component DynamicObstacle   {
+    FP speed;
+FPVector3 pos1;
+FPVector3 pos2;
+FPVector3 targetPos;
+FP sleep;
+    }
+

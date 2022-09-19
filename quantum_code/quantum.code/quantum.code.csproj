@@ -163,6 +163,7 @@
     <Compile Include="CustomState\CustomAI\Decisions\HasReachedPosition.cs" />
     <Compile Include="CustomState\CustomAnimationWrapper\AnimationEventData.cs" />
     <Compile Include="CustomState\CustomAnimationWrapper\ClipData.cs" />
+    <None Include="CustomState\DSL\DynamicObstacle.qtn" />
     <Compile Include="CustomState\GameInitData.cs" />
     <Compile Include="CustomState\ItemBase.cs" />
     <Compile Include="CustomState\ItemCoin.cs" />
@@ -171,6 +172,7 @@
     <Compile Include="CustomState\Knockable.cs" />
     <Compile Include="CustomState\WeaponSpec.cs" />
     <Compile Include="CustomSystems\AISystem.cs" />
+    <Compile Include="CustomSystems\DynamicObstacleSystem.cs" />
     <Compile Include="CustomSystems\EntitySpawnSystem.cs" />
     <Compile Include="CustomSystems\HazardSystem.cs" />
     <Compile Include="CustomSystems\KillZoneSystem.cs" />
