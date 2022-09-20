@@ -186,6 +186,11 @@ MonoBehaviour:
         Id:
           Value: 2270973423670692947
       ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/EntityPrototypes/Bullet|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 2354535310794347509
+      ResourcePath: DB/EntityPrototypes/Bullet
     - Path: Resources/DB/ExampleScene_Map_NavMesh_data
       AssetRef:
         Id:
@@ -301,6 +306,11 @@ MonoBehaviour:
         Id:
           Value: 3548975581746519400
       ResourcePath: DB/QAssets/DefaultPotionMana
+    - Path: Resources/DB/EntityPrototypes/Bullet|EntityView
+      AssetRef:
+        Id:
+          Value: 3612556721440261797
+      ResourcePath: DB/EntityPrototypes/Bullet
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetNavMeshTarget_7
       AssetRef:
         Id:

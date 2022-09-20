@@ -16,8 +16,10 @@ namespace Quantum
         private bool reset = false;
         public void OnTriggerEnter3D(Frame f, TriggerInfo3D info)
         {
-            Log.Debug("Trigger enter");
-            if (f.Has<KillZone>(info.Entity) && f.Has<PlayerID>(info.Other))
+            Log.Debug("Trigger enter "+ f.Has<KillZone>(info.Entity)+ " "+ f.Has<PlayerID>(info.Other)+" "+info.Other.ToString());
+
+            //TODO:rajouter check joueur
+            if (f.Has<KillZone>(info.Entity)&& f.Has<PlayerID>(info.Other))
             {
                 EntityRef player = info.Other;
                 reset = true;

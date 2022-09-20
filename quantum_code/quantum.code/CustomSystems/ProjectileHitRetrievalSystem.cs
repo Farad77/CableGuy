@@ -13,11 +13,12 @@ namespace Quantum
 
             while (projectileFilter.Next(&projectile))
             {
+               
                 var hitsOnTrajectory = f.Physics3D.GetQueryHits(projectile.Component->PathQueryIndex);
                 if (hitsOnTrajectory.Count <= FP._0)
                 {
-                    projectile.Transform->Position = 
-                        projectile.Transform->Rotation * 
+                    
+                    projectile.Transform->Position = projectile.Transform->Position+ 
                         projectile.Transform->Forward *
                         projectile.Component->Speed * f.DeltaTime;
                     continue;

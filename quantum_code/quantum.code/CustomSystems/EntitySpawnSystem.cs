@@ -8,7 +8,7 @@ namespace Quantum
         {
             foreach (var (entity, spawner) in f.Unsafe.GetComponentBlockIterator<EntitySpawner>())
             {
-                Log.Debug($"Spawner entity value {entity}");
+                //Log.Debug($"Spawner entity value {entity}");
 
                 CheckSpawnedList(f, spawner);
                 

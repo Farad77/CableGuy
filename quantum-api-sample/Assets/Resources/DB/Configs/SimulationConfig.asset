@@ -67,7 +67,7 @@ MonoBehaviour:
         RawValue: 1310
       AngularSleepToleranceInRad:
         RawValue: 2286
-      AllowCCD: 1
+      AllowCCD: 0
       CCDLinearVelocityThreshold:
         RawValue: 196608
       CCDAngularVelocityThreshold:
@@ -103,10 +103,13 @@ MonoBehaviour:
       - UI
       - 
       - 
-      - Player
-      - Enemies
+      - Lighting
       - Ground
+      - Postprocessing
+      - PickUp
       - Breakable
+      - Enemies
+      - Bullet
       - 
       - 
       - 
@@ -124,10 +127,7 @@ MonoBehaviour:
       - 
       - 
       - 
-      - 
-      - 
-      - 
-      LayerMatrix: fffefffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+      LayerMatrix: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbfffffffffffffffffffffffffffffffffffffffffffffffbeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     Entities:
       CommitCommandsMode: 0
       DefaultEntityCapacity: 1024

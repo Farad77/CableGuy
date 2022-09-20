@@ -16,6 +16,7 @@
             
             while (projectileFilter.Next(&projectile))
             {
+                
                 projectile.Component->PathQueryIndex = f.Physics3D.AddRaycastQuery(
                     projectile.Transform->Position, 
                     projectile.Transform->Forward,

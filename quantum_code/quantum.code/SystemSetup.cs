@@ -15,7 +15,7 @@ namespace Quantum {
         new Core.CullingSystem3D(),
 
         // Uncomment injection and retrieval system activate projectiles
-        // new ProjectileHitQueryInjectionSystem(), 
+         new ProjectileHitQueryInjectionSystem(), 
         
         new Core.PhysicsSystem2D(),
         new Core.PhysicsSystem3D(),
@@ -27,7 +27,7 @@ namespace Quantum {
         new BotSDKDebuggerSystem(),
         
         // user systems go here
-        // new ProjectileHitRetrievalSystem(), 
+         new ProjectileHitRetrievalSystem(), 
         new PlayerInitSystem(),
         new ComponentsAddedRemovedSystem(),
         new TimeLapsedSystem(),

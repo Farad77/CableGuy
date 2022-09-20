@@ -27,11 +27,26 @@ namespace Quantum
                 if (!IsAttacking(animState.Component.TimeLapsed, attackClip)) continue;
 
                 var entity = animState.Entity;
-                Attack(f, entity);
+                // Attack(f, entity);
+                Shoot(f, entity);
             }
         }
+        private const string PROJECTILE_PROTOTYPE = "Resources/DB/EntityPrototypes/Bullet|EntityPrototype";
 
-        private static void PlayerInputAttack(Frame f)
+        private static void Shoot(in Frame f, in EntityRef entity)
+        {
+            //            var transform = f.Unsafe.GetPointer<Transform3D>(entity);
+            var transform = f.Get<Transform3D>(entity);
+            var weapon = f.Unsafe.GetPointer<Weapon>(entity);
+            /*var weaponSpec = f.FindAsset<WeaponSpec>(weapon->WeaponSpec.Id);
+            var attackShape = weaponSpec.AttackShape.CreateShape(f);*/
+            var proto = f.FindAsset<EntityPrototype>(PROJECTILE_PROTOTYPE);
+            EntityRef bulletEntity = f.Create(proto);
+            var transform2Pos = transform.Position + transform.Forward;
+            transform.Position = transform2Pos;
+            f.Set<Transform3D>(bulletEntity, transform);
+        }
+            private static void PlayerInputAttack(Frame f)
         {
             var players = f.Unsafe.FilterStruct<PlayerFilter>();
             var playerStruct = default(PlayerFilter);
