@@ -28,7 +28,8 @@ namespace Quantum
 
                 var entity = animState.Entity;
                 // Attack(f, entity);
-                Shoot(f, entity);
+                //Shoot(f, entity);
+
             }
         }
         private const string PROJECTILE_PROTOTYPE = "Resources/DB/EntityPrototypes/Bullet|EntityPrototype";
@@ -42,9 +43,13 @@ namespace Quantum
             var attackShape = weaponSpec.AttackShape.CreateShape(f);*/
             var proto = f.FindAsset<EntityPrototype>(PROJECTILE_PROTOTYPE);
             EntityRef bulletEntity = f.Create(proto);
+           // var speed = f.Get<Projectile>(bulletEntity).Speed;
             var transform2Pos = transform.Position + transform.Forward;
             transform.Position = transform2Pos;
             f.Set<Transform3D>(bulletEntity, transform);
+           /* PhysicsBody3D* rigid = f.Unsafe.GetPointer<PhysicsBody3D>(bulletEntity);
+            rigid->AddLinearImpulse(transform.Forward * speed);*/
+
         }
             private static void PlayerInputAttack(Frame f)
         {
@@ -75,7 +80,7 @@ namespace Quantum
             }
 
             f.Events.PlayerAttack(player.PlayerId->PlayerRef);
-
+            Shoot(f, player.Entity);
             var l = f.ResolveList(player.Weapon->AlreadyHit);
             l.Clear();
         }

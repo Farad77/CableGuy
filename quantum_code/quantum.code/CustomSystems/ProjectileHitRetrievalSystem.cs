@@ -23,6 +23,10 @@ namespace Quantum
                         projectile.Component->Speed * f.DeltaTime;
                     continue;
                 }
+                else
+                {
+                    f.Destroy(projectile.EntityRef);
+                }
 
                 var damageZoneHits = f.Physics3D.GetQueryHits(projectile.Component->DamageZoneQueryIndex);
 
