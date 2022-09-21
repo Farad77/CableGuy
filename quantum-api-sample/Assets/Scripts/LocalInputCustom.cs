@@ -60,7 +60,7 @@ public class LocalInputCustom : MonoBehaviour
         if (AimDirection != null)
         {
            // Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            //Cursor.visible = false;
             i.AimDirection = AimDirection.gameObject.GetComponentInChildren<Transform>().transform.position.ToFPVector3();
             i.AimForward = AimDirection.gameObject.GetComponentInChildren<Transform>().transform.forward.ToFPVector3();
             i.Angle = AimDirection.angle.ToFP();

@@ -21,7 +21,7 @@ public class FollowCamera : MonoBehaviour
     {
         Quaternion rotation = Quaternion.LookRotation(_target.forward, Vector3.up);
         var cameraPos = rotation * Offset;
-        transform.position = Vector3.Lerp(transform.position, _target.position + cameraPos, Time.deltaTime * FollowSpeed);
+        transform.position = Vector3.Lerp(transform.position, _target.position + cameraPos, 1);
         transform.LookAt(_target.position);
        // transform.parent = _target.transform;
     }
