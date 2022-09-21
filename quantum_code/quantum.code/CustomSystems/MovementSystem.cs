@@ -16,7 +16,7 @@ namespace Quantum
         private bool reset = false;
         public void OnTriggerEnter3D(Frame f, TriggerInfo3D info)
         {
-            Log.Debug("Trigger enter "+ f.Has<KillZone>(info.Entity)+ " "+ f.Has<PlayerID>(info.Other)+" "+info.Other.ToString());
+           // Log.Debug("Trigger enter "+ f.Has<KillZone>(info.Entity)+ " "+ f.Has<PlayerID>(info.Other)+" "+info.Other.ToString());
 
             //TODO:rajouter check joueur
             if (f.Has<KillZone>(info.Entity)&& f.Has<PlayerID>(info.Other))
@@ -26,7 +26,7 @@ namespace Quantum
                 var resetPos = f.Get<ResetPos>(player);
                 resetPos.reset = true;
                 f.Set(player, resetPos);
-                Log.Debug("TRIGGER KILLZONE");
+               // Log.Debug("TRIGGER KILLZONE");
                 var t = f.Get<Transform3D>(player);
                 
                 t.Position= new FPVector3(0, 0, 0);
@@ -42,46 +42,80 @@ namespace Quantum
         {
             //Log.Debug("UPDATE PLAYER");
             var input = f.GetPlayerInput(filter.PlayerID->PlayerRef);
-           // var resetable = f.Get<ResetPos>(filter.PlayerID->PlayerRef);
-            
-            if (reset)
+            // var resetable = f.Get<ResetPos>(filter.PlayerID->PlayerRef);
+
+
+            /* if (input->MovementHorizontal == 0 &&
+                 input->MoveBack.WasPressed && input->MovementVertical < 0) {
+                 filter.Transform->Rotation *= FPQuaternion.AngleAxis( FP.Rad2Deg * FP.Rad_180, FPVector3.Up);
+                 filter.Kcc->Move(f, filter.EntityRef, FPVector3.Zero);
+                 return;
+             }
+
+             var inputVector = new FPVector3(input->MovementHorizontal, FP._0, input->MovementVertical);
+             var movementVector = filter.Transform->Rotation * inputVector;
+
+             var movementAcceleration = FPVector2.Dot(filter.Transform->Forward.XZ.Normalized, movementVector.XZ);
+             var forwardVelocity = FPMath.Abs(movementAcceleration);
+
+             var angle = FPVector2.Radians(filter.Transform->Forward.XZ.Normalized, movementVector.XZ);
+             angle = angle > FP.Rad_90 ? (angle - FP.Pi) : angle;
+             angle *= FP.Rad2Deg;
+             angle = FPMath.Abs(angle);
+             var rotationAcceleration = FPVector2.Dot(filter.Transform->Right.XZ.Normalized, movementVector.XZ);
+
+             var rotation = angle * rotationAcceleration * ROTATION_SPEED_MULTIPLIER * f.DeltaTime;
+             var viewOrientation = input->MovementHorizontal == FP._0 ?
+                                     FPQuaternion.Identity :
+                                     FPQuaternion.AngleAxis(rotation, FPVector3.Up);
+
+             filter.Transform->Rotation *= viewOrientation;*/
+            if (input->MovementHorizontal < 0 && input->MovementVertical == 0)
             {
-               // filter.Transform->Position = new FPVector3(0, 0, 0);
-                reset = false;
+                filter.Transform->Rotation = FPQuaternion.AngleAxis(-90, FPVector3.Up);
             }
-            if (input->MovementHorizontal == 0 &&
-                input->MoveBack.WasPressed && input->MovementVertical < 0) {
-                filter.Transform->Rotation *= FPQuaternion.AngleAxis( FP.Rad2Deg * FP.Rad_180, FPVector3.Up);
-                filter.Kcc->Move(f, filter.EntityRef, FPVector3.Zero);
-                return;
+            if (input->MovementHorizontal < 0 && input->MovementVertical > 0)
+            {
+                filter.Transform->Rotation = FPQuaternion.AngleAxis(-45, FPVector3.Up);
             }
-            
+            if (input->MovementHorizontal > 0 && input->MovementVertical > 0)
+            {
+                filter.Transform->Rotation = FPQuaternion.AngleAxis(45, FPVector3.Up);
+            }
+            if (input->MovementHorizontal > 0 && input->MovementVertical == 0)
+            {
+                filter.Transform->Rotation = FPQuaternion.AngleAxis(90, FPVector3.Up);
+            }
+            if (input->MovementHorizontal > 0 && input->MovementVertical < 0)
+            {
+                filter.Transform->Rotation = FPQuaternion.AngleAxis(90+45, FPVector3.Up);
+            }
+            if (input->MovementHorizontal == 0 && input->MovementVertical > 0)
+            {
+                filter.Transform->Rotation = FPQuaternion.AngleAxis(0, FPVector3.Up);
+            }
+            if (input->MovementHorizontal == 0 && input->MovementVertical < 0)
+            {
+                filter.Transform->Rotation = FPQuaternion.AngleAxis(180, FPVector3.Up);
+            }
+            if (input->MovementHorizontal < 0 && input->MovementVertical < 0)
+            {
+                filter.Transform->Rotation = FPQuaternion.AngleAxis(180+45, FPVector3.Up);
+            }
             var inputVector = new FPVector3(input->MovementHorizontal, FP._0, input->MovementVertical);
             var movementVector = filter.Transform->Rotation * inputVector;
-            
+
             var movementAcceleration = FPVector2.Dot(filter.Transform->Forward.XZ.Normalized, movementVector.XZ);
             var forwardVelocity = FPMath.Abs(movementAcceleration);
-
-            var angle = FPVector2.Radians(filter.Transform->Forward.XZ.Normalized, movementVector.XZ);
-            angle = angle > FP.Rad_90 ? (angle - FP.Pi) : angle;
-            angle *= FP.Rad2Deg;
-            angle = FPMath.Abs(angle);
-            var rotationAcceleration = FPVector2.Dot(filter.Transform->Right.XZ.Normalized, movementVector.XZ);
-
-            var rotation = angle * rotationAcceleration * ROTATION_SPEED_MULTIPLIER * f.DeltaTime;
-            var viewOrientation = input->MovementHorizontal == FP._0 ?
-                                    FPQuaternion.Identity :
-                                    FPQuaternion.AngleAxis(rotation, FPVector3.Up);
             
-            filter.Transform->Rotation *= viewOrientation;
-
             if (input->Jump.WasPressed)
             {
                 f.Events.PlayerJump(filter.PlayerID->PlayerRef);
                 filter.Kcc->Jump(f);
             }
 
-            filter.Kcc->Move(f, filter.EntityRef, filter.Transform->Forward * forwardVelocity);
+            //filter.Kcc->Move(f, filter.EntityRef, filter.Transform->Forward * forwardVelocity);
+            filter.Kcc->Move(f, filter.EntityRef, inputVector );
         }
     }
 }

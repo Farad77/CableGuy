@@ -16,7 +16,8 @@ namespace Quantum
       var targetPosition = bbComponent->GetVector3(f, CurrentTargetKey.Key);
 
       var navMeshAgent = f.Unsafe.GetPointer<NavMeshPathfinder>(e);
-      var navMesh = f.Map.NavMeshes["NavMesh"];
+           // Log.Debug("nombre de navmesh " + f.Map.NavMeshes.Count);
+      var navMesh = f.Map.NavMeshes["NavMesh3"];
       navMeshAgent->SetTarget(f, targetPosition, navMesh);
     }
   }

@@ -293,7 +293,7 @@ MonoBehaviour:
           Value: 0
       StateLink:
         Id:
-          Value: 343462908344631734
+          Value: 1813617872600279405
       TransitionSetLink:
         Id:
           Value: 0
@@ -388,6 +388,17 @@ MonoBehaviour:
         Value: 1562936613862050415
     OnExitLinks: []
     Transitions:
+    - Id: 19510e26-1a25-47bd-bc7a-52092451c7f9
+      EventKey: 1
+      DecisionLink:
+        Id:
+          Value: 0
+      StateLink:
+        Id:
+          Value: 1813617872600279405
+      TransitionSetLink:
+        Id:
+          Value: 0
     - Id: 4a586c5b-78c2-4c1d-8d33-fef0e4f76836
       EventKey: 2
       DecisionLink:
@@ -516,7 +527,7 @@ MonoBehaviour:
           Value: 0
       StateLink:
         Id:
-          Value: 343462908344631734
+          Value: 1813617872600279405
       TransitionSetLink:
         Id:
           Value: 0
@@ -610,7 +621,9 @@ MonoBehaviour:
       Guid:
         Value: 101213734036231929
     Label: Go to Target Position
-    OnUpdateLinks: []
+    OnUpdateLinks:
+    - Id:
+        Value: 3960228661526493843
     OnEnterLinks:
     - Id:
         Value: 3960228661526493843
@@ -623,7 +636,7 @@ MonoBehaviour:
           Value: 0
       StateLink:
         Id:
-          Value: 343462908344631734
+          Value: 1813617872600279405
       TransitionSetLink:
         Id:
           Value: 0
@@ -680,17 +693,6 @@ MonoBehaviour:
     - Id:
         Value: 4370697924318058966
     Transitions:
-    - Id: 19510e26-1a25-47bd-bc7a-52092451c7f9
-      EventKey: 1
-      DecisionLink:
-        Id:
-          Value: 0
-      StateLink:
-        Id:
-          Value: 343462908344631734
-      TransitionSetLink:
-        Id:
-          Value: 0
     - Id: 4a586c5b-78c2-4c1d-8d33-fef0e4f76836
       EventKey: 2
       DecisionLink:

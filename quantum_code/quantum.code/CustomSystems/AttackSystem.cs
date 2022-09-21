@@ -36,19 +36,28 @@ namespace Quantum
 
         private static void Shoot(in Frame f, in EntityRef entity)
         {
+            var playerId = f.Get<PlayerID>(entity);
+            var input = f.GetPlayerInput(playerId.PlayerRef);
             //            var transform = f.Unsafe.GetPointer<Transform3D>(entity);
             var transform = f.Get<Transform3D>(entity);
             var weapon = f.Unsafe.GetPointer<Weapon>(entity);
+            //var aimHelper = weapon->Aimhelper;
             /*var weaponSpec = f.FindAsset<WeaponSpec>(weapon->WeaponSpec.Id);
             var attackShape = weaponSpec.AttackShape.CreateShape(f);*/
             var proto = f.FindAsset<EntityPrototype>(PROJECTILE_PROTOTYPE);
             EntityRef bulletEntity = f.Create(proto);
-           // var speed = f.Get<Projectile>(bulletEntity).Speed;
-            var transform2Pos = transform.Position + transform.Forward;
-            transform.Position = transform2Pos;
-            f.Set<Transform3D>(bulletEntity, transform);
-           /* PhysicsBody3D* rigid = f.Unsafe.GetPointer<PhysicsBody3D>(bulletEntity);
-            rigid->AddLinearImpulse(transform.Forward * speed);*/
+            // var speed = f.Get<Projectile>(bulletEntity).Speed;
+            //var transform2Pos = transform.Position + transform.Forward;
+            var t2 = f.Unsafe.GetPointer<Transform3D>(bulletEntity);
+           // var transformHelper = f.Get<Transform3D>(aimHelper);
+
+          //  var transform2Pos = transform.Position + transformHelper.Position + transformHelper.Forward;
+            Log.Debug(" pos ="+transform);
+            t2->Position = input->AimDirection +input->AimForward;
+            t2->Rotation = FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
+            //f.Set<Transform3D>(bulletEntity, transform);
+            /* PhysicsBody3D* rigid = f.Unsafe.GetPointer<PhysicsBody3D>(bulletEntity);
+             rigid->AddLinearImpulse(transform.Forward * speed);*/
 
         }
             private static void PlayerInputAttack(Frame f)

@@ -61,6 +61,11 @@ MonoBehaviour:
         Id:
           Value: 143402947661311852
       ResourcePath: DB/EntityPrototypes/Lion QPrefab
+    - Path: Resources/DB/ExampleScene_Map_NavMesh3
+      AssetRef:
+        Id:
+          Value: 219336738981506743
+      ResourcePath: DB/ExampleScene_Map_NavMesh3
     - Path: Resources/DB/QAssets/DefaultGameInitData
       AssetRef:
         Id:
@@ -331,6 +336,11 @@ MonoBehaviour:
         Id:
           Value: 4208658567802493942
       ResourcePath: DB/EntityPrototypes/Stone Square QPrefab
+    - Path: Resources/DB/ExampleScene_Map_NavMesh3_data
+      AssetRef:
+        Id:
+          Value: 4214423550857321201
+      ResourcePath: DB/ExampleScene_Map_NavMesh3_data
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|TrueDecision_7
       AssetRef:
         Id:

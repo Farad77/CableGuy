@@ -2,4 +2,5 @@
     Boolean IsEquipped;
     asset_ref<WeaponSpec> WeaponSpec;
     [HideInInspector] list<EntityRef> AlreadyHit;
+   
 }

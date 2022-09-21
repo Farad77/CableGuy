@@ -10,7 +10,20 @@ namespace Quantum
         public override void Update(Frame f, EntityRef e)
         {
             var bbComponent = f.Unsafe.GetPointer<AIBlackboardComponent>(e);
-            var randomPos = FindRandomPosition(f, e);
+            //var randomPos = FindRandomPosition(f, e);
+            var t = f.Get<Transform3D>(e);
+            var hits = f.Physics3D.OverlapShape(t, Shape3D.CreateSphere(100));
+            EntityRef targetEntity = default;
+            for (int i = 0; i < hits.Count; i++)
+            {
+                var hit = hits[i];
+
+                if (hit.Entity != e && f.Has<PlayerID>(hit.Entity))
+                {
+                    targetEntity = hit.Entity;
+                }
+            }
+            var randomPos = f.Get<Transform3D>(targetEntity).Position;
 
             bbComponent->Set(f, CurrentTargetKey.Key, randomPos);
         }

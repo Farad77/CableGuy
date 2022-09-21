@@ -16,7 +16,7 @@ namespace Quantum
             var currentPosition = transform->Position;
             var currentForward = transform->Forward;
             
-            Log.Info(currentPosition);
+            //Log.Info(currentPosition);
             
             var hits = f.Physics3D.OverlapShape(
                 currentPosition, FPQuaternion.Identity,
@@ -29,7 +29,7 @@ namespace Quantum
                 if (!f.Exists(hits[i].Entity)) continue;
                 if (!f.Has<PlayerID>(hits[i].Entity)) continue;
 
-                Log.Info("Found Player");
+                //Log.Info("Found Player");
                 
                 var playerPosition = f.Unsafe.GetPointer<Transform3D>(hits[i].Entity)->Position;
 
@@ -47,7 +47,7 @@ namespace Quantum
 
             if (nearestPredator != default)
             {
-                Flee(f, e, nearestPredator);
+               // Flee(f, e, nearestPredator);
             }
         }
 

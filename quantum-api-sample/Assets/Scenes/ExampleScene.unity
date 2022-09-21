@@ -369,14 +369,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153848906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 30, y: 1, z: 30}
+  m_LocalPosition: {x: 0.001103, y: -0.5, z: 0.000052027}
+  m_LocalScale: {x: 97.767, y: 1, z: 81.144}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1477857675}
   - {fileID: 1426182414}
   - {fileID: 116589209}
-  - {fileID: 1182911259}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -832,7 +831,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2027357592}
+  - {fileID: 1182911259}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -853,8 +852,8 @@ MonoBehaviour:
   BakeAllMode: -1
   StaticCollider2DReferences: []
   StaticCollider3DReferences:
-  - {fileID: 1477857676}
   - {fileID: 1182911260}
+  - {fileID: 1477857676}
   - {fileID: 375503386}
   - {fileID: 1698125334}
   - {fileID: 853262212}
@@ -874,6 +873,7 @@ MonoBehaviour:
   - {fileID: 1044839956}
   - {fileID: 1030051324}
   - {fileID: 1125036110}
+  - {fileID: 1585368188}
 --- !u!1 &639035031
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +901,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639035031}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8226542, z: 10}
+  m_LocalPosition: {x: -0.83, y: 0.8226542, z: 1.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -925,13 +925,13 @@ MonoBehaviour:
     NextSpawn:
       RawValue: 0
     SpawnRadius:
-      RawValue: 65536
+      RawValue: 1966080
     SpawnIntervalMin:
       RawValue: 3276
     SpawnIntervalMax:
       RawValue: 32768
     MaxSpawnAmount:
-      RawValue: 6553600000
+      RawValue: 524288000
     EntityPrototypes:
     - Id:
         Value: 4416498682920012441
@@ -1157,6 +1157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215e3d25ece03694aa938793feaca4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AimDirection: {fileID: 0}
 --- !u!1 &853262210
 GameObject:
   m_ObjectHideFlags: 0
@@ -2987,12 +2988,13 @@ GameObject:
   - component: {fileID: 1182911262}
   - component: {fileID: 1182911261}
   - component: {fileID: 1182911260}
+  - component: {fileID: 1182911263}
   m_Layer: 9
-  m_Name: BoxStaticCollider
+  m_Name: NavMesh3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &1182911259
 Transform:
@@ -3001,13 +3003,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182911258}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.01, y: 0, z: 0}
-  m_LocalScale: {x: 10.742, y: 1, z: 0.72485}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7, y: -0.5, z: 1}
+  m_LocalScale: {x: 9.607145, y: 0.071945, z: 4.231605}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 153848911}
-  m_RootOrder: 3
+  m_Father: {fileID: 458433684}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1182911260
 MonoBehaviour:
@@ -3102,6 +3104,35 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182911258}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1182911263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182911258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9121d5c86efee4faaf33c31a8ff549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NavMeshSurfaces:
+  - {fileID: 0}
+  Settings:
+    WeldIdenticalVertices: 1
+    WeldVertexEpsilon: 0.0001
+    DelaunayTriangulation: 0
+    FixTrianglesOnEdges: 1
+    FixTrianglesOnEdgesEpsilon: 1e-45
+    LinkErrorCorrection: 0
+    ClosestTriangleCalculation: 1
+    ClosestTriangleCalculationDepth: 3
+    EnableQuantum_XY: 0
+    MinAgentRadius:
+      RawValue: 16384
+    ImportRegions: 1
+    RegionDetectionMargin: 0.4
+    RegionAreaIds: 
 --- !u!1001 &1212392037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3800,11 +3831,11 @@ MonoBehaviour:
   SourceCollider: {fileID: 0}
   Size:
     X:
-      RawValue: 2097152
+      RawValue: 6229197
     Y:
       RawValue: 65536
     Z:
-      RawValue: 2097152
+      RawValue: 5472256
   PositionOffset:
     X:
       RawValue: 0
@@ -3987,6 +4018,217 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prototype:
     _empty_prototype_dummy_field_: 0
+--- !u!1 &1585368187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1585368190}
+  - component: {fileID: 1585368189}
+  - component: {fileID: 1585368188}
+  m_Layer: 0
+  m_Name: Entity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1585368188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585368187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0008c51fe3af00b4da5d44f02d9b3dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BindBehaviour: 0
+  ManualDisposal: 0
+  GameObjectNameIsEntityRef: 1
+  ErrorCorrectionRateMin: 3.3
+  ErrorCorrectionRateMax: 10
+  ErrorPositionBlendStart: 0.25
+  ErrorPositionBlendEnd: 1
+  ErrorRotationBlendStart: 0.1
+  ErrorRotationBlendEnd: 0.5
+  ErrorPositionMinCorrection: 0.025
+  ErrorPositionTeleportDistance: 2
+  ErrorRotationTeleportDistance: 0.5
+  OnEntityInstantiated:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEntityDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1585368189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585368187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836dcb7e0f6259748b850a10912ce727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransformMode: 2
+  Transform2DVertical:
+    IsEnabled: 0
+    Height:
+      RawValue: 0
+    PositionOffset:
+      RawValue: 0
+  PhysicsCollider:
+    IsTrigger: 0
+    Material:
+      Id:
+        Value: 0
+    SourceCollider: {fileID: 0}
+    IsEnabled: 0
+    Shape2D:
+      ShapeType: 0
+      PolygonCollider:
+        Id:
+          Value: 0
+      CircleRadius:
+        RawValue: 0
+      EdgeExtent:
+        RawValue: 0
+      BoxExtents:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+      PositionOffset:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+      RotationOffset:
+        RawValue: 0
+      UserTag: 0
+      IsPersistent: 1
+      CompoundShapes: []
+      IsSetFromSourceCollider: 0
+    Shape3D:
+      ShapeType: 0
+      SphereRadius:
+        RawValue: 0
+      PositionOffset:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+      BoxExtents:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+      RotationOffset:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+      UserTag: 0
+      IsPersistent: 1
+      CompoundShapes: []
+      IsSetFromSourceCollider: 0
+    Layer: 0
+    CallbackFlags:
+      Value: 0
+  PhysicsBody:
+    IsEnabled: 0
+    Version2D: 0
+    Version3D: 0
+    Config2D: 116
+    Config3D: 58
+    RotationFreeze: 0
+    Mass:
+      RawValue: 65536
+    Drag:
+      RawValue: 32768
+    AngularDrag:
+      RawValue: 32768
+    CenterOfMass2D:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+    CenterOfMass3D:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+      Z:
+        RawValue: 0
+    GravityScale:
+      _hasValue: 0
+      _value:
+        RawValue: 65536
+  NavMeshPathfinder:
+    IsEnabled: 0
+    NavMeshAgentConfig:
+      Id:
+        Value: 0
+    InitialTarget:
+      IsEnabled: 0
+      Target: {fileID: 0}
+      Position:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+      NavMesh:
+        Reference: {fileID: 0}
+        Asset:
+          Id:
+            Value: 0
+        Name: 
+  NavMeshSteeringAgent:
+    IsEnabled: 0
+    MaxSpeed:
+      IsEnabled: 0
+      Value:
+        RawValue: 0
+    Acceleration:
+      IsEnabled: 0
+      Value:
+        RawValue: 0
+  NavMeshAvoidanceAgent:
+    IsEnabled: 0
+  View:
+    Id:
+      Value: 0
+--- !u!4 &1585368190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585368187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1586869403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4458,8 +4700,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c7fc22940dd774e9457419c9e37d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Offset: {x: 0, y: 2, z: -5}
-  FollowSpeed: 3
+  Offset: {x: 0, y: 10, z: -5}
+  FollowSpeed: 100
 --- !u!1 &1607766794
 GameObject:
   m_ObjectHideFlags: 0
@@ -4731,9 +4973,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814010442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.001103, y: 0, z: 0.000052027}
+  m_LocalScale: {x: 3.2589, y: 1, z: 2.7048}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 375503385}
   - {fileID: 853262211}
@@ -4822,182 +5064,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0008c51fe3af00b4da5d44f02d9b3dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2027357591
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2027357592}
-  - component: {fileID: 2027357593}
-  m_Layer: 0
-  m_Name: NavMesh
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2027357592
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027357591}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 458433684}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2027357593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027357591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e3bcaf285ee2344f91549fe1d5fcb4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NavMeshSurfaces: []
-  AgentRadius:
-    RawValue: 32768
-  WeldIdenticalVertices: 1
-  WeldVertexEpsilon: 0.0001
-  DelaunayTriangulation: 0
-  FixTrianglesOnEdges: 1
-  FixTrianglesOnEdgesEpsilon: 1e-45
-  ImportRegions: 1
-  RegionDetectionMargin: 0.4
-  RegionAreaIds: 
-  ClosestTriangleCalculation: 0
-  ClosestTriangleCalculationDepth: 3
-  LinkErrorCorrection: 0
-  EnableQuantum_XY: 0
-  Vertices:
-  - Id: 0
-    Position: {x: 0, y: 0.08333337, z: 14.5}
-    Neighbors: 
-    Triangles: 
-  - Id: 1
-    Position: {x: 14.5, y: 0.08333337, z: 14.5}
-    Neighbors: 
-    Triangles: 
-  - Id: 2
-    Position: {x: 14.5, y: 0.08333337, z: 0}
-    Neighbors: 
-    Triangles: 
-  - Id: 3
-    Position: {x: 0, y: 0.08333337, z: 0}
-    Neighbors: 
-    Triangles: 
-  - Id: 4
-    Position: {x: -14.333333, y: 0.08333337, z: 0}
-    Neighbors: 
-    Triangles: 
-  - Id: 5
-    Position: {x: -14.333333, y: 0.08333337, z: 14.5}
-    Neighbors: 
-    Triangles: 
-  - Id: 6
-    Position: {x: 14.5, y: 0.08333337, z: -14.333333}
-    Neighbors: 
-    Triangles: 
-  - Id: 7
-    Position: {x: 0, y: 0.08333337, z: -14.333333}
-    Neighbors: 
-    Triangles: 
-  - Id: 8
-    Position: {x: -14.333333, y: 0.08333337, z: -14.333333}
-    Neighbors: 
-    Triangles: 
-  Triangles:
-  - Id: 
-    VertexIds:
-    - 0
-    - 1
-    - 2
-    VertexIds2: 000000000100000002000000
-    Area: 0
-    RegionId: 
-    Cost:
-      RawValue: 65536
-  - Id: 
-    VertexIds:
-    - 0
-    - 2
-    - 3
-    VertexIds2: 000000000200000003000000
-    Area: 0
-    RegionId: 
-    Cost:
-      RawValue: 65536
-  - Id: 
-    VertexIds:
-    - 0
-    - 3
-    - 4
-    VertexIds2: 000000000300000004000000
-    Area: 0
-    RegionId: 
-    Cost:
-      RawValue: 65536
-  - Id: 
-    VertexIds:
-    - 0
-    - 4
-    - 5
-    VertexIds2: 000000000400000005000000
-    Area: 0
-    RegionId: 
-    Cost:
-      RawValue: 65536
-  - Id: 
-    VertexIds:
-    - 3
-    - 2
-    - 6
-    VertexIds2: 030000000200000006000000
-    Area: 0
-    RegionId: 
-    Cost:
-      RawValue: 65536
-  - Id: 
-    VertexIds:
-    - 3
-    - 6
-    - 7
-    VertexIds2: 030000000600000007000000
-    Area: 0
-    RegionId: 
-    Cost:
-      RawValue: 65536
-  - Id: 
-    VertexIds:
-    - 4
-    - 3
-    - 7
-    VertexIds2: 040000000300000007000000
-    Area: 0
-    RegionId: 
-    Cost:
-      RawValue: 65536
-  - Id: 
-    VertexIds:
-    - 4
-    - 7
-    - 8
-    VertexIds2: 040000000700000008000000
-    Area: 0
-    RegionId: 
-    Cost:
-      RawValue: 65536
-  Regions: []
-  Links: []

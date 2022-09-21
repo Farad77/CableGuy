@@ -1,0 +1,4 @@
+﻿component Energie {
+    FP CurrentAmount;
+    FP MaxAmount;
+}

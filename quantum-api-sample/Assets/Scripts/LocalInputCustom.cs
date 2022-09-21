@@ -14,7 +14,7 @@ public class LocalInputCustom : MonoBehaviour
     private const string BUTTON_DEFEND = "Fire2";
     private const string BUTTON_ACTION = "Fire3";
     private const string BUTTON_JUMP = "Jump";
-    
+    public AimObject AimDirection;
     #region New Unity Input System Variables
 
     // [SerializeField] private UInput.InputAction movementAxes = null;
@@ -57,7 +57,14 @@ public class LocalInputCustom : MonoBehaviour
         i.Defend = UInput.GetButton(BUTTON_DEFEND);
         i.Action = UInput.GetButton(BUTTON_ACTION);
         i.Jump = UInput.GetButton(BUTTON_JUMP);
-        
+        if (AimDirection != null)
+        {
+           // Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            i.AimDirection = AimDirection.gameObject.GetComponentInChildren<Transform>().transform.position.ToFPVector3();
+            i.AimForward = AimDirection.gameObject.GetComponentInChildren<Transform>().transform.forward.ToFPVector3();
+            i.Angle = AimDirection.angle.ToFP();
+        }
         pollInput.SetInput(i, DeterministicInputFlags.Repeatable);
     }
     

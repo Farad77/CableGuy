@@ -224,6 +224,7 @@
     <Content Include="CustomState\DSL\Weapon.qtn" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CustomState\DSL\Energie.qtn" />
     <None Include="CustomState\DSL\KillZone.qtn" />
     <None Include="CustomState\DSL\Knockable.qtn" />
     <None Include="CustomState\DSL\ResetPos.qtn" />

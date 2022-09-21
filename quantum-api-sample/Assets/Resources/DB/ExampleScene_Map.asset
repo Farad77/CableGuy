@@ -31,12 +31,12 @@ MonoBehaviour:
       Id:
         Value: 818575008334656597
     StaticColliders3DTrianglesBinaryFile: 
-    GridSizeX: 4
-    GridSizeY: 4
+    GridSizeX: 20
+    GridSizeY: 20
     GridNodeSize: 8
     NavMeshLinks:
     - Id:
-        Value: 3455924485288713057
+        Value: 219336738981506743
     Regions: []
     StaticColliders2D: []
     StaticColliders3D:
@@ -51,11 +51,11 @@ MonoBehaviour:
           RawValue: 65536
       Position:
         X:
-          RawValue: 0
+          RawValue: -458752
         Y:
           RawValue: -32768
         Z:
-          RawValue: 0
+          RawValue: 65536
       PhysicsMaterial:
         Id:
           Value: 0
@@ -64,14 +64,14 @@ MonoBehaviour:
         RawValue: 0
       BoxExtents:
         X:
-          RawValue: 1048576
+          RawValue: 9463096
         Y:
-          RawValue: 32768
+          RawValue: 2357
         Z:
-          RawValue: 1048576
+          RawValue: 4567499
       SmoothSphereMeshCollisions: 0
       StaticData:
-        Name: FloorCollider
+        Name: NavMesh3
         Tag: Untagged
         Layer: 9
         Asset:
@@ -92,11 +92,11 @@ MonoBehaviour:
           RawValue: 65536
       Position:
         X:
-          RawValue: 11816141
+          RawValue: 72
         Y:
           RawValue: -32768
         Z:
-          RawValue: 0
+          RawValue: 3
       PhysicsMaterial:
         Id:
           Value: 0
@@ -105,14 +105,14 @@ MonoBehaviour:
         RawValue: 0
       BoxExtents:
         X:
-          RawValue: 10580934
+          RawValue: 3114598
         Y:
           RawValue: 32768
         Z:
-          RawValue: 782386
+          RawValue: 2736128
       SmoothSphereMeshCollisions: 0
       StaticData:
-        Name: BoxStaticCollider
+        Name: FloorCollider
         Tag: Untagged
         Layer: 9
         Asset:
@@ -133,11 +133,11 @@ MonoBehaviour:
           RawValue: 65536
       Position:
         X:
-          RawValue: -1048576
+          RawValue: -3417132
         Y:
           RawValue: 0
         Z:
-          RawValue: 0
+          RawValue: 3
       PhysicsMaterial:
         Id:
           Value: 0
@@ -174,11 +174,11 @@ MonoBehaviour:
           RawValue: 65536
       Position:
         X:
-          RawValue: -1048576
+          RawValue: -3417132
         Y:
           RawValue: 0
         Z:
-          RawValue: 0
+          RawValue: 3
       PhysicsMaterial:
         Id:
           Value: 0
@@ -215,11 +215,11 @@ MonoBehaviour:
           RawValue: 65536
       Position:
         X:
-          RawValue: 0
+          RawValue: 72
         Y:
           RawValue: 0
         Z:
-          RawValue: 1048576
+          RawValue: 2836191
       PhysicsMaterial:
         Id:
           Value: 0
@@ -256,11 +256,11 @@ MonoBehaviour:
           RawValue: 65536
       Position:
         X:
-          RawValue: 0
+          RawValue: 72
         Y:
           RawValue: 0
         Z:
-          RawValue: 1048576
+          RawValue: 2836191
       PhysicsMaterial:
         Id:
           Value: 0
@@ -297,11 +297,11 @@ MonoBehaviour:
           RawValue: 65536
       Position:
         X:
-          RawValue: 0
+          RawValue: 72
         Y:
           RawValue: 0
         Z:
-          RawValue: -1048576
+          RawValue: -2836184
       PhysicsMaterial:
         Id:
           Value: 0
@@ -338,11 +338,11 @@ MonoBehaviour:
           RawValue: 65536
       Position:
         X:
-          RawValue: 0
+          RawValue: 72
         Y:
           RawValue: 0
         Z:
-          RawValue: -1048576
+          RawValue: -2836184
       PhysicsMaterial:
         Id:
           Value: 0
@@ -374,6 +374,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    Energie: []
     EntitySpawner: []
     GOAPAgent: []
     HFSMAgent: []
@@ -444,11 +445,11 @@ MonoBehaviour:
     Transform3D:
     - Position:
         X:
-          RawValue: 0
+          RawValue: 72
         Y:
           RawValue: -308019
         Z:
-          RawValue: 0
+          RawValue: 3
       Rotation:
         X:
           RawValue: 0
@@ -463,6 +464,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    Energie: []
     EntitySpawner: []
     GOAPAgent: []
     HFSMAgent: []
@@ -533,11 +535,11 @@ MonoBehaviour:
     Transform3D:
     - Position:
         X:
-          RawValue: 0
+          RawValue: 72
         Y:
           RawValue: -6468403
         Z:
-          RawValue: 0
+          RawValue: 3
       Rotation:
         X:
           RawValue: 0
@@ -552,18 +554,19 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    Energie: []
     EntitySpawner:
     - Spawned: []
       NextSpawn:
         RawValue: 0
       SpawnRadius:
-        RawValue: 65536
+        RawValue: 1966080
       SpawnIntervalMin:
         RawValue: 3276
       SpawnIntervalMax:
         RawValue: 32768
       MaxSpawnAmount:
-        RawValue: 6553600000
+        RawValue: 524288000
       EntityPrototypes:
       - Id:
           Value: 4416498682920012441
@@ -599,11 +602,11 @@ MonoBehaviour:
     Transform3D:
     - Position:
         X:
-          RawValue: 0
+          RawValue: -54394
         Y:
           RawValue: 53913
         Z:
-          RawValue: 655360
+          RawValue: 110100
       Rotation:
         X:
           RawValue: 0
@@ -618,6 +621,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    Energie: []
     EntitySpawner: []
     GOAPAgent: []
     HFSMAgent: []
@@ -709,6 +713,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    Energie: []
     EntitySpawner: []
     GOAPAgent: []
     HFSMAgent: []
@@ -800,6 +805,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    Energie: []
     EntitySpawner: []
     GOAPAgent: []
     HFSMAgent: []
@@ -911,6 +917,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    Energie: []
     EntitySpawner: []
     GOAPAgent: []
     HFSMAgent: []
@@ -1047,6 +1054,7 @@ MonoBehaviour:
           RawValue: 0
       sleep:
         RawValue: 327680
+    Energie: []
     EntitySpawner: []
     GOAPAgent: []
     HFSMAgent: []
@@ -1185,6 +1193,7 @@ MonoBehaviour:
           RawValue: 0
       sleep:
         RawValue: 327680
+    Energie: []
     EntitySpawner: []
     GOAPAgent: []
     HFSMAgent: []
@@ -1323,6 +1332,7 @@ MonoBehaviour:
           RawValue: 0
       sleep:
         RawValue: 327680
+    Energie: []
     EntitySpawner: []
     GOAPAgent: []
     HFSMAgent: []
@@ -1461,6 +1471,7 @@ MonoBehaviour:
           RawValue: 0
       sleep:
         RawValue: 327680
+    Energie: []
     EntitySpawner: []
     GOAPAgent: []
     HFSMAgent: []
@@ -1599,6 +1610,7 @@ MonoBehaviour:
           RawValue: 0
       sleep:
         RawValue: 327680
+    Energie: []
     EntitySpawner: []
     GOAPAgent: []
     HFSMAgent: []
@@ -1705,6 +1717,45 @@ MonoBehaviour:
           RawValue: 0
         Z:
           RawValue: 0
+    View: []
+    PhysicsJoints2D: []
+    PhysicsJoints3D: []
+  - AIBlackboardComponent: []
+    BTAgent: []
+    CharacterInventory: []
+    DynamicObstacle: []
+    Energie: []
+    EntitySpawner: []
+    GOAPAgent: []
+    HFSMAgent: []
+    Hazard: []
+    Health: []
+    KillZone: []
+    Knockable: []
+    Mana: []
+    PickUpSlot: []
+    PlayerID: []
+    Projectile: []
+    QAnimationState: []
+    ResetPos: []
+    Shield: []
+    UTAgent: []
+    Weapon: []
+    CharacterController2D: []
+    CharacterController3D: []
+    NavMeshAvoidanceAgent: []
+    NavMeshAvoidanceObstacle: []
+    NavMeshPathfinder: []
+    NavMeshSteeringAgent: []
+    PhysicsBody2D: []
+    PhysicsBody3D: []
+    PhysicsCollider2D: []
+    PhysicsCollider3D: []
+    PhysicsCallbacks2D: []
+    PhysicsCallbacks3D: []
+    Transform2D: []
+    Transform2DVertical: []
+    Transform3D: []
     View: []
     PhysicsJoints2D: []
     PhysicsJoints3D: []

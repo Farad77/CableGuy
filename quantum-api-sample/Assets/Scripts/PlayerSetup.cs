@@ -22,6 +22,7 @@ public unsafe class PlayerSetup : MonoBehaviour
         InitLocalCamera();
         FindObjectOfType<UIPlayerInventoryEvents>().Initialize(entityRef);
         FindObjectOfType<UISpawnEnemy>().Initialize(_playerRef);
+        FindObjectOfType<LocalInputCustom>().AimDirection = GetComponentInChildren<AimObject>();
     }
 
     private void InitAnimation(EntityRef entityRef)
@@ -33,5 +34,6 @@ public unsafe class PlayerSetup : MonoBehaviour
     {
         var localPlayerCamera = FindObjectOfType<FollowCamera>();
         localPlayerCamera.Initialize(transform);
+        localPlayerCamera.PositionCam();
     }
 }

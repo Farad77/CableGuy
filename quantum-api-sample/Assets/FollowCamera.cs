@@ -14,16 +14,28 @@ public class FollowCamera : MonoBehaviour
     public void Initialize(Transform transform)
     {
         _target = transform;
-    }
-    
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        if (_target == null) return;
+       
 
+    }
+    public void PositionCam()
+    {
         Quaternion rotation = Quaternion.LookRotation(_target.forward, Vector3.up);
         var cameraPos = rotation * Offset;
         transform.position = Vector3.Lerp(transform.position, _target.position + cameraPos, Time.deltaTime * FollowSpeed);
         transform.LookAt(_target.position);
+       // transform.parent = _target.transform;
+    }
+    // Update is called once per frame
+    void LateUpdate()
+    {
+        if (_target == null) return;
+        transform.position= new Vector3(_target.position.x,transform.position.y,_target.position.z-5);
+
+        /*  Quaternion rotation = Quaternion.LookRotation(_target.forward, Vector3.up);
+         var cameraPos = rotation * Offset;
+          transform.position = Vector3.Lerp(transform.position, _target.position + cameraPos, Time.deltaTime * FollowSpeed);
+          transform.LookAt(_target.position);*/
+        // transform.position = Vector3.Lerp(transform.position, _target.position , Time.deltaTime * FollowSpeed);
+
     }
 }
