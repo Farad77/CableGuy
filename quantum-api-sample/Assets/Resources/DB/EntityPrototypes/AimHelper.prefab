@@ -50,7 +50,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 0
-  _target: {fileID: 0}
 --- !u!114 &5916607542754358803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +268,6 @@ GameObject:
   - component: {fileID: 6714677966727559264}
   - component: {fileID: 1047990869349667734}
   - component: {fileID: 644678188216817115}
-  - component: {fileID: 6655315895279414861}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
@@ -321,7 +319,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 34e852e33a8406748bbf7ddcaa74423c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -343,19 +341,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6655315895279414861
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4484020431230874600}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5897958370827370020
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +352,6 @@ GameObject:
   - component: {fileID: 9080570352583288207}
   - component: {fileID: 8667441647105318986}
   - component: {fileID: 6053670650521313608}
-  - component: {fileID: 3519725837783074649}
   m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
@@ -418,7 +402,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 34e852e33a8406748bbf7ddcaa74423c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -440,19 +424,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3519725837783074649
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5897958370827370020}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-1914504650118312737
 MonoBehaviour:
   m_ObjectHideFlags: 0
