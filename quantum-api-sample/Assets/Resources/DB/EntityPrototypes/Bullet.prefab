@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prototype:
     Speed:
-      RawValue: 3276800
+      RawValue: 327680
     WeaponSpec:
       Id:
         Value: 3274412228143879235
