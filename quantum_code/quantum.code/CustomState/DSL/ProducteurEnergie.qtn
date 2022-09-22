@@ -1,0 +1,5 @@
+﻿component ProducteurEnergie {
+    FP CurrentAmount;
+    FP MaxAmount;
+    FP Regen;
+}

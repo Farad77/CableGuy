@@ -1,4 +1,5 @@
 ﻿component Energie {
     FP CurrentAmount;
     FP MaxAmount;
+    FP RegenBonus;
 }

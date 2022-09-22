@@ -23,10 +23,10 @@ public class AimObject : MonoBehaviour
         angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
 
         //Ta Daaa
-        transform.rotation = Quaternion.Euler(new Vector3(0f, -angle-90, 0f));
+       // transform.rotation = Quaternion.Euler(new Vector3(0f, -angle-90, 0f));
     }
     float AngleBetweenTwoPoints(Vector2 a, Vector2 b)
     {
-        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
+        return Mathf.Atan2(a.y - b.y, a.x - b.x) * 57.29578f;
     }
 }

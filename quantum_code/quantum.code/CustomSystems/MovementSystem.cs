@@ -1,4 +1,5 @@
 using Photon.Deterministic;
+using System;
 
 namespace Quantum
 {
@@ -8,8 +9,10 @@ namespace Quantum
         public PlayerID* PlayerID;
         public Transform3D* Transform;
         public CharacterController3D* Kcc;
+        
     }
-    
+ 
+
     unsafe class MovementSystem : SystemMainThreadFilter<PlayerMovementFilter>,ISignalOnTriggerEnter3D
     {
         private static readonly FP ROTATION_SPEED_MULTIPLIER = FP._5;
@@ -113,9 +116,17 @@ namespace Quantum
                 f.Events.PlayerJump(filter.PlayerID->PlayerRef);
                 filter.Kcc->Jump(f);
             }
-
+            //var aimobject = f.Unsafe.GetPointer<AimObject>(filter.EntityRef);
+            
+          //  var transformAim = f.Get<Transform3D>(aimobject->Entity);
+          // transformAim.Rotation = FPQuaternion.Euler(new FPVector3(0, -input->Angle - 90, 0));
             //filter.Kcc->Move(f, filter.EntityRef, filter.Transform->Forward * forwardVelocity);
             filter.Kcc->Move(f, filter.EntityRef, inputVector );
         }
+        FP AngleBetweenTwoPoints(FPVector2 a, FPVector2 b)
+        {
+            return FPMath.Atan2(a.Y - b.Y, a.X - b.X) * FP.FromFloat_UNSAFE(57.29578f);
+        }
     }
+   
 }

@@ -109,6 +109,8 @@ GameObject:
   - component: {fileID: 2738516673600884107}
   - component: {fileID: 928302976575132857}
   - component: {fileID: 2315876443661213670}
+  - component: {fileID: 6952704639230938905}
+  - component: {fileID: 2987660664324908992}
   m_Layer: 0
   m_Name: AimtHelper
   m_TagString: Untagged
@@ -157,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836dcb7e0f6259748b850a10912ce727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TransformMode: 2
+  TransformMode: 1
   Transform2DVertical:
     IsEnabled: 0
     Height:
@@ -305,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0008c51fe3af00b4da5d44f02d9b3dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BindBehaviour: 0
+  BindBehaviour: 1
   ManualDisposal: 0
   GameObjectNameIsEntityRef: 1
   ErrorCorrectionRateMin: 3.3
@@ -323,6 +325,35 @@ MonoBehaviour:
   OnEntityDestroyed:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6952704639230938905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4677937723685722309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb2f11a4fd8c6646bd2fc6937711eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prototype:
+    Entity: {fileID: 928302976575132857}
+--- !u!114 &2987660664324908992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4677937723685722309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436fb9c246cbefa47bc67d0ad7357db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prototype:
+    PlayerRef:
+      _index: 0
 --- !u!1 &5773639758240696864
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +374,8 @@ GameObject:
   - component: {fileID: 4972883588211453124}
   - component: {fileID: -8261374204732140653}
   - component: {fileID: 1380177152737893433}
+  - component: {fileID: 1062937891993649270}
+  - component: {fileID: 6909693008981432066}
   m_Layer: 8
   m_Name: Lion QPrefab
   m_TagString: Untagged
@@ -704,6 +737,44 @@ MonoBehaviour:
   Prototype:
     reset:
       Value: 0
+--- !u!114 &1062937891993649270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5773639758240696864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e15219282f36541b5f16ba8931c97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prototype:
+    CurrentAmount:
+      RawValue: 0
+    MaxAmount:
+      RawValue: 6553600
+    RegenBonus:
+      RawValue: 65536
+--- !u!114 &6909693008981432066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5773639758240696864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6bcabc9ea9b434891ed318c660c239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prototype:
+    CurrentAmount:
+      RawValue: 0
+    MaxAmount:
+      RawValue: 6553600
+    Regen:
+      RawValue: 655360
 --- !u!1 &6973697883265290562
 GameObject:
   m_ObjectHideFlags: 0

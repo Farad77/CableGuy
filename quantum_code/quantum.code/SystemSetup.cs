@@ -43,7 +43,7 @@ namespace Quantum {
         // user command related systems
         new PlayerCommandsSystem(),
         new DynamicObstacleSystem(),
-
+        new AimHelperMovementSystem(),
 
 
       };
