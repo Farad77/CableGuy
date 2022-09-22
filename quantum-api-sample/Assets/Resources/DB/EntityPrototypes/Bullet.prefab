@@ -170,7 +170,7 @@ MonoBehaviour:
     CallbackFlags:
       Value: 0
   PhysicsBody:
-    IsEnabled: 1
+    IsEnabled: 0
     Version2D: 2
     Version3D: 2
     Config2D: 116
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prototype:
     Speed:
-      RawValue: 327680
+      RawValue: 655360
     WeaponSpec:
       Id:
         Value: 3274412228143879235
