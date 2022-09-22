@@ -201,6 +201,11 @@ MonoBehaviour:
         Id:
           Value: 2372440079921492754
       ResourcePath: DB/ExampleScene_Map_NavMesh_data
+    - Path: Resources/DB/ExampleScene_Map_Cube (1)
+      AssetRef:
+        Id:
+          Value: 2572106723072049901
+      ResourcePath: DB/ExampleScene_Map_Cube (1)
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|TrueDecision_5
       AssetRef:
         Id:
@@ -341,6 +346,11 @@ MonoBehaviour:
         Id:
           Value: 4214423550857321201
       ResourcePath: DB/ExampleScene_Map_NavMesh3_data
+    - Path: Resources/DB/ExampleScene_Map_Cube (1)_data
+      AssetRef:
+        Id:
+          Value: 4233468958677651742
+      ResourcePath: DB/ExampleScene_Map_Cube (1)_data
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|TrueDecision_7
       AssetRef:
         Id:

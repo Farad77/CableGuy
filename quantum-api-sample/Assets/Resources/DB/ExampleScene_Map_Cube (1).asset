@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfb2d134f0fd8e447b08e569da2a1031, type: 3}
-  m_Name: ExampleScene_Map_NavMesh3
+  m_Name: ExampleScene_Map_Cube (1)
   m_EditorClassIdentifier: 
   Settings:
     Identifier:
-      Path: Resources/DB/ExampleScene_Map_NavMesh3
+      Path: Resources/DB/ExampleScene_Map_Cube (1)
       Guid:
-        Value: 219336738981506743
-    Name: NavMesh3
+        Value: 2572106723072049901
+    Name: Cube (1)
     DataAsset:
       Id:
-        Value: 4214423550857321201
+        Value: 4233468958677651742
     DataFilepath: 
     GridSizeX: 6
     GridSizeY: 6
