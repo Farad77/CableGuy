@@ -20,7 +20,7 @@ MonoBehaviour:
     UserAsset:
       Id:
         Value: 301954010556029139
-    Scene: ExampleScene
+    Scene: Photown
     WorldSize: 40
     BucketsCount: 16
     BucketsSubdivisions: 8
