@@ -9,7 +9,7 @@ namespace Quantum
 {
     public unsafe struct AimHelperMovementFilter
     {
-        public AimObject AimObject;
+        public AimObject* AimObject;
         public EntityRef EntityRef;
         public PlayerID* PlayerID;
         public Transform3D* Transform;
