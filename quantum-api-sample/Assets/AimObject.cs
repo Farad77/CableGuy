@@ -29,4 +29,5 @@ public class AimObject : MonoBehaviour
     {
         return Mathf.Atan2(a.y - b.y, a.x - b.x) * 57.29578f;
     }
+ 
 }

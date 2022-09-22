@@ -181,6 +181,11 @@ MonoBehaviour:
         Id:
           Value: 2080219246625573822
       ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/EntityPrototypes/AimHelper|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 2132188663797330321
+      ResourcePath: DB/EntityPrototypes/AimHelper
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|DecreaseTimer_3
       AssetRef:
         Id:
@@ -346,6 +351,11 @@ MonoBehaviour:
         Id:
           Value: 4235004592250896749
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/EntityPrototypes/AimHelper|EntityView
+      AssetRef:
+        Id:
+          Value: 4295188238749231592
+      ResourcePath: DB/EntityPrototypes/AimHelper
     - Path: Resources/DB/QAssets/DefaultDazedClip
       AssetRef:
         Id:

@@ -5,16 +5,20 @@ namespace Quantum
     public unsafe class PlayerInitSystem : SystemSignalsOnly, ISignalOnPlayerDataSet
     {
         private const string PLAYER_PROTOTYPE = "Resources/DB/EntityPrototypes/Lion QPrefab|EntityPrototype";
+        private const string AIM_PROTOTYPE = "Resources/DB/EntityPrototypes/AimHelper|EntityPrototype";
         private const string DEFAULT_WEAPON_SPEC = "Resources/DB/QAssets/DefaultWeapon";
         private const string DEFAULT_ATTACK_CLIP = "Resources/DB/QAssets/DefaultAttackClip";
 
         public void OnPlayerDataSet(Frame f, PlayerRef playerRef)
         {
             if (DoesPlayerExist(f, playerRef)) return;
-            
+
             var playerPrototype = f.FindAsset<EntityPrototype>(PLAYER_PROTOTYPE);
             var playerEntity = f.Create(playerPrototype);
-            
+
+           
+
+
             var transform = f.Unsafe.GetPointer<Transform3D>(playerEntity);
             transform->Position = FPVector3.Up;
 
