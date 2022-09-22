@@ -31,7 +31,7 @@ namespace Quantum {
         new PlayerInitSystem(),
         new ComponentsAddedRemovedSystem(),
         new TimeLapsedSystem(),
-        new MovementSystem(),
+       
         new HazardSystem(),
         new AttackSystem(),
         new DefendSystem(),
@@ -43,7 +43,9 @@ namespace Quantum {
         // user command related systems
         new PlayerCommandsSystem(),
         new DynamicObstacleSystem(),
-        new AimHelperMovementSystem(),
+        
+         new MovementSystem(),
+        
 
 
       };

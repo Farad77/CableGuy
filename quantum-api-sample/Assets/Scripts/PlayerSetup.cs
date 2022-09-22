@@ -22,7 +22,8 @@ public unsafe class PlayerSetup : MonoBehaviour
         InitLocalCamera();
         FindObjectOfType<UIPlayerInventoryEvents>().Initialize(entityRef);
         FindObjectOfType<UISpawnEnemy>().Initialize(_playerRef);
-        FindObjectOfType<LocalInputCustom>().AimDirection = GetComponentInChildren<AimObject>();
+
+        FindObjectOfType<LocalInputCustom>().AimDirection = FindObjectOfType<AimObject>();
     }
 
     private void InitAnimation(EntityRef entityRef)
@@ -35,5 +36,15 @@ public unsafe class PlayerSetup : MonoBehaviour
         var localPlayerCamera = FindObjectOfType<FollowCamera>();
         localPlayerCamera.Initialize(transform);
         localPlayerCamera.PositionCam();
+    }
+
+    private void Update()
+    {
+        if (!QuantumRunner.Default.Game.PlayerIsLocal(_playerRef)) return;
+        AimObject a = FindObjectOfType<LocalInputCustom>().AimDirection;
+        if (a == null)
+        {
+            FindObjectOfType<LocalInputCustom>().AimDirection = FindObjectOfType<AimObject>();
+        }
     }
 }

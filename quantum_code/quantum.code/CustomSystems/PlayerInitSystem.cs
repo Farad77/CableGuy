@@ -12,11 +12,18 @@ namespace Quantum
         public void OnPlayerDataSet(Frame f, PlayerRef playerRef)
         {
             if (DoesPlayerExist(f, playerRef)) return;
+            var aimPrototype = f.FindAsset<EntityPrototype>(AIM_PROTOTYPE);
+            var aimEntity = f.Create(aimPrototype);
 
             var playerPrototype = f.FindAsset<EntityPrototype>(PLAYER_PROTOTYPE);
             var playerEntity = f.Create(playerPrototype);
 
-           
+            
+            var aim = f.Unsafe.GetPointer<AimObject>(playerEntity);
+            aim->Entity= aimEntity;
+
+            var playerIdAim = f.Unsafe.GetPointer<PlayerID>(aimEntity);
+            playerIdAim->PlayerRef = playerRef;
 
 
             var transform = f.Unsafe.GetPointer<Transform3D>(playerEntity);

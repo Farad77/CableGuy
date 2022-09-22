@@ -9,6 +9,7 @@ namespace Quantum
         public PlayerID* PlayerID;
         public Transform3D* Transform;
         public CharacterController3D* Kcc;
+        public AimObject* aim;
         
     }
  
@@ -45,53 +46,29 @@ namespace Quantum
         {
             //Log.Debug("UPDATE PLAYER");
             var input = f.GetPlayerInput(filter.PlayerID->PlayerRef);
-            // var resetable = f.Get<ResetPos>(filter.PlayerID->PlayerRef);
 
-
-            /* if (input->MovementHorizontal == 0 &&
-                 input->MoveBack.WasPressed && input->MovementVertical < 0) {
-                 filter.Transform->Rotation *= FPQuaternion.AngleAxis( FP.Rad2Deg * FP.Rad_180, FPVector3.Up);
-                 filter.Kcc->Move(f, filter.EntityRef, FPVector3.Zero);
-                 return;
-             }
-
-             var inputVector = new FPVector3(input->MovementHorizontal, FP._0, input->MovementVertical);
-             var movementVector = filter.Transform->Rotation * inputVector;
-
-             var movementAcceleration = FPVector2.Dot(filter.Transform->Forward.XZ.Normalized, movementVector.XZ);
-             var forwardVelocity = FPMath.Abs(movementAcceleration);
-
-             var angle = FPVector2.Radians(filter.Transform->Forward.XZ.Normalized, movementVector.XZ);
-             angle = angle > FP.Rad_90 ? (angle - FP.Pi) : angle;
-             angle *= FP.Rad2Deg;
-             angle = FPMath.Abs(angle);
-             var rotationAcceleration = FPVector2.Dot(filter.Transform->Right.XZ.Normalized, movementVector.XZ);
-
-             var rotation = angle * rotationAcceleration * ROTATION_SPEED_MULTIPLIER * f.DeltaTime;
-             var viewOrientation = input->MovementHorizontal == FP._0 ?
-                                     FPQuaternion.Identity :
-                                     FPQuaternion.AngleAxis(rotation, FPVector3.Up);
-
-             filter.Transform->Rotation *= viewOrientation;*/
+            var aim = filter.aim->Entity;
+            var aimObject = f.Unsafe.GetPointer<Transform3D>(aim);
+            
             if (input->MovementHorizontal < 0 && input->MovementVertical == 0)
             {
                 filter.Transform->Rotation = FPQuaternion.AngleAxis(-90, FPVector3.Up);
             }
             if (input->MovementHorizontal < 0 && input->MovementVertical > 0)
             {
-                filter.Transform->Rotation = FPQuaternion.AngleAxis(-45, FPVector3.Up);
+               filter.Transform->Rotation = FPQuaternion.AngleAxis(-45, FPVector3.Up);
             }
             if (input->MovementHorizontal > 0 && input->MovementVertical > 0)
             {
-                filter.Transform->Rotation = FPQuaternion.AngleAxis(45, FPVector3.Up);
+               filter.Transform->Rotation = FPQuaternion.AngleAxis(45, FPVector3.Up);
             }
             if (input->MovementHorizontal > 0 && input->MovementVertical == 0)
             {
-                filter.Transform->Rotation = FPQuaternion.AngleAxis(90, FPVector3.Up);
+               filter.Transform->Rotation = FPQuaternion.AngleAxis(90, FPVector3.Up);
             }
             if (input->MovementHorizontal > 0 && input->MovementVertical < 0)
             {
-                filter.Transform->Rotation = FPQuaternion.AngleAxis(90+45, FPVector3.Up);
+               filter.Transform->Rotation = FPQuaternion.AngleAxis(90+45, FPVector3.Up);
             }
             if (input->MovementHorizontal == 0 && input->MovementVertical > 0)
             {
@@ -99,11 +76,11 @@ namespace Quantum
             }
             if (input->MovementHorizontal == 0 && input->MovementVertical < 0)
             {
-                filter.Transform->Rotation = FPQuaternion.AngleAxis(180, FPVector3.Up);
+               filter.Transform->Rotation = FPQuaternion.AngleAxis(180, FPVector3.Up);
             }
             if (input->MovementHorizontal < 0 && input->MovementVertical < 0)
             {
-                filter.Transform->Rotation = FPQuaternion.AngleAxis(180+45, FPVector3.Up);
+               filter.Transform->Rotation = FPQuaternion.AngleAxis(180+45, FPVector3.Up);
             }
             var inputVector = new FPVector3(input->MovementHorizontal, FP._0, input->MovementVertical);
             var movementVector = filter.Transform->Rotation * inputVector;
@@ -116,17 +93,17 @@ namespace Quantum
                 f.Events.PlayerJump(filter.PlayerID->PlayerRef);
                 filter.Kcc->Jump(f);
             }
-            //var aimobject = f.Unsafe.GetPointer<AimObject>(filter.EntityRef);
-            
-          //  var transformAim = f.Get<Transform3D>(aimobject->Entity);
-          // transformAim.Rotation = FPQuaternion.Euler(new FPVector3(0, -input->Angle - 90, 0));
-            //filter.Kcc->Move(f, filter.EntityRef, filter.Transform->Forward * forwardVelocity);
+           
             filter.Kcc->Move(f, filter.EntityRef, inputVector );
+            aimObject->Position = filter.Transform->Position;
+           // Log.Debug("angle? :" + input->Angle);
+            aimObject->Rotation= FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
+
+            //  aimObject->Rotation = filter.Transform->Rotation;
+            // FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
+
         }
-        FP AngleBetweenTwoPoints(FPVector2 a, FPVector2 b)
-        {
-            return FPMath.Atan2(a.Y - b.Y, a.X - b.X) * FP.FromFloat_UNSAFE(57.29578f);
-        }
+
     }
    
 }

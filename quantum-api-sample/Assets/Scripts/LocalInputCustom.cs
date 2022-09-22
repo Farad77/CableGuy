@@ -63,7 +63,7 @@ public class LocalInputCustom : MonoBehaviour
             //Cursor.visible = false;
             i.AimDirection = AimDirection.gameObject.GetComponentInChildren<Transform>().transform.position.ToFPVector3();
             i.AimForward = AimDirection.gameObject.GetComponentInChildren<Transform>().transform.forward.ToFPVector3();
-            i.Angle = (Mathf.Round(AimDirection.angle * 100f) / 100f +90).ToFP();
+            i.Angle = (AimDirection.angle +90).ToFP();
         }
         pollInput.SetInput(i, DeterministicInputFlags.Repeatable);
     }
