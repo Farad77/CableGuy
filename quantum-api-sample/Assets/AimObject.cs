@@ -20,7 +20,7 @@ public class AimObject : MonoBehaviour
         Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
 
         //Get the angle between the points
-        angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
+        angle = Mathf.RoundToInt(AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen));
         //Debug.Log("Angle calculé = " + angle);
         //Ta Daaa
        // transform.rotation = Quaternion.Euler(new Vector3(0f, -angle-90, 0f));

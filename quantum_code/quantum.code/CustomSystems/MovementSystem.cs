@@ -96,10 +96,10 @@ namespace Quantum
            
             filter.Kcc->Move(f, filter.EntityRef, inputVector );
             aimObject->Position = filter.Transform->Position;
-           // Log.Debug("angle? :" + input->Angle);
+          //  Log.Debug("player :" + filter.PlayerID->PlayerRef.ToString()+"vise avec "+ filter.aim->Entity + " angle="+ input->Angle);
             aimObject->Rotation= FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
 
-            //  aimObject->Rotation = filter.Transform->Rotation;
+             // aimObject->Rotation = filter.Transform->Rotation;
             // FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
 
         }

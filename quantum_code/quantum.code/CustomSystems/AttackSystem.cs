@@ -52,7 +52,7 @@ namespace Quantum
            // var transformHelper = f.Get<Transform3D>(aimHelper);
 
           //  var transform2Pos = transform.Position + transformHelper.Position + transformHelper.Forward;
-            Log.Debug(" pos ="+transform);
+            //Log.Debug(" pos ="+transform);
             t2->Position = input->AimDirection +input->AimForward*2;
             t2->Rotation = FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
             //f.Set<Transform3D>(bulletEntity, transform);

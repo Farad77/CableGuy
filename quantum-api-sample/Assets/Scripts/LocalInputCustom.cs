@@ -59,10 +59,12 @@ public class LocalInputCustom : MonoBehaviour
         i.Jump = UInput.GetButton(BUTTON_JUMP);
         if (AimDirection != null)
         {
-           // Cursor.lockState = CursorLockMode.Locked;
+            // Cursor.lockState = CursorLockMode.Locked;
             //Cursor.visible = false;
-            i.AimDirection = AimDirection.gameObject.GetComponentInChildren<Transform>().transform.position.ToFPVector3();
-            i.AimForward = AimDirection.gameObject.GetComponentInChildren<Transform>().transform.forward.ToFPVector3();
+            /*  i.AimDirection = AimDirection.gameObject.GetComponentInChildren<Transform>().transform.position.ToFPVector3();
+              i.AimForward = AimDirection.gameObject.GetComponentInChildren<Transform>().transform.forward.ToFPVector3();*/
+            i.AimDirection = AimDirection.transform.position.ToFPVector3();
+            i.AimForward = AimDirection.transform.forward.ToFPVector3();
             i.Angle = (AimDirection.angle +90).ToFP();
         }
         pollInput.SetInput(i, DeterministicInputFlags.Repeatable);

@@ -21,6 +21,9 @@ namespace Quantum
             
             var aim = f.Unsafe.GetPointer<AimObject>(playerEntity);
             aim->Entity= aimEntity;
+            //Log.Debug("entite player " + playerEntity + " associer a aim " + aim->Entity);
+
+
 
             var playerIdAim = f.Unsafe.GetPointer<PlayerID>(aimEntity);
             playerIdAim->PlayerRef = playerRef;

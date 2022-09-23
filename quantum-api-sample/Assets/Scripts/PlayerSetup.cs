@@ -40,6 +40,9 @@ public unsafe class PlayerSetup : MonoBehaviour
 
     private void Update()
     {
+        var entityRef = GetComponent<EntityView>().EntityRef;
+        var playerId = QuantumRunner.Default.Game.Frames.Verified.Unsafe.GetPointer<PlayerID>(entityRef);
+        _playerRef = playerId->PlayerRef;
         if (!QuantumRunner.Default.Game.PlayerIsLocal(_playerRef)) return;
         AimObject a = FindObjectOfType<LocalInputCustom>().AimDirection;
         if (a == null)

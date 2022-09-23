@@ -186,6 +186,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.Services.Core.Threading.dll
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.Services.Core.Networking.dll
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\UnityEngine.Purchasing.AppleMacosStub.dll
+--root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.Toonshader.dll
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.ProBuilder.KdTree.dll
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.Analytics.DataPrivacy.dll
@@ -196,7 +197,6 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\UnityEngine.Purchasing.AppleStub.dll
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Universal.Shaders.dll
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
---root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.Toonshader.dll
 --assembly-folder=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\
 --pdb-search-paths=Temp/ManagedSymbols/
 --method=Unity.Burst.Intrinsics.X86, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::DoGetCSRTrampoline()--89425a97f3f500fa810ad03f0c382542
@@ -399,6 +399,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.Services.Core.Threading.dll
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.Services.Core.Networking.dll
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\UnityEngine.Purchasing.AppleMacosStub.dll
+--root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.Toonshader.dll
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.ProBuilder.KdTree.dll
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.Analytics.DataPrivacy.dll
@@ -409,7 +410,6 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\UnityEngine.Purchasing.AppleStub.dll
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Universal.Shaders.dll
 --root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
---root-assembly=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\Unity.Toonshader.dll
 --assembly-folder=C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum-api-sample\Temp\StagingArea\Data\Managed\
 --pdb-search-paths=Temp/ManagedSymbols/
 --method=Unity.Burst.Intrinsics.X86, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::DoGetCSRTrampoline()--89425a97f3f500fa810ad03f0c382542
