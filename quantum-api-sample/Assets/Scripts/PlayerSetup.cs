@@ -3,8 +3,9 @@ using Quantum;
 
 public unsafe class PlayerSetup : MonoBehaviour
 {
-    [SerializeField] private PlayerAnimation _playerAnimation = null;
-    
+    //[SerializeField] private PlayerAnimation _playerAnimation = null; //THB
+    [SerializeField] private BulbLightAnimation _playerAnimation = null; //THB
+
     private PlayerRef _playerRef;
 
     // Called from OnEntityInstantiate

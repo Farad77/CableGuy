@@ -524,24 +524,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\farad\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\borneVR\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\farad\\Downloads\\Quantum-Api-Sample-2.1.0\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj",
+      "projectUniqueName": "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj",
       "projectName": "quantum.console.runner",
-      "projectPath": "C:\\Users\\farad\\Downloads\\Quantum-Api-Sample-2.1.0\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj",
-      "packagesPath": "C:\\Users\\farad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\farad\\Downloads\\Quantum-Api-Sample-2.1.0\\quantum_code\\quantum.console.runner\\obj\\",
+      "projectPath": "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj",
+      "packagesPath": "C:\\Users\\borneVR\\.nuget\\packages\\",
+      "outputPath": "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.console.runner\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\farad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\borneVR\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -555,8 +554,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\farad\\Downloads\\Quantum-Api-Sample-2.1.0\\quantum_code\\quantum.code\\quantum.code.csproj": {
-              "projectPath": "C:\\Users\\farad\\Downloads\\Quantum-Api-Sample-2.1.0\\quantum_code\\quantum.code\\quantum.code.csproj"
+            "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.code\\quantum.code.csproj": {
+              "projectPath": "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.code\\quantum.code.csproj"
             }
           }
         }
@@ -595,7 +594,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

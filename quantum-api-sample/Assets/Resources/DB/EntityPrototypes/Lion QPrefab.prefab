@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5761125430561611025}
   - component: {fileID: 7391038546830340555}
-  - component: {fileID: 4021100387578140007}
   - component: {fileID: 2901846621670923445}
+  - component: {fileID: 5415391853813497612}
+  - component: {fileID: 7280414934753570681}
+  - component: {fileID: 2392122865995661046}
   m_Layer: 8
   m_Name: BullbLightSpine
   m_TagString: Untagged
@@ -77,7 +79,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4021100387578140007
+--- !u!33 &2901846621670923445
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5623598923570393871}
+  m_Mesh: {fileID: 0}
+--- !u!95 &5415391853813497612
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5623598923570393871}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c63c79f2215df041b99509c0ec5ef0a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7280414934753570681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,7 +116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5623598923570393871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
+  m_Script: {fileID: 11500000, guid: f9db98c60740638449864eb028fbe7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonDataAsset: {fileID: 11400000, guid: 6c87c717db6a4c34491683a8f335b554, type: 2}
@@ -112,19 +142,25 @@ MonoBehaviour:
     materialsInsideMask: []
     materialsOutsideMask: []
   disableRenderingOnOverride: 1
+  translator:
+    autoReset: 1
+    useCustomMixMode: 1
+    layerMixModes: 01000000
+    layerBlendModes: 01000000
   updateTiming: 1
-  unscaledTime: 0
-  _animationName: 1-Idle
-  loop: 1
-  timeScale: 1
---- !u!33 &2901846621670923445
-MeshFilter:
+--- !u!114 &2392122865995661046
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5623598923570393871}
-  m_Mesh: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc340cb126f431459a12f1c37eda82b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 5415391853813497612}
 --- !u!1 &5773639758240696864
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 422d9b7747d057c45b6746b3a39081e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAnimation: {fileID: 7262191607632395798}
+  _playerAnimation: {fileID: 2392122865995661046}
 --- !u!114 &4678273599856869498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,6 +724,11 @@ PrefabInstance:
       objectReference: {fileID: 9000000, guid: d9a1483b77bf10e4e851678ab6c2e54e, type: 3}
     - target: {fileID: 8422892626592999198, guid: 214e08cd5e5d74c458e2a81b7ec2c84c,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422892626592999198, guid: 214e08cd5e5d74c458e2a81b7ec2c84c,
+        type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 408c26d14dcb4304f8e46de3b027b1a3, type: 2}
@@ -951,6 +992,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8422892626600285392, guid: 214e08cd5e5d74c458e2a81b7ec2c84c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8422892626600285394, guid: 214e08cd5e5d74c458e2a81b7ec2c84c,
         type: 3}
       propertyPath: m_Layer
@@ -1138,7 +1184,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3107733310624053579}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f6f32e5ee13d81428052b003fefa9ee, type: 3}
   m_Name: 
