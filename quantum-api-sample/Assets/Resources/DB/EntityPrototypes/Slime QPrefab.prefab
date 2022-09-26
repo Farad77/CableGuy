@@ -125,10 +125,10 @@ MonoBehaviour:
       Value: 0
   PhysicsBody:
     IsEnabled: 0
-    Version2D: 0
-    Version3D: 0
+    Version2D: 2
+    Version3D: 2
     Config2D: 116
-    Config3D: 58
+    Config3D: 59
     RotationFreeze: 0
     Mass:
       RawValue: 65536
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3516030954928645218}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1fe2733be10b3d4586ebafea6358393, type: 3}
   m_Name: 
