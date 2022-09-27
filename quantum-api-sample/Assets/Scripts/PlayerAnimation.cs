@@ -82,12 +82,12 @@ public unsafe class PlayerAnimation : MonoBehaviour
         _animator.SetBool(BOOL_IS_BLOCKING, shield->IsBlocking);
     }
 
-  private void Jump(EventPlayerJump e)
+    private void Jump(EventPlayerJump e)
     {
         if (e.PlayerRef != _playerRef) return;
         _animator.SetTrigger(TRIGGER_JUMP);
     }
-    
+
     private void WeaponEquip(EventPlayerWeaponEquip e)
     {
         if (e.PlayerRef != _playerRef) return;

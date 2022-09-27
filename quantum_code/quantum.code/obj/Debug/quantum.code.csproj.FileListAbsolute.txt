@@ -5,3 +5,10 @@ C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum_code\quantum.code\obj\
 C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum_code\quantum.code\obj\Debug\quantum.code.csproj.CopyComplete
 C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum_code\quantum.code\obj\Debug\quantum.code.dll
 C:\Users\farad\Downloads\Quantum-Api-Sample-2.1.0\quantum_code\quantum.code\obj\Debug\quantum.code.pdb
+C:\mesProjetsUnity\CableGuy\quantum-api-sample\Assets\Photon\Quantum\Assemblies\quantum.code.dll
+C:\mesProjetsUnity\CableGuy\quantum-api-sample\Assets\Photon\Quantum\Assemblies\quantum.code.pdb
+C:\mesProjetsUnity\CableGuy\quantum_code\quantum.code\obj\Debug\quantum.code.csproj.AssemblyReference.cache
+C:\mesProjetsUnity\CableGuy\quantum_code\quantum.code\obj\Debug\quantum.code.csproj.CoreCompileInputs.cache
+C:\mesProjetsUnity\CableGuy\quantum_code\quantum.code\obj\Debug\quantum.code.csproj.CopyComplete
+C:\mesProjetsUnity\CableGuy\quantum_code\quantum.code\obj\Debug\quantum.code.dll
+C:\mesProjetsUnity\CableGuy\quantum_code\quantum.code\obj\Debug\quantum.code.pdb

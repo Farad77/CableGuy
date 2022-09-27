@@ -7,6 +7,11 @@ event PlayerJump {
     PlayerRef PlayerRef;
 }
 
+//THB
+event PlayerHit {
+    PlayerRef PlayerRef;
+}
+
 event PlayerWeaponEquip {
     PlayerRef PlayerRef;
     QBoolean Equip;

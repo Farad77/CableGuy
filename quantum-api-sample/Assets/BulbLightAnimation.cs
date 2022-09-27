@@ -16,7 +16,7 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
     private int TriggerIdle = Animator.StringToHash("IdleTrigger");
     private int TriggerWalk = Animator.StringToHash("WalkTrigger");
     private int TriggerAttack = Animator.StringToHash("AttackTrigger");
-    //private int TriggerHit = Animator.StringToHash("HitTrigger");
+    private int TriggerHit = Animator.StringToHash("HitTrigger");
     private int oldAnim;
 
     private Quaternion qInitRot;
@@ -33,7 +33,7 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
 
         // Set up Quantum events
         QuantumEvent.Subscribe<Quantum.EventPlayerAttack>(this, Attack);
-        //QuantumEvent.Subscribe<Quantum.EventOnDamageDealt>(this, Hit);
+        QuantumEvent.Subscribe<Quantum.EventPlayerHit>(this, Hit);
     }
 
     void LateUpdate()
@@ -72,11 +72,11 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
         if (e.PlayerRef != _playerRef) return;
         if(oldAnim != TriggerAttack) ChangeAnim(TriggerAttack);
     }
-    /*private void Hit(EventOnDamageDealt e)
+    private void Hit(EventPlayerHit e)
     {
-        if (e.Target.Index != _playerRef) return; // THB e.Target.Index ça marche ça?
-        _animator.SetTrigger(TRIGGER_HIT);
-    }*/
+        if (e.PlayerRef != _playerRef) return; // THB e.Target.Index ça marche ça?
+        _animator.SetTrigger(TriggerHit);
+    }
     /*private void Jump(EventPlayerJump e)
     {
         if (e.PlayerRef != _playerRef) return;
@@ -92,6 +92,9 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
             _animator.ResetTrigger(TriggerIdle);
             _animator.SetTrigger(TriggerWalk);
             _animator.ResetTrigger(TriggerAttack);
+            StopCoroutine(WaitEndOfAttack(oldAnim));
+            _animator.ResetTrigger(TriggerHit);
+            StopCoroutine(WaitEndOfHit(oldAnim));
         }
         else if (idAnim == TriggerIdle)
         {
@@ -100,6 +103,9 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
             _animator.SetTrigger(TriggerIdle);
             _animator.ResetTrigger(TriggerWalk);
             _animator.ResetTrigger(TriggerAttack);
+            StopCoroutine(WaitEndOfAttack(oldAnim));
+            _animator.ResetTrigger(TriggerHit);
+            StopCoroutine(WaitEndOfHit(oldAnim));
         }
         else if (idAnim == TriggerAttack)
         {
@@ -110,6 +116,20 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
             _animator.SetTrigger(TriggerAttack);
             StopCoroutine(WaitEndOfAttack(oldAnim));
             StartCoroutine(WaitEndOfAttack(oldAnim));
+            _animator.ResetTrigger(TriggerHit);
+            StopCoroutine(WaitEndOfHit(oldAnim));
+        }
+        else if (idAnim == TriggerHit)
+        {
+            //oldAnim = TriggerAttack;
+            Debug.Log("hit");
+            _animator.ResetTrigger(TriggerIdle);
+            _animator.ResetTrigger(TriggerWalk);
+            _animator.ResetTrigger(TriggerAttack);
+            StopCoroutine(WaitEndOfAttack(oldAnim));
+            _animator.SetTrigger(TriggerHit);
+            StopCoroutine(WaitEndOfHit(oldAnim));
+            StartCoroutine(WaitEndOfHit(oldAnim));
         }
         else
         {
@@ -117,10 +137,18 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
             _animator.ResetTrigger(TriggerIdle);
             _animator.ResetTrigger(TriggerWalk);
             _animator.ResetTrigger(TriggerAttack);
+            StopCoroutine(WaitEndOfAttack(oldAnim));
+            _animator.ResetTrigger(TriggerHit);
+            StopCoroutine(WaitEndOfHit(oldAnim));
         }
     }
 
     private IEnumerator WaitEndOfAttack(int WhichTrigger)
+    {
+        yield return new WaitForSeconds(0.249925f);
+        ChangeAnim(WhichTrigger);
+    }
+    private IEnumerator WaitEndOfHit(int WhichTrigger)
     {
         yield return new WaitForSeconds(0.249925f);
         ChangeAnim(WhichTrigger);

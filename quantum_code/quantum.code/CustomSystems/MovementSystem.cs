@@ -93,7 +93,13 @@ namespace Quantum
                 f.Events.PlayerJump(filter.PlayerID->PlayerRef);
                 filter.Kcc->Jump(f);
             }
-           
+
+            //THB
+            if(input->Defend.WasPressed)
+            {
+                f.Events.PlayerHit(filter.PlayerID->PlayerRef);
+            }
+
             filter.Kcc->Move(f, filter.EntityRef, inputVector );
             aimObject->Position = filter.Transform->Position;
           //  Log.Debug("player :" + filter.PlayerID->PlayerRef.ToString()+"vise avec "+ filter.aim->Entity + " angle="+ input->Angle);
