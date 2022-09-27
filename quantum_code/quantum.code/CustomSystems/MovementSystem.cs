@@ -95,10 +95,10 @@ namespace Quantum
             }
 
             //THB
-            /*if(input->Defend.WasPressed)
+            if(input->Defend.WasPressed)
             {
                 f.Events.PlayerHit(filter.PlayerID->PlayerRef);
-            }*/
+            }
 
             filter.Kcc->Move(f, filter.EntityRef, inputVector );
             aimObject->Position = filter.Transform->Position;
