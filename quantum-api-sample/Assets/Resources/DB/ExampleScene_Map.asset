@@ -1693,7 +1693,7 @@ MonoBehaviour:
         X:
           RawValue: -65536
         Y:
-          RawValue: -39321
+          RawValue: 19660
         Z:
           RawValue: 786432
       PhysicsMaterial:
