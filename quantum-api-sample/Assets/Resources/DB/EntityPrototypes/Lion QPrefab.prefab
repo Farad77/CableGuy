@@ -328,7 +328,7 @@ MonoBehaviour:
     Mass:
       RawValue: 65536
     Drag:
-      RawValue: 32768
+      RawValue: 65536
     AngularDrag:
       RawValue: 32768
     CenterOfMass2D:
