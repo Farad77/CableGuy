@@ -17,6 +17,10 @@ namespace Quantum
 
             var playerPrototype = f.FindAsset<EntityPrototype>(PLAYER_PROTOTYPE);
             var playerEntity = f.Create(playerPrototype);
+            var transform = f.Unsafe.GetPointer<Transform3D>(playerEntity);
+
+            //TODO: changer le spawn en not hardcoded
+            transform->Position = new FPVector3(FP.FromFloat_UNSAFE(5.72f), FP.FromFloat_UNSAFE(1.39f), FP.FromFloat_UNSAFE(-13.85f));
 
             
             var aim = f.Unsafe.GetPointer<AimObject>(playerEntity);

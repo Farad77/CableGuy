@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a366507de6e4aa44aea490bd69adace, type: 3}
-  m_Name: ExampleScene_Map
+  m_Name: Photown_LD_Test_Map
   m_EditorClassIdentifier: 
   Settings:
     Identifier:
-      Path: Resources/DB/ExampleScene_Map
+      Path: Resources/DB/Photown_LD_Test_Map
       Guid:
-        Value: 2701084311577885596
+        Value: 309468280383187747
     UserAsset:
       Id:
         Value: 301954010556029139
@@ -29,7 +29,7 @@ MonoBehaviour:
     TriangleMeshCellSize: 4
     StaticColliders3DTrianglesData:
       Id:
-        Value: 2367059631485666812
+        Value: 1479761656996172963
     StaticColliders3DTrianglesBinaryFile: 
     GridSizeX: 6
     GridSizeY: 6
@@ -2832,6 +2832,75 @@ MonoBehaviour:
           RawValue: 32768
         Z:
           RawValue: -920780
+      Rotation:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+    View: []
+    PhysicsJoints2D: []
+    PhysicsJoints3D: []
+  - AIBlackboardComponent: []
+    AimObject: []
+    BTAgent: []
+    CharacterInventory: []
+    DynamicObstacle: []
+    Energie: []
+    EntitySpawner:
+    - Spawned: []
+      NextSpawn:
+        RawValue: 0
+      SpawnRadius:
+        RawValue: 655360
+      SpawnIntervalMin:
+        RawValue: 3276
+      SpawnIntervalMax:
+        RawValue: 32768
+      MaxSpawnAmount:
+        RawValue: 524288000
+      EntityPrototypes:
+      - Id:
+          Value: 4416498682920012441
+    GOAPAgent: []
+    HFSMAgent: []
+    Hazard: []
+    Health: []
+    KillZone: []
+    Knockable: []
+    Mana: []
+    PickUpSlot: []
+    PlayerID: []
+    ProducteurEnergie: []
+    Projectile: []
+    QAnimationState: []
+    ResetPos: []
+    Shield: []
+    UTAgent: []
+    Weapon: []
+    CharacterController2D: []
+    CharacterController3D: []
+    NavMeshAvoidanceAgent: []
+    NavMeshAvoidanceObstacle: []
+    NavMeshPathfinder: []
+    NavMeshSteeringAgent: []
+    PhysicsBody2D: []
+    PhysicsBody3D: []
+    PhysicsCollider2D: []
+    PhysicsCollider3D: []
+    PhysicsCallbacks2D: []
+    PhysicsCallbacks3D: []
+    Transform2D: []
+    Transform2DVertical: []
+    Transform3D:
+    - Position:
+        X:
+          RawValue: 181534
+        Y:
+          RawValue: 389283
+        Z:
+          RawValue: -1160642
       Rotation:
         X:
           RawValue: 0
