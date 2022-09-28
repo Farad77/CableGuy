@@ -19,7 +19,7 @@ namespace Quantum
             var playerEntity = f.Create(playerPrototype);
             var transform = f.Unsafe.GetPointer<Transform3D>(playerEntity);
 
-            //TODO: changer le spawn en not hardcoded
+            //TODO: changer le spawn en not hardcoded, 1 spawn par player
             transform->Position = new FPVector3(FP.FromFloat_UNSAFE(5.72f), FP.FromFloat_UNSAFE(1.39f), FP.FromFloat_UNSAFE(-13.85f));
 
             
@@ -33,8 +33,8 @@ namespace Quantum
             playerIdAim->PlayerRef = playerRef;
 
 
-            var transform = f.Unsafe.GetPointer<Transform3D>(playerEntity);
-            transform->Position = FPVector3.Up;
+           /* var transform = f.Unsafe.GetPointer<Transform3D>(playerEntity);
+            transform->Position = FPVector3.Up;*/
 
             var playerId = f.Unsafe.GetPointer<PlayerID>(playerEntity);
             playerId->PlayerRef = playerRef;

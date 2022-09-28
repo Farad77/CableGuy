@@ -21792,7 +21792,6 @@ MonoBehaviour:
   - {fileID: 629290320}
   MapEntityReferences:
   - {fileID: 203611213}
-  - {fileID: 639035034}
   - {fileID: 1875095627}
   - {fileID: 1469556389}
 --- !u!1 &464855183
@@ -28112,7 +28111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &639035032
 Transform:
   m_ObjectHideFlags: 0

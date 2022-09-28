@@ -14,3 +14,7 @@ C:\mesProjetsUnity\CableGuy\quantum_code\quantum.code\obj\Debug\quantum.code.pdb
 E:\ProjetUnity\CableGuy\quantum_code\quantum.code\obj\Debug\quantum.code.csproj.AssemblyReference.cache
 E:\ProjetUnity\CableGuy\quantum_code\quantum.code\obj\Debug\quantum.code.csproj.CoreCompileInputs.cache
 E:\ProjetUnity\CableGuy\quantum_code\quantum.code\obj\Debug\quantum.code.dll
+E:\ProjetUnity\CableGuy\quantum-api-sample\Assets\Photon\Quantum\Assemblies\quantum.code.dll
+E:\ProjetUnity\CableGuy\quantum-api-sample\Assets\Photon\Quantum\Assemblies\quantum.code.pdb
+E:\ProjetUnity\CableGuy\quantum_code\quantum.code\obj\Debug\quantum.code.csproj.CopyComplete
+E:\ProjetUnity\CableGuy\quantum_code\quantum.code\obj\Debug\quantum.code.pdb
