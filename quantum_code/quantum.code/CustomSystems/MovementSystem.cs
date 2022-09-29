@@ -20,21 +20,27 @@ namespace Quantum
         private bool reset = false;
         public void OnTriggerEnter3D(Frame f, TriggerInfo3D info)
         {
-           // Log.Debug("Trigger enter "+ f.Has<KillZone>(info.Entity)+ " "+ f.Has<PlayerID>(info.Other)+" "+info.Other.ToString());
-
+            // Log.Debug("Trigger enter "+ f.Has<KillZone>(info.Entity)+ " "+ f.Has<PlayerID>(info.Other)+" "+info.Other.ToString());
+            Log.Debug("Trigger enter");
             //TODO:rajouter check joueur
-            if (f.Has<KillZone>(info.Entity)&& f.Has<PlayerID>(info.Other))
+            if (f.Has<KillZone>(info.Entity) && f.Has<PlayerID>(info.Other))
             {
                 EntityRef player = info.Other;
                 reset = true;
                 var resetPos = f.Get<ResetPos>(player);
                 resetPos.reset = true;
                 f.Set(player, resetPos);
-               // Log.Debug("TRIGGER KILLZONE");
+                // Log.Debug("TRIGGER KILLZONE");
                 var t = f.Get<Transform3D>(player);
-                
-                t.Position= new FPVector3(0, 0, 0);
+
+                t.Position = new FPVector3(0, 0, 0);
                 f.Set(player, t);
+            }
+            if (f.Has<ProducteurEnergie>(info.Entity) && f.Has<PlayerID>(info.Other))
+            {
+                var currentRegen = f.Get<ProducteurEnergie>(info.Entity);
+                Log.Debug("Trigger enter recharge "+currentRegen);
+                
             }
         }
         public void ResetPlayerPos()
