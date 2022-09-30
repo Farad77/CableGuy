@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonDataAsset: {fileID: 11400000, guid: 6c87c717db6a4c34491683a8f335b554, type: 2}
-  initialSkinName: 
+  initialSkinName: P1
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
   initialFlipY: 0
@@ -565,6 +565,9 @@ MonoBehaviour:
       RawValue: 6553600
     RegenBonus:
       RawValue: 65536
+    NextTick:
+      RawValue: 0
+    Entity: {fileID: 0}
 --- !u!114 &6909693008981432066
 MonoBehaviour:
   m_ObjectHideFlags: 0

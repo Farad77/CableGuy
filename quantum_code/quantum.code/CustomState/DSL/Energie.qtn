@@ -3,4 +3,5 @@
     FP MaxAmount;
     FP RegenBonus;
      [HideInInspector] FP NextTick;
+      EntityRef Entity;
 }

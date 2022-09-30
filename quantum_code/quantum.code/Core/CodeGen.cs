@@ -2898,21 +2898,24 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Energie : Quantum.IComponent {
-    public const Int32 SIZE = 32;
+    public const Int32 SIZE = 40;
     public const Int32 ALIGNMENT = 8;
-    [FieldOffset(0)]
-    public FP CurrentAmount;
     [FieldOffset(8)]
-    public FP MaxAmount;
+    public FP CurrentAmount;
+    [FieldOffset(0)]
+    public EntityRef Entity;
     [FieldOffset(16)]
+    public FP MaxAmount;
+    [FieldOffset(24)]
     [HideInInspector()]
     public FP NextTick;
-    [FieldOffset(24)]
+    [FieldOffset(32)]
     public FP RegenBonus;
     public override Int32 GetHashCode() {
       unchecked { 
         var hash = 337;
         hash = hash * 31 + CurrentAmount.GetHashCode();
+        hash = hash * 31 + Entity.GetHashCode();
         hash = hash * 31 + MaxAmount.GetHashCode();
         hash = hash * 31 + NextTick.GetHashCode();
         hash = hash * 31 + RegenBonus.GetHashCode();
@@ -2921,6 +2924,7 @@ namespace Quantum {
     }
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (Energie*)ptr;
+        EntityRef.Serialize(&p->Entity, serializer);
         FP.Serialize(&p->CurrentAmount, serializer);
         FP.Serialize(&p->MaxAmount, serializer);
         FP.Serialize(&p->NextTick, serializer);
@@ -4980,6 +4984,7 @@ namespace Quantum.Prototypes {
     public FP RegenBonus;
     [HideInInspector()]
     public FP NextTick;
+    public MapEntityId Entity;
     partial void MaterializeUser(Frame frame, ref Energie result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
       Energie component = default;
@@ -4988,6 +4993,7 @@ namespace Quantum.Prototypes {
     }
     public void Materialize(Frame frame, ref Energie result, in PrototypeMaterializationContext context) {
       result.CurrentAmount = this.CurrentAmount;
+      PrototypeValidator.FindMapEntity(this.Entity, in context, out result.Entity);
       result.MaxAmount = this.MaxAmount;
       result.NextTick = this.NextTick;
       result.RegenBonus = this.RegenBonus;

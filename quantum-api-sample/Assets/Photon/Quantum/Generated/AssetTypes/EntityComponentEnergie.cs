@@ -4,5 +4,5 @@
 // </auto-generated>
 
 [UnityEngine.DisallowMultipleComponent()]
-public partial class EntityComponentEnergie : EntityComponentBase<Quantum.Prototypes.Energie_Prototype> {
+public partial class EntityComponentEnergie : EntityComponentBase<Quantum.Prototypes.Energie_Prototype, Quantum.Prototypes.Unity.Energie_Prototype> {
 }

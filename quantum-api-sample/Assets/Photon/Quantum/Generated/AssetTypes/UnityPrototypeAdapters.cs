@@ -72,6 +72,27 @@ namespace Quantum.Prototypes.Unity {
     }
   }
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Energie))]
+  public class Energie_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Energie_Prototype> {
+    public Photon.Deterministic.FP CurrentAmount;
+    public Photon.Deterministic.FP MaxAmount;
+    public Photon.Deterministic.FP RegenBonus;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public Photon.Deterministic.FP NextTick;
+    [Quantum.LocalReference]
+    public global::EntityPrototype Entity;
+
+    public sealed override Quantum.Prototypes.Energie_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.Energie_Prototype();
+      result.CurrentAmount = this.CurrentAmount;
+      result.MaxAmount = this.MaxAmount;
+      result.RegenBonus = this.RegenBonus;
+      result.NextTick = this.NextTick;
+      converter.Convert(this.Entity, out result.Entity);
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.EntitySpawner))]
   public class EntitySpawner_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.EntitySpawner_Prototype> {
     [Quantum.Inspector.HideInInspectorAttribute()]

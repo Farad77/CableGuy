@@ -12,6 +12,7 @@ namespace Quantum
             TimeLapsedSpawner(f);
             TimeLapsedEntityTimer(f);
             TimeLapsedProducteurEnergie(f);
+            TimeLapsedConsommateurEnergie(f);
         }
 
         private void TimeLapsedProducteurEnergie(Frame f)
@@ -33,6 +34,17 @@ namespace Quantum
                 }
                 prodComponent.NextTick -= deltaTime;
                 f.Set(prod.Entity, prodComponent);
+            }
+        }
+        private void TimeLapsedConsommateurEnergie(Frame f)
+        {
+            var deltaTime = f.DeltaTime;
+
+            foreach (var cons in f.GetComponentIterator<Energie>())
+            {
+                var consComponent = cons.Component;
+                consComponent.NextTick -= deltaTime;
+                f.Set(cons.Entity, consComponent);
             }
         }
 
