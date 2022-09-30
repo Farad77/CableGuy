@@ -3,35 +3,12 @@ using System;
 
 namespace Quantum
 {
-    public unsafe class ProductionEnergySystem : SystemMainThread, ISignalOnTriggerEnter3D, ISignalOnTriggerExit3D
+    public unsafe class ConsommationEnergie : SystemMainThread
     {
        
 
-            public void OnTriggerEnter3D(Frame f, TriggerInfo3D info)
-        {
            
-            if (f.Has<ProducteurEnergie>(info.Entity) && f.Has<PlayerID>(info.Other))
-            {
-                var prod = f.Unsafe.GetPointer<ProducteurEnergie>(info.Entity);
-                //Log.Debug("Trigger enter recharge " + currentRegen);
-                try
-                {
-                    var conso = f.ResolveList<EntityRef>(prod->consommateur);
-                    conso.Add(info.Other);
-                }
-                catch(Exception e)
-                {
-                    prod->consommateur = f.AllocateList<EntityRef>();
-
-                    var conso = f.ResolveList<EntityRef>(prod->consommateur);
-                    conso.Add(info.Other);
-                }
-
-             
-
-            }
-        }
-        //TODO: Remove on exit consommateur from list
+       
         public override void OnInit(Frame f)
         {
             base.OnInit(f);
@@ -58,7 +35,7 @@ namespace Quantum
             for (int i = 0; i < l.Count; i++)
             {
                 var consom = f.Unsafe.GetPointer<Energie>(l[i]);
-                consom->CurrentAmount+= (prod->Regen/l.Count)*consom->RegenBonus;
+                consom->CurrentAmount+= prod->Regen/l.Count;
                 prod->CurrentAmount -= prod->Regen /l.Count;
                 //Log.Debug("Ca regen! "+ consom->CurrentAmount);
                 f.Events.OnRegenTick(consom->CurrentAmount, l[i]);

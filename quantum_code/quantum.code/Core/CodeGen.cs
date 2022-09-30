@@ -2898,19 +2898,23 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Energie : Quantum.IComponent {
-    public const Int32 SIZE = 24;
+    public const Int32 SIZE = 32;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(0)]
     public FP CurrentAmount;
     [FieldOffset(8)]
     public FP MaxAmount;
     [FieldOffset(16)]
+    [HideInInspector()]
+    public FP NextTick;
+    [FieldOffset(24)]
     public FP RegenBonus;
     public override Int32 GetHashCode() {
       unchecked { 
         var hash = 337;
         hash = hash * 31 + CurrentAmount.GetHashCode();
         hash = hash * 31 + MaxAmount.GetHashCode();
+        hash = hash * 31 + NextTick.GetHashCode();
         hash = hash * 31 + RegenBonus.GetHashCode();
         return hash;
       }
@@ -2919,6 +2923,7 @@ namespace Quantum {
         var p = (Energie*)ptr;
         FP.Serialize(&p->CurrentAmount, serializer);
         FP.Serialize(&p->MaxAmount, serializer);
+        FP.Serialize(&p->NextTick, serializer);
         FP.Serialize(&p->RegenBonus, serializer);
     }
   }
@@ -4973,6 +4978,8 @@ namespace Quantum.Prototypes {
     public FP CurrentAmount;
     public FP MaxAmount;
     public FP RegenBonus;
+    [HideInInspector()]
+    public FP NextTick;
     partial void MaterializeUser(Frame frame, ref Energie result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
       Energie component = default;
@@ -4982,6 +4989,7 @@ namespace Quantum.Prototypes {
     public void Materialize(Frame frame, ref Energie result, in PrototypeMaterializationContext context) {
       result.CurrentAmount = this.CurrentAmount;
       result.MaxAmount = this.MaxAmount;
+      result.NextTick = this.NextTick;
       result.RegenBonus = this.RegenBonus;
       MaterializeUser(frame, ref result, in context);
     }

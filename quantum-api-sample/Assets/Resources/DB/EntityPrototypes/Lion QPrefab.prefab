@@ -560,7 +560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prototype:
     CurrentAmount:
-      RawValue: 0
+      RawValue: 655360
     MaxAmount:
       RawValue: 6553600
     RegenBonus:
@@ -579,11 +579,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prototype:
     CurrentAmount:
-      RawValue: 0
+      RawValue: 655360
     MaxAmount:
       RawValue: 6553600
     Regen:
       RawValue: 655360
+    consommateur: []
+    NextTick:
+      RawValue: 0
 --- !u!114 &2599216542420004145
 MonoBehaviour:
   m_ObjectHideFlags: 0

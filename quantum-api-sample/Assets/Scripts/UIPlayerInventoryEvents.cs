@@ -50,7 +50,7 @@ public class UIPlayerInventoryEvents : MonoBehaviour
     private void OnRegenTick(EventOnRegenTick e)
     {
         if (e.Target != _player) return;
-        _energyCounter.text = e.Amount.ToString();
+        _energyCounter.text = "Energie:"+e.Amount.ToString();
 
     }
         private void OnHealthPotionPickUp(EventOnPickUpHealthPotion e)

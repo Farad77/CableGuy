@@ -175,6 +175,7 @@
     <Compile Include="CustomSystems\AimHelperMovementSystem.cs" />
     <Compile Include="CustomSystems\AISystem.cs" />
     <Compile Include="CustomSystems\DynamicObstacleSystem.cs" />
+    <Compile Include="CustomSystems\ConsommationEnergie.cs" />
     <Compile Include="CustomSystems\ProductionEnergySystem.cs" />
     <Compile Include="CustomSystems\EntitySpawnSystem.cs" />
     <Compile Include="CustomSystems\HazardSystem.cs" />

@@ -2153,9 +2153,12 @@ MonoBehaviour:
     - CurrentAmount:
         RawValue: 6553600
       MaxAmount:
-        RawValue: 6553600
+        RawValue: -65470464
       Regen:
         RawValue: 655360
+      consommateur: []
+      NextTick:
+        RawValue: 0
     Projectile: []
     QAnimationState: []
     ResetPos: []
@@ -2209,17 +2212,17 @@ MonoBehaviour:
     PhysicsCallbacks2D: []
     PhysicsCallbacks3D:
     - CallbackFlags:
-        Value: 128
+        Value: 384
     Transform2D: []
     Transform2DVertical: []
     Transform3D:
     - Position:
         X:
-          RawValue: 171704
+          RawValue: 209474
         Y:
           RawValue: 81264
         Z:
-          RawValue: -833617
+          RawValue: -898032
       Rotation:
         X:
           RawValue: 0
@@ -2250,9 +2253,12 @@ MonoBehaviour:
     - CurrentAmount:
         RawValue: 6553600
       MaxAmount:
-        RawValue: 6553600
+        RawValue: -65470464
       Regen:
         RawValue: 655360
+      consommateur: []
+      NextTick:
+        RawValue: 0
     Projectile: []
     QAnimationState: []
     ResetPos: []
@@ -2306,17 +2312,17 @@ MonoBehaviour:
     PhysicsCallbacks2D: []
     PhysicsCallbacks3D:
     - CallbackFlags:
-        Value: 128
+        Value: 384
     Transform2D: []
     Transform2DVertical: []
     Transform3D:
     - Position:
         X:
-          RawValue: 389878
+          RawValue: 427648
         Y:
           RawValue: 99614
         Z:
-          RawValue: 98349
+          RawValue: 33934
       Rotation:
         X:
           RawValue: 0
@@ -2347,9 +2353,12 @@ MonoBehaviour:
     - CurrentAmount:
         RawValue: 6553600
       MaxAmount:
-        RawValue: 6553600
+        RawValue: -65470464
       Regen:
         RawValue: 655360
+      consommateur: []
+      NextTick:
+        RawValue: 0
     Projectile: []
     QAnimationState: []
     ResetPos: []
@@ -2403,17 +2412,17 @@ MonoBehaviour:
     PhysicsCallbacks2D: []
     PhysicsCallbacks3D:
     - CallbackFlags:
-        Value: 128
+        Value: 384
     Transform2D: []
     Transform2DVertical: []
     Transform3D:
     - Position:
         X:
-          RawValue: -399175
+          RawValue: -361404
         Y:
           RawValue: 8519
         Z:
-          RawValue: 19050
+          RawValue: -45364
       Rotation:
         X:
           RawValue: 0
@@ -2444,9 +2453,12 @@ MonoBehaviour:
     - CurrentAmount:
         RawValue: 6553600
       MaxAmount:
-        RawValue: 6553600
+        RawValue: -65470464
       Regen:
         RawValue: 655360
+      consommateur: []
+      NextTick:
+        RawValue: 0
     Projectile: []
     QAnimationState: []
     ResetPos: []
@@ -2500,17 +2512,17 @@ MonoBehaviour:
     PhysicsCallbacks2D: []
     PhysicsCallbacks3D:
     - CallbackFlags:
-        Value: 128
+        Value: 384
     Transform2D: []
     Transform2DVertical: []
     Transform3D:
     - Position:
         X:
-          RawValue: -928050
+          RawValue: -890280
         Y:
           RawValue: 25034
         Z:
-          RawValue: -294866
+          RawValue: -359281
       Rotation:
         X:
           RawValue: 0
