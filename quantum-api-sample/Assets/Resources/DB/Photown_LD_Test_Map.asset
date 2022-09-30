@@ -3413,11 +3413,11 @@ MonoBehaviour:
           RawValue: 65536
       Position:
         X:
-          RawValue: -1537669
+          RawValue: -2582052
         Y:
-          RawValue: 0
+          RawValue: 78643
         Z:
-          RawValue: 3
+          RawValue: -437833
       PhysicsMaterial:
         Id:
           Value: 0
@@ -3426,11 +3426,11 @@ MonoBehaviour:
         RawValue: 0
       BoxExtents:
         X:
-          RawValue: 32768
+          RawValue: 19005
         Y:
-          RawValue: 163840
+          RawValue: 281802
         Z:
-          RawValue: 983040
+          RawValue: 2595225
       SmoothSphereMeshCollisions: 0
       StaticData:
         Name: Cube (1)
@@ -3454,11 +3454,11 @@ MonoBehaviour:
           RawValue: 65536
       Position:
         X:
-          RawValue: 1016690
+          RawValue: 2080295
         Y:
           RawValue: 0
         Z:
-          RawValue: 3
+          RawValue: -395290
       PhysicsMaterial:
         Id:
           Value: 0
@@ -3467,11 +3467,11 @@ MonoBehaviour:
         RawValue: 0
       BoxExtents:
         X:
-          RawValue: 32768
+          RawValue: 30146
         Y:
-          RawValue: 163840
+          RawValue: 462027
         Z:
-          RawValue: 983040
+          RawValue: 2949120
       SmoothSphereMeshCollisions: 0
       StaticData:
         Name: Cube (2)
@@ -3499,7 +3499,7 @@ MonoBehaviour:
         Y:
           RawValue: 0
         Z:
-          RawValue: 719686
+          RawValue: -2761734
       PhysicsMaterial:
         Id:
           Value: 0
@@ -3508,9 +3508,9 @@ MonoBehaviour:
         RawValue: 0
       BoxExtents:
         X:
-          RawValue: 522838
+          RawValue: 2525340
         Y:
-          RawValue: 163840
+          RawValue: 535755
         Z:
           RawValue: 37808
       SmoothSphereMeshCollisions: 0
@@ -3536,11 +3536,11 @@ MonoBehaviour:
           RawValue: 65536
       Position:
         X:
-          RawValue: -290390
+          RawValue: -348055
         Y:
-          RawValue: 0
+          RawValue: 101580
         Z:
-          RawValue: -1432271
+          RawValue: 1609540
       PhysicsMaterial:
         Id:
           Value: 0
@@ -3549,11 +3549,11 @@ MonoBehaviour:
         RawValue: 0
       BoxExtents:
         X:
-          RawValue: 522838
+          RawValue: 2535799
         Y:
-          RawValue: 163840
+          RawValue: 707787
         Z:
-          RawValue: 37808
+          RawValue: 37809
       SmoothSphereMeshCollisions: 0
       StaticData:
         Name: Cube (4)
@@ -5290,6 +5290,406 @@ MonoBehaviour:
       MutableMode: 0
     MapEntities: []
   Prototypes:
+  - AIBlackboardComponent: []
+    AimObject: []
+    BTAgent: []
+    CharacterInventory: []
+    DynamicObstacle: []
+    Energie: []
+    EntitySpawner: []
+    GOAPAgent: []
+    HFSMAgent: []
+    Hazard: []
+    Health: []
+    KillZone: []
+    Knockable: []
+    Mana: []
+    PickUpSlot: []
+    PlayerID: []
+    ProducteurEnergie:
+    - CurrentAmount:
+        RawValue: 6553600
+      MaxAmount:
+        RawValue: -65470464
+      Regen:
+        RawValue: 655360
+      consommateur: []
+      NextTick:
+        RawValue: 0
+    Projectile: []
+    QAnimationState: []
+    ResetPos: []
+    Shield: []
+    UTAgent: []
+    Weapon: []
+    CharacterController2D: []
+    CharacterController3D: []
+    NavMeshAvoidanceAgent: []
+    NavMeshAvoidanceObstacle: []
+    NavMeshPathfinder: []
+    NavMeshSteeringAgent: []
+    PhysicsBody2D: []
+    PhysicsBody3D: []
+    PhysicsCollider2D: []
+    PhysicsCollider3D:
+    - ShapeConfig:
+        ShapeType: 2
+        SphereRadius:
+          RawValue: 0
+        PositionOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        BoxExtents:
+          X:
+            RawValue: 187432
+          Y:
+            RawValue: 98304
+          Z:
+            RawValue: 190054
+        RotationOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        UserTag: 0
+        IsPersistent: 1
+        CompoundShapes: []
+        IsSetFromSourceCollider: 0
+      Layer: 15
+      IsTrigger: 1
+      PhysicsMaterial:
+        Id:
+          Value: 0
+    PhysicsCallbacks2D: []
+    PhysicsCallbacks3D:
+    - CallbackFlags:
+        Value: 384
+    Transform2D: []
+    Transform2DVertical: []
+    Transform3D:
+    - Position:
+        X:
+          RawValue: 661612
+        Y:
+          RawValue: 81264
+        Z:
+          RawValue: -1852191
+      Rotation:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+    View: []
+    PhysicsJoints2D: []
+    PhysicsJoints3D: []
+  - AIBlackboardComponent: []
+    AimObject: []
+    BTAgent: []
+    CharacterInventory: []
+    DynamicObstacle: []
+    Energie: []
+    EntitySpawner: []
+    GOAPAgent: []
+    HFSMAgent: []
+    Hazard: []
+    Health: []
+    KillZone: []
+    Knockable: []
+    Mana: []
+    PickUpSlot: []
+    PlayerID: []
+    ProducteurEnergie:
+    - CurrentAmount:
+        RawValue: 6553600
+      MaxAmount:
+        RawValue: -65470464
+      Regen:
+        RawValue: 655360
+      consommateur: []
+      NextTick:
+        RawValue: 0
+    Projectile: []
+    QAnimationState: []
+    ResetPos: []
+    Shield: []
+    UTAgent: []
+    Weapon: []
+    CharacterController2D: []
+    CharacterController3D: []
+    NavMeshAvoidanceAgent: []
+    NavMeshAvoidanceObstacle: []
+    NavMeshPathfinder: []
+    NavMeshSteeringAgent: []
+    PhysicsBody2D: []
+    PhysicsBody3D: []
+    PhysicsCollider2D: []
+    PhysicsCollider3D:
+    - ShapeConfig:
+        ShapeType: 2
+        SphereRadius:
+          RawValue: 0
+        PositionOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        BoxExtents:
+          X:
+            RawValue: 187432
+          Y:
+            RawValue: 98304
+          Z:
+            RawValue: 190054
+        RotationOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        UserTag: 0
+        IsPersistent: 1
+        CompoundShapes: []
+        IsSetFromSourceCollider: 0
+      Layer: 15
+      IsTrigger: 1
+      PhysicsMaterial:
+        Id:
+          Value: 0
+    PhysicsCallbacks2D: []
+    PhysicsCallbacks3D:
+    - CallbackFlags:
+        Value: 384
+    Transform2D: []
+    Transform2DVertical: []
+    Transform3D:
+    - Position:
+        X:
+          RawValue: 427648
+        Y:
+          RawValue: 90243
+        Z:
+          RawValue: 33934
+      Rotation:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+    View: []
+    PhysicsJoints2D: []
+    PhysicsJoints3D: []
+  - AIBlackboardComponent: []
+    AimObject: []
+    BTAgent: []
+    CharacterInventory: []
+    DynamicObstacle: []
+    Energie: []
+    EntitySpawner: []
+    GOAPAgent: []
+    HFSMAgent: []
+    Hazard: []
+    Health: []
+    KillZone: []
+    Knockable: []
+    Mana: []
+    PickUpSlot: []
+    PlayerID: []
+    ProducteurEnergie:
+    - CurrentAmount:
+        RawValue: 6553600
+      MaxAmount:
+        RawValue: -65470464
+      Regen:
+        RawValue: 655360
+      consommateur: []
+      NextTick:
+        RawValue: 0
+    Projectile: []
+    QAnimationState: []
+    ResetPos: []
+    Shield: []
+    UTAgent: []
+    Weapon: []
+    CharacterController2D: []
+    CharacterController3D: []
+    NavMeshAvoidanceAgent: []
+    NavMeshAvoidanceObstacle: []
+    NavMeshPathfinder: []
+    NavMeshSteeringAgent: []
+    PhysicsBody2D: []
+    PhysicsBody3D: []
+    PhysicsCollider2D: []
+    PhysicsCollider3D:
+    - ShapeConfig:
+        ShapeType: 2
+        SphereRadius:
+          RawValue: 0
+        PositionOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        BoxExtents:
+          X:
+            RawValue: 187432
+          Y:
+            RawValue: 98304
+          Z:
+            RawValue: 190054
+        RotationOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        UserTag: 0
+        IsPersistent: 1
+        CompoundShapes: []
+        IsSetFromSourceCollider: 0
+      Layer: 15
+      IsTrigger: 1
+      PhysicsMaterial:
+        Id:
+          Value: 0
+    PhysicsCallbacks2D: []
+    PhysicsCallbacks3D:
+    - CallbackFlags:
+        Value: 384
+    Transform2D: []
+    Transform2DVertical: []
+    Transform3D:
+    - Position:
+        X:
+          RawValue: -201955
+        Y:
+          RawValue: 21626
+        Z:
+          RawValue: -205534
+      Rotation:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+    View: []
+    PhysicsJoints2D: []
+    PhysicsJoints3D: []
+  - AIBlackboardComponent: []
+    AimObject: []
+    BTAgent: []
+    CharacterInventory: []
+    DynamicObstacle: []
+    Energie: []
+    EntitySpawner: []
+    GOAPAgent: []
+    HFSMAgent: []
+    Hazard: []
+    Health: []
+    KillZone: []
+    Knockable: []
+    Mana: []
+    PickUpSlot: []
+    PlayerID: []
+    ProducteurEnergie:
+    - CurrentAmount:
+        RawValue: 6553600
+      MaxAmount:
+        RawValue: -65470464
+      Regen:
+        RawValue: 655360
+      consommateur: []
+      NextTick:
+        RawValue: 0
+    Projectile: []
+    QAnimationState: []
+    ResetPos: []
+    Shield: []
+    UTAgent: []
+    Weapon: []
+    CharacterController2D: []
+    CharacterController3D: []
+    NavMeshAvoidanceAgent: []
+    NavMeshAvoidanceObstacle: []
+    NavMeshPathfinder: []
+    NavMeshSteeringAgent: []
+    PhysicsBody2D: []
+    PhysicsBody3D: []
+    PhysicsCollider2D: []
+    PhysicsCollider3D:
+    - ShapeConfig:
+        ShapeType: 2
+        SphereRadius:
+          RawValue: 0
+        PositionOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        BoxExtents:
+          X:
+            RawValue: 187432
+          Y:
+            RawValue: 98304
+          Z:
+            RawValue: 190054
+        RotationOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        UserTag: 0
+        IsPersistent: 1
+        CompoundShapes: []
+        IsSetFromSourceCollider: 0
+      Layer: 15
+      IsTrigger: 1
+      PhysicsMaterial:
+        Id:
+          Value: 0
+    PhysicsCallbacks2D: []
+    PhysicsCallbacks3D:
+    - CallbackFlags:
+        Value: 384
+    Transform2D: []
+    Transform2DVertical: []
+    Transform3D:
+    - Position:
+        X:
+          RawValue: -1449957
+        Y:
+          RawValue: 25034
+        Z:
+          RawValue: -983184
+      Rotation:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+    View: []
+    PhysicsJoints2D: []
+    PhysicsJoints3D: []
   - AIBlackboardComponent: []
     AimObject: []
     BTAgent: []
