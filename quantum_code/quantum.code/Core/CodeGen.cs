@@ -3304,27 +3304,52 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct ProducteurEnergie : Quantum.IComponent {
-    public const Int32 SIZE = 24;
+    public const Int32 SIZE = 40;
     public const Int32 ALIGNMENT = 8;
-    [FieldOffset(0)]
-    public FP CurrentAmount;
     [FieldOffset(8)]
-    public FP MaxAmount;
+    public FP CurrentAmount;
     [FieldOffset(16)]
+    public FP MaxAmount;
+    [FieldOffset(24)]
+    [HideInInspector()]
+    public FP NextTick;
+    [FieldOffset(32)]
     public FP Regen;
+    [FieldOffset(0)]
+    [FramePrinter.PtrQListAttribute(typeof(EntityRef))]
+    private Ptr consommateurPtr;
+    public QListPtr<EntityRef> consommateur {
+      get {
+        return new QListPtr<EntityRef>(consommateurPtr);
+      }
+      set {
+        consommateurPtr = value.Ptr;
+      }
+    }
     public override Int32 GetHashCode() {
       unchecked { 
         var hash = 401;
         hash = hash * 31 + CurrentAmount.GetHashCode();
         hash = hash * 31 + MaxAmount.GetHashCode();
+        hash = hash * 31 + NextTick.GetHashCode();
         hash = hash * 31 + Regen.GetHashCode();
+        hash = hash * 31 + consommateurPtr.GetHashCode();
         return hash;
       }
     }
+    public void ClearPointers(Frame f, EntityRef entity) {
+      consommateurPtr = default;
+    }
+    public static void OnRemoved(FrameBase frame, EntityRef entity, void* ptr) {
+      var p = (ProducteurEnergie*)ptr;
+      p->ClearPointers((Frame)frame, entity);
+    }
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (ProducteurEnergie*)ptr;
+        QList.Serialize(p->consommateur, &p->consommateurPtr, serializer, StaticDelegates.SerializeEntityRef);
         FP.Serialize(&p->CurrentAmount, serializer);
         FP.Serialize(&p->MaxAmount, serializer);
+        FP.Serialize(&p->NextTick, serializer);
         FP.Serialize(&p->Regen, serializer);
     }
   }
@@ -3527,7 +3552,7 @@ namespace Quantum {
         ComponentTypeId.Add<Quantum.Mana>(Quantum.Mana.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.PickUpSlot>(Quantum.PickUpSlot.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.PlayerID>(Quantum.PlayerID.Serialize, null, null, ComponentFlags.None);
-        ComponentTypeId.Add<Quantum.ProducteurEnergie>(Quantum.ProducteurEnergie.Serialize, null, null, ComponentFlags.None);
+        ComponentTypeId.Add<Quantum.ProducteurEnergie>(Quantum.ProducteurEnergie.Serialize, null, Quantum.ProducteurEnergie.OnRemoved, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.Projectile>(Quantum.Projectile.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.QAnimationState>(Quantum.QAnimationState.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.ResetPos>(Quantum.ResetPos.Serialize, null, null, ComponentFlags.None);
@@ -3640,7 +3665,7 @@ namespace Quantum {
     public unsafe partial struct FrameSignals {
     }
     public unsafe partial struct FrameEvents {
-      public const Int32 EVENT_TYPE_COUNT = 12;
+      public const Int32 EVENT_TYPE_COUNT = 13;
       public static Int32 GetParentEventID(Int32 eventID) {
         switch (eventID) {
           case EventOnDamageDealt.ID: return EventResourceEvent.ID;
@@ -3649,6 +3674,7 @@ namespace Quantum {
           case EventOnPickUpHealthPotion.ID: return EventResourceEvent.ID;
           case EventOnPickUpManaPotion.ID: return EventResourceEvent.ID;
           case EventOnPickUpCoins.ID: return EventResourceEvent.ID;
+          case EventOnRegenTick.ID: return EventResourceEvent.ID;
           default: return -1;
         }
       }
@@ -3666,6 +3692,7 @@ namespace Quantum {
           case EventOnPickUpHealthPotion.ID: return typeof(EventOnPickUpHealthPotion);
           case EventOnPickUpManaPotion.ID: return typeof(EventOnPickUpManaPotion);
           case EventOnPickUpCoins.ID: return typeof(EventOnPickUpCoins);
+          case EventOnRegenTick.ID: return typeof(EventOnRegenTick);
           default: throw new System.ArgumentOutOfRangeException("eventID");
         }
       }
@@ -3743,6 +3770,14 @@ namespace Quantum {
       public EventOnPickUpCoins OnPickUpCoins(FP Amount, EntityRef Target) {
         if (_f.IsPredicted) return null;
         var ev = _f.Context.AcquireEvent<EventOnPickUpCoins>(EventOnPickUpCoins.ID);
+        ev.Amount = Amount;
+        ev.Target = Target;
+        _f.AddEvent(ev);
+        return ev;
+      }
+      public EventOnRegenTick OnRegenTick(FP Amount, EntityRef Target) {
+        if (_f.IsPredicted) return null;
+        var ev = _f.Context.AcquireEvent<EventOnRegenTick>(EventOnRegenTick.ID);
         ev.Amount = Amount;
         ev.Target = Target;
         _f.AddEvent(ev);
@@ -4089,6 +4124,23 @@ namespace Quantum {
     public override Int32 GetHashCode() {
       unchecked {
         var hash = 83;
+        hash = hash * 31 + Amount.GetHashCode();
+        hash = hash * 31 + Target.GetHashCode();
+        return hash;
+      }
+    }
+  }
+  public unsafe partial class EventOnRegenTick : EventResourceEvent {
+    public new const Int32 ID = 12;
+    protected EventOnRegenTick(Int32 id, EventFlags flags) : 
+        base(id, flags) {
+    }
+    public EventOnRegenTick() : 
+        base(12, EventFlags.Server|EventFlags.Client|EventFlags.Synced) {
+    }
+    public override Int32 GetHashCode() {
+      unchecked {
+        var hash = 89;
         hash = hash * 31 + Amount.GetHashCode();
         hash = hash * 31 + Target.GetHashCode();
         return hash;
@@ -5289,6 +5341,10 @@ namespace Quantum.Prototypes {
     public FP CurrentAmount;
     public FP MaxAmount;
     public FP Regen;
+    [DynamicCollectionAttribute()]
+    public MapEntityId[] consommateur = {};
+    [HideInInspector()]
+    public FP NextTick;
     partial void MaterializeUser(Frame frame, ref ProducteurEnergie result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
       ProducteurEnergie component = default;
@@ -5298,7 +5354,19 @@ namespace Quantum.Prototypes {
     public void Materialize(Frame frame, ref ProducteurEnergie result, in PrototypeMaterializationContext context) {
       result.CurrentAmount = this.CurrentAmount;
       result.MaxAmount = this.MaxAmount;
+      result.NextTick = this.NextTick;
       result.Regen = this.Regen;
+      if (this.consommateur.Length == 0) {
+        result.consommateur = default;
+      } else {
+        var list = frame.AllocateList(result.consommateur, this.consommateur.Length);
+        for (int i = 0; i < this.consommateur.Length; ++i) {
+          EntityRef tmp = default;
+          PrototypeValidator.FindMapEntity(this.consommateur[i], in context, out tmp);
+          list.Add(tmp);
+        }
+        result.consommateur = list;
+      }
       MaterializeUser(frame, ref result, in context);
     }
     public override void Dispatch(ComponentPrototypeVisitorBase visitor) {

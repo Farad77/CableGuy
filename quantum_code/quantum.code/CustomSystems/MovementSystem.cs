@@ -36,12 +36,7 @@ namespace Quantum
                 t.Position = new FPVector3(0, 0, 0);
                 f.Set(player, t);
             }
-            if (f.Has<ProducteurEnergie>(info.Entity) && f.Has<PlayerID>(info.Other))
-            {
-                var currentRegen = f.Get<ProducteurEnergie>(info.Entity);
-                Log.Debug("Trigger enter recharge "+currentRegen);
-                
-            }
+           
         }
         public void ResetPlayerPos()
         {

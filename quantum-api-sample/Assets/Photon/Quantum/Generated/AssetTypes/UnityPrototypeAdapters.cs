@@ -187,6 +187,28 @@ namespace Quantum.Prototypes.Unity {
     }
   }
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.ProducteurEnergie))]
+  public class ProducteurEnergie_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.ProducteurEnergie_Prototype> {
+    public Photon.Deterministic.FP CurrentAmount;
+    public Photon.Deterministic.FP MaxAmount;
+    public Photon.Deterministic.FP Regen;
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    [Quantum.LocalReference]
+    public global::EntityPrototype[] consommateur = System.Array.Empty<global::EntityPrototype>();
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public Photon.Deterministic.FP NextTick;
+
+    public sealed override Quantum.Prototypes.ProducteurEnergie_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.ProducteurEnergie_Prototype();
+      result.CurrentAmount = this.CurrentAmount;
+      result.MaxAmount = this.MaxAmount;
+      result.Regen = this.Regen;
+      result.consommateur = System.Array.ConvertAll(this.consommateur, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
+      result.NextTick = this.NextTick;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Weapon))]
   public class Weapon_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Weapon_Prototype> {
     public Quantum.QBoolean IsEquipped;

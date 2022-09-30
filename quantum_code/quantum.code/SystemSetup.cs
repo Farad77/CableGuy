@@ -45,6 +45,7 @@ namespace Quantum {
         new DynamicObstacleSystem(),
         
          new MovementSystem(),
+         new ProductionEnergySystem(),
         
 
 

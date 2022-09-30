@@ -2147,6 +2147,394 @@ MonoBehaviour:
     KillZone: []
     Knockable: []
     Mana: []
+    PickUpSlot: []
+    PlayerID: []
+    ProducteurEnergie:
+    - CurrentAmount:
+        RawValue: 6553600
+      MaxAmount:
+        RawValue: 6553600
+      Regen:
+        RawValue: 655360
+    Projectile: []
+    QAnimationState: []
+    ResetPos: []
+    Shield: []
+    UTAgent: []
+    Weapon: []
+    CharacterController2D: []
+    CharacterController3D: []
+    NavMeshAvoidanceAgent: []
+    NavMeshAvoidanceObstacle: []
+    NavMeshPathfinder: []
+    NavMeshSteeringAgent: []
+    PhysicsBody2D: []
+    PhysicsBody3D: []
+    PhysicsCollider2D: []
+    PhysicsCollider3D:
+    - ShapeConfig:
+        ShapeType: 2
+        SphereRadius:
+          RawValue: 0
+        PositionOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        BoxExtents:
+          X:
+            RawValue: 187432
+          Y:
+            RawValue: 98304
+          Z:
+            RawValue: 190054
+        RotationOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        UserTag: 0
+        IsPersistent: 1
+        CompoundShapes: []
+        IsSetFromSourceCollider: 0
+      Layer: 15
+      IsTrigger: 1
+      PhysicsMaterial:
+        Id:
+          Value: 0
+    PhysicsCallbacks2D: []
+    PhysicsCallbacks3D:
+    - CallbackFlags:
+        Value: 128
+    Transform2D: []
+    Transform2DVertical: []
+    Transform3D:
+    - Position:
+        X:
+          RawValue: 171704
+        Y:
+          RawValue: 81264
+        Z:
+          RawValue: -833617
+      Rotation:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+    View: []
+    PhysicsJoints2D: []
+    PhysicsJoints3D: []
+  - AIBlackboardComponent: []
+    AimObject: []
+    BTAgent: []
+    CharacterInventory: []
+    DynamicObstacle: []
+    Energie: []
+    EntitySpawner: []
+    GOAPAgent: []
+    HFSMAgent: []
+    Hazard: []
+    Health: []
+    KillZone: []
+    Knockable: []
+    Mana: []
+    PickUpSlot: []
+    PlayerID: []
+    ProducteurEnergie:
+    - CurrentAmount:
+        RawValue: 6553600
+      MaxAmount:
+        RawValue: 6553600
+      Regen:
+        RawValue: 655360
+    Projectile: []
+    QAnimationState: []
+    ResetPos: []
+    Shield: []
+    UTAgent: []
+    Weapon: []
+    CharacterController2D: []
+    CharacterController3D: []
+    NavMeshAvoidanceAgent: []
+    NavMeshAvoidanceObstacle: []
+    NavMeshPathfinder: []
+    NavMeshSteeringAgent: []
+    PhysicsBody2D: []
+    PhysicsBody3D: []
+    PhysicsCollider2D: []
+    PhysicsCollider3D:
+    - ShapeConfig:
+        ShapeType: 2
+        SphereRadius:
+          RawValue: 0
+        PositionOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        BoxExtents:
+          X:
+            RawValue: 187432
+          Y:
+            RawValue: 98304
+          Z:
+            RawValue: 190054
+        RotationOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        UserTag: 0
+        IsPersistent: 1
+        CompoundShapes: []
+        IsSetFromSourceCollider: 0
+      Layer: 15
+      IsTrigger: 1
+      PhysicsMaterial:
+        Id:
+          Value: 0
+    PhysicsCallbacks2D: []
+    PhysicsCallbacks3D:
+    - CallbackFlags:
+        Value: 128
+    Transform2D: []
+    Transform2DVertical: []
+    Transform3D:
+    - Position:
+        X:
+          RawValue: 389878
+        Y:
+          RawValue: 99614
+        Z:
+          RawValue: 98349
+      Rotation:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+    View: []
+    PhysicsJoints2D: []
+    PhysicsJoints3D: []
+  - AIBlackboardComponent: []
+    AimObject: []
+    BTAgent: []
+    CharacterInventory: []
+    DynamicObstacle: []
+    Energie: []
+    EntitySpawner: []
+    GOAPAgent: []
+    HFSMAgent: []
+    Hazard: []
+    Health: []
+    KillZone: []
+    Knockable: []
+    Mana: []
+    PickUpSlot: []
+    PlayerID: []
+    ProducteurEnergie:
+    - CurrentAmount:
+        RawValue: 6553600
+      MaxAmount:
+        RawValue: 6553600
+      Regen:
+        RawValue: 655360
+    Projectile: []
+    QAnimationState: []
+    ResetPos: []
+    Shield: []
+    UTAgent: []
+    Weapon: []
+    CharacterController2D: []
+    CharacterController3D: []
+    NavMeshAvoidanceAgent: []
+    NavMeshAvoidanceObstacle: []
+    NavMeshPathfinder: []
+    NavMeshSteeringAgent: []
+    PhysicsBody2D: []
+    PhysicsBody3D: []
+    PhysicsCollider2D: []
+    PhysicsCollider3D:
+    - ShapeConfig:
+        ShapeType: 2
+        SphereRadius:
+          RawValue: 0
+        PositionOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        BoxExtents:
+          X:
+            RawValue: 187432
+          Y:
+            RawValue: 98304
+          Z:
+            RawValue: 190054
+        RotationOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        UserTag: 0
+        IsPersistent: 1
+        CompoundShapes: []
+        IsSetFromSourceCollider: 0
+      Layer: 15
+      IsTrigger: 1
+      PhysicsMaterial:
+        Id:
+          Value: 0
+    PhysicsCallbacks2D: []
+    PhysicsCallbacks3D:
+    - CallbackFlags:
+        Value: 128
+    Transform2D: []
+    Transform2DVertical: []
+    Transform3D:
+    - Position:
+        X:
+          RawValue: -399175
+        Y:
+          RawValue: 8519
+        Z:
+          RawValue: 19050
+      Rotation:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+    View: []
+    PhysicsJoints2D: []
+    PhysicsJoints3D: []
+  - AIBlackboardComponent: []
+    AimObject: []
+    BTAgent: []
+    CharacterInventory: []
+    DynamicObstacle: []
+    Energie: []
+    EntitySpawner: []
+    GOAPAgent: []
+    HFSMAgent: []
+    Hazard: []
+    Health: []
+    KillZone: []
+    Knockable: []
+    Mana: []
+    PickUpSlot: []
+    PlayerID: []
+    ProducteurEnergie:
+    - CurrentAmount:
+        RawValue: 6553600
+      MaxAmount:
+        RawValue: 6553600
+      Regen:
+        RawValue: 655360
+    Projectile: []
+    QAnimationState: []
+    ResetPos: []
+    Shield: []
+    UTAgent: []
+    Weapon: []
+    CharacterController2D: []
+    CharacterController3D: []
+    NavMeshAvoidanceAgent: []
+    NavMeshAvoidanceObstacle: []
+    NavMeshPathfinder: []
+    NavMeshSteeringAgent: []
+    PhysicsBody2D: []
+    PhysicsBody3D: []
+    PhysicsCollider2D: []
+    PhysicsCollider3D:
+    - ShapeConfig:
+        ShapeType: 2
+        SphereRadius:
+          RawValue: 0
+        PositionOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        BoxExtents:
+          X:
+            RawValue: 187432
+          Y:
+            RawValue: 98304
+          Z:
+            RawValue: 190054
+        RotationOffset:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        UserTag: 0
+        IsPersistent: 1
+        CompoundShapes: []
+        IsSetFromSourceCollider: 0
+      Layer: 15
+      IsTrigger: 1
+      PhysicsMaterial:
+        Id:
+          Value: 0
+    PhysicsCallbacks2D: []
+    PhysicsCallbacks3D:
+    - CallbackFlags:
+        Value: 128
+    Transform2D: []
+    Transform2DVertical: []
+    Transform3D:
+    - Position:
+        X:
+          RawValue: -928050
+        Y:
+          RawValue: 25034
+        Z:
+          RawValue: -294866
+      Rotation:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+    View: []
+    PhysicsJoints2D: []
+    PhysicsJoints3D: []
+  - AIBlackboardComponent: []
+    AimObject: []
+    BTAgent: []
+    CharacterInventory: []
+    DynamicObstacle: []
+    Energie: []
+    EntitySpawner: []
+    GOAPAgent: []
+    HFSMAgent: []
+    Hazard: []
+    Health: []
+    KillZone: []
+    Knockable: []
+    Mana: []
     PickUpSlot:
     - Item:
         Id:
@@ -2539,103 +2927,6 @@ MonoBehaviour:
           RawValue: 36700
         Z:
           RawValue: -32309
-      Rotation:
-        X:
-          RawValue: 0
-        Y:
-          RawValue: 0
-        Z:
-          RawValue: 0
-    View: []
-    PhysicsJoints2D: []
-    PhysicsJoints3D: []
-  - AIBlackboardComponent: []
-    AimObject: []
-    BTAgent: []
-    CharacterInventory: []
-    DynamicObstacle: []
-    Energie: []
-    EntitySpawner: []
-    GOAPAgent: []
-    HFSMAgent: []
-    Hazard: []
-    Health: []
-    KillZone: []
-    Knockable: []
-    Mana: []
-    PickUpSlot: []
-    PlayerID: []
-    ProducteurEnergie:
-    - CurrentAmount:
-        RawValue: 0
-      MaxAmount:
-        RawValue: 0
-      Regen:
-        RawValue: 0
-    Projectile: []
-    QAnimationState: []
-    ResetPos: []
-    Shield: []
-    UTAgent: []
-    Weapon: []
-    CharacterController2D: []
-    CharacterController3D: []
-    NavMeshAvoidanceAgent: []
-    NavMeshAvoidanceObstacle: []
-    NavMeshPathfinder: []
-    NavMeshSteeringAgent: []
-    PhysicsBody2D: []
-    PhysicsBody3D: []
-    PhysicsCollider2D: []
-    PhysicsCollider3D:
-    - ShapeConfig:
-        ShapeType: 2
-        SphereRadius:
-          RawValue: 0
-        PositionOffset:
-          X:
-            RawValue: 0
-          Y:
-            RawValue: 0
-          Z:
-            RawValue: 0
-        BoxExtents:
-          X:
-            RawValue: 187432
-          Y:
-            RawValue: 98304
-          Z:
-            RawValue: 190054
-        RotationOffset:
-          X:
-            RawValue: 0
-          Y:
-            RawValue: 0
-          Z:
-            RawValue: 0
-        UserTag: 0
-        IsPersistent: 1
-        CompoundShapes: []
-        IsSetFromSourceCollider: 0
-      Layer: 15
-      IsTrigger: 1
-      PhysicsMaterial:
-        Id:
-          Value: 0
-    PhysicsCallbacks2D: []
-    PhysicsCallbacks3D:
-    - CallbackFlags:
-        Value: 128
-    Transform2D: []
-    Transform2DVertical: []
-    Transform3D:
-    - Position:
-        X:
-          RawValue: -897187
-        Y:
-          RawValue: 85852
-        Z:
-          RawValue: -315228
       Rotation:
         X:
           RawValue: 0

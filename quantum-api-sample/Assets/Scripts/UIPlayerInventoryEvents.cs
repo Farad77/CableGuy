@@ -9,6 +9,7 @@ using UnityEngine;
 public class UIPlayerInventoryEvents : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _healthPotionsCounter = null;
+    [SerializeField] private TextMeshProUGUI _energyCounter = null;
     [SerializeField] private TextMeshProUGUI _manaPotionsCounter = null;
     [SerializeField] private TextMeshProUGUI _compteur = null;
 
@@ -26,6 +27,7 @@ public class UIPlayerInventoryEvents : MonoBehaviour
 
         QuantumEvent.Subscribe<EventOnPickUpHealthPotion>(this, OnHealthPotionPickUp);
         QuantumEvent.Subscribe<EventOnPickUpManaPotion>(this, OnManaPotionPickUp);
+             QuantumEvent.Subscribe<EventOnRegenTick>(this, OnRegenTick);
         StartCoroutine(compte());
         // EventOnPickUpCoins.OnRaised += OnCoinsPickUp;
     }
@@ -45,8 +47,13 @@ public class UIPlayerInventoryEvents : MonoBehaviour
         _manaPotionsCounter.text = inventory->PotionsMana.AsInt.ToString();
         // _coinsCounter.text = inventory->Wallet.AsInt.ToString();
     }
+    private void OnRegenTick(EventOnRegenTick e)
+    {
+        if (e.Target != _player) return;
+        _energyCounter.text = e.Amount.ToString();
 
-    private void OnHealthPotionPickUp(EventOnPickUpHealthPotion e)
+    }
+        private void OnHealthPotionPickUp(EventOnPickUpHealthPotion e)
     {
         if (e.Target != _player) return;
         _healthPotionsCounter.text = e.Amount.ToString();

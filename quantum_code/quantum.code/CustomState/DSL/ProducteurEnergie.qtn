@@ -2,4 +2,6 @@
     FP CurrentAmount;
     FP MaxAmount;
     FP Regen;
+    list<EntityRef> consommateur;
+     [HideInInspector] FP NextTick;
 }

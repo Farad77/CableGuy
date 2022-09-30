@@ -1,4 +1,5 @@
 ﻿using Photon.Deterministic;
+using System;
 
 namespace Quantum
 { 
@@ -10,6 +11,29 @@ namespace Quantum
             PlayerInputAnimation(f);
             TimeLapsedSpawner(f);
             TimeLapsedEntityTimer(f);
+            TimeLapsedProducteurEnergie(f);
+        }
+
+        private void TimeLapsedProducteurEnergie(Frame f)
+        {
+            var deltaTime = f.DeltaTime;
+
+            foreach (var prod in f.GetComponentIterator<ProducteurEnergie>())
+            {
+                var prodComponent = prod.Component;
+                try
+                {
+                    var l = f.ResolveList(prodComponent.consommateur);
+
+                }
+                catch(Exception e)
+                {
+                    prodComponent.consommateur = f.AllocateList<EntityRef>();
+                    f.Set(prod.Entity, prodComponent);
+                }
+                prodComponent.NextTick -= deltaTime;
+                f.Set(prod.Entity, prodComponent);
+            }
         }
 
         private static void TimeLapsedAnimation(Frame f)

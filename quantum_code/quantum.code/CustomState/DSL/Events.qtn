@@ -44,3 +44,6 @@ synced event OnPickUpManaPotion : ResourceEvent{
 
 synced event OnPickUpCoins : ResourceEvent{
 }
+
+synced event OnRegenTick : ResourceEvent{
+}
