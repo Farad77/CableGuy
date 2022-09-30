@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/ExampleScene.unity
     guid: ee80832635f7ed4428f46c6595b35314
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Photown.unity
     guid: 6fbb80e6cdf4f56408fa4033fb8bf6e4
   - enabled: 1
