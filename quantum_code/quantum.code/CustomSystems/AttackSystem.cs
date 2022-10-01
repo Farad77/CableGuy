@@ -89,7 +89,7 @@ namespace Quantum
             }
 
             f.Events.PlayerAttack(player.PlayerId->PlayerRef);
-            Shoot(f, player.Entity);
+          //  Shoot(f, player.Entity);
             var l = f.ResolveList(player.Weapon->AlreadyHit);
             l.Clear();
         }

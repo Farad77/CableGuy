@@ -782,6 +782,8 @@ MonoBehaviour:
       Id:
         Value: 3274412228143879235
     AlreadyHit: []
+    EnergyCost:
+      RawValue: 327680
 --- !u!114 &8702081728751154467
 MonoBehaviour:
   m_ObjectHideFlags: 0

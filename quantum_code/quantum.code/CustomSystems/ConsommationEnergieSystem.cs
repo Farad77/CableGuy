@@ -33,11 +33,27 @@ namespace Quantum
 
         private static void Shoot(in Frame f, in EntityRef entity)
         {
+
             var playerId = f.Get<PlayerID>(entity);
             var input = f.GetPlayerInput(playerId.PlayerRef);
-          
+            var weapon = f.Unsafe.GetPointer<Weapon>(entity);
+
+            var consom = f.Unsafe.GetPointer<Energie>(entity);
+            if (consom->CurrentAmount <= 0) { 
+
+                consom->CurrentAmount = 0;
+                 return;
+
+            }
+            if (consom->CurrentAmount <= consom->MaxAmount)
+            {
+                consom->CurrentAmount -= weapon->EnergyCost;
+               
+                f.Events.OnRegenTick(consom->CurrentAmount, entity);
+            }
+
             var transform = f.Get<Transform3D>(entity);
-           // var weapon = f.Unsafe.GetPointer<Weapon>(entity);
+           
          
             var proto = f.FindAsset<EntityPrototype>(PROJECTILE_PROTOTYPE);
             EntityRef bulletEntity = f.Create(proto);

@@ -58,10 +58,14 @@ namespace Quantum
             for (int i = 0; i < l.Count; i++)
             {
                 var consom = f.Unsafe.GetPointer<Energie>(l[i]);
-                consom->CurrentAmount+= (prod->Regen/l.Count)*consom->RegenBonus;
-                prod->CurrentAmount -= prod->Regen /l.Count;
+                if (consom->CurrentAmount < consom->MaxAmount)
+                {
+                    consom->CurrentAmount += (prod->Regen / l.Count) * consom->RegenBonus;
+                    prod->CurrentAmount -= prod->Regen / l.Count;
+                    f.Events.OnRegenTick(consom->CurrentAmount, l[i]);
+                }
                 //Log.Debug("Ca regen! "+ consom->CurrentAmount);
-                f.Events.OnRegenTick(consom->CurrentAmount, l[i]);
+              
                 /* if (f.Exists(l[i])) continue;
 
                  l.RemoveAt(i);

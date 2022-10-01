@@ -3492,12 +3492,14 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Weapon : Quantum.IComponent {
-    public const Int32 SIZE = 16;
+    public const Int32 SIZE = 24;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(0)]
     [HideInInspector()]
     [FramePrinter.PtrQListAttribute(typeof(EntityRef))]
     private Ptr AlreadyHitPtr;
+    [FieldOffset(16)]
+    public FP EnergyCost;
     [FieldOffset(4)]
     public QBoolean IsEquipped;
     [FieldOffset(8)]
@@ -3514,6 +3516,7 @@ namespace Quantum {
       unchecked { 
         var hash = 439;
         hash = hash * 31 + AlreadyHitPtr.GetHashCode();
+        hash = hash * 31 + EnergyCost.GetHashCode();
         hash = hash * 31 + IsEquipped.GetHashCode();
         hash = hash * 31 + WeaponSpec.GetHashCode();
         return hash;
@@ -3531,6 +3534,7 @@ namespace Quantum {
         QList.Serialize(p->AlreadyHit, &p->AlreadyHitPtr, serializer, StaticDelegates.SerializeEntityRef);
         QBoolean.Serialize(&p->IsEquipped, serializer);
         Quantum.AssetRefWeaponSpec.Serialize(&p->WeaponSpec, serializer);
+        FP.Serialize(&p->EnergyCost, serializer);
     }
   }
   public unsafe partial class Frame {
@@ -5598,6 +5602,7 @@ namespace Quantum.Prototypes {
     [HideInInspector()]
     [DynamicCollectionAttribute()]
     public MapEntityId[] AlreadyHit = {};
+    public FP EnergyCost;
     partial void MaterializeUser(Frame frame, ref Weapon result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
       Weapon component = default;
@@ -5616,6 +5621,7 @@ namespace Quantum.Prototypes {
         }
         result.AlreadyHit = list;
       }
+      result.EnergyCost = this.EnergyCost;
       result.IsEquipped = this.IsEquipped;
       result.WeaponSpec = this.WeaponSpec;
       MaterializeUser(frame, ref result, in context);

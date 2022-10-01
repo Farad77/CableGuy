@@ -27,7 +27,7 @@ public class UIPlayerInventoryEvents : MonoBehaviour
 
         QuantumEvent.Subscribe<EventOnPickUpHealthPotion>(this, OnHealthPotionPickUp);
         QuantumEvent.Subscribe<EventOnPickUpManaPotion>(this, OnManaPotionPickUp);
-             //QuantumEvent.Subscribe<EventOnRegenTick>(this, OnRegenTick);
+             QuantumEvent.Subscribe<EventOnRegenTick>(this, OnRegenTick);
         StartCoroutine(compte());
         // EventOnPickUpCoins.OnRaised += OnCoinsPickUp;
     }
@@ -47,12 +47,12 @@ public class UIPlayerInventoryEvents : MonoBehaviour
         _manaPotionsCounter.text = inventory->PotionsMana.AsInt.ToString();
         // _coinsCounter.text = inventory->Wallet.AsInt.ToString();
     }
-    //private void OnRegenTick(EventOnRegenTick e)
-    //{
-    //    if (e.Target != _player) return;
-    //    _energyCounter.text = "Energie:"+e.Amount.ToString();
+    private void OnRegenTick(EventOnRegenTick e)
+    {
+        if (e.Target != _player) return;
+        _energyCounter.text = "Energie:" + e.Amount.ToString();
 
-    //}
+    }
         private void OnHealthPotionPickUp(EventOnPickUpHealthPotion e)
     {
         if (e.Target != _player) return;

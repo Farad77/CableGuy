@@ -238,12 +238,14 @@ namespace Quantum.Prototypes.Unity {
     [Quantum.Inspector.DynamicCollectionAttribute()]
     [Quantum.LocalReference]
     public global::EntityPrototype[] AlreadyHit = System.Array.Empty<global::EntityPrototype>();
+    public Photon.Deterministic.FP EnergyCost;
 
     public sealed override Quantum.Prototypes.Weapon_Prototype Convert(EntityPrototypeConverter converter) {
       var result = new Quantum.Prototypes.Weapon_Prototype();
       result.IsEquipped = this.IsEquipped;
       result.WeaponSpec = this.WeaponSpec;
       result.AlreadyHit = System.Array.ConvertAll(this.AlreadyHit, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
+      result.EnergyCost = this.EnergyCost;
       return result;
     }
   }
