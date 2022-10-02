@@ -6009,7 +6009,11 @@ MonoBehaviour:
       NextSpawn:
         RawValue: 0
       SpawnRadius:
+<<<<<<< Updated upstream
         RawValue: 655360
+=======
+        RawValue: 1310720
+>>>>>>> Stashed changes
       SpawnIntervalMin:
         RawValue: 32112
       SpawnIntervalMax:

@@ -17,6 +17,7 @@ namespace Quantum
 
     public unsafe class ElectricSheepSystem : SystemMainThreadFilter<ElectricSheepFilter>
     {
+<<<<<<< Updated upstream
         public override void OnInit(Frame f)
         {
             base.OnInit(f);
@@ -60,16 +61,23 @@ namespace Quantum
             f.Set(entity, new NavMeshSteeringAgent());*/
         }
 
+=======
+        //public FPVector3 oldPos = FPVector3.Zero;
+        //public FP cumulTime = 0;
+>>>>>>> Stashed changes
         public override void Update(Frame f, ref ElectricSheepFilter filter)
         {
             if (filter.ElectricSheep->cumulTime == 0)
             {
                 filter.ElectricSheep->oldPos = filter.Transform->Position; 
                 //Log.Debug("pfiou on fait comment un Start hein?...");
+<<<<<<< Updated upstream
 
 
 
 
+=======
+>>>>>>> Stashed changes
             }
             filter.ElectricSheep->cumulTime += f.DeltaTime * FP._8;
             filter.Transform->Position = new FPVector3(filter.ElectricSheep->oldPos.X, filter.ElectricSheep->oldPos.Y + FPMath.Abs(FPMath.Sin(filter.ElectricSheep->cumulTime)) * FP._0_20, filter.ElectricSheep->oldPos.Z);

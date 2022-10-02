@@ -182,7 +182,11 @@ MonoBehaviour:
       Value:
         RawValue: 0
   NavMeshAvoidanceAgent:
+<<<<<<< Updated upstream
     IsEnabled: 1
+=======
+    IsEnabled: 0
+>>>>>>> Stashed changes
   View:
     Id:
       Value: 0
