@@ -182,7 +182,7 @@ MonoBehaviour:
       Value:
         RawValue: 0
   NavMeshAvoidanceAgent:
-    IsEnabled: 0
+    IsEnabled: 1
   View:
     Id:
       Value: 0

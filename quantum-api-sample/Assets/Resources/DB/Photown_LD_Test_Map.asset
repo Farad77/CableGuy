@@ -34,9 +34,7 @@ MonoBehaviour:
     GridSizeX: 6
     GridSizeY: 6
     GridNodeSize: 8
-    NavMeshLinks:
-    - Id:
-        Value: 2809250576775414798
+    NavMeshLinks: []
     Regions: []
     StaticColliders2D: []
     StaticColliders3D:
@@ -6011,7 +6009,7 @@ MonoBehaviour:
       NextSpawn:
         RawValue: 0
       SpawnRadius:
-        RawValue: 1310720
+        RawValue: 655360
       SpawnIntervalMin:
         RawValue: 32112
       SpawnIntervalMax:
