@@ -176,6 +176,7 @@
     <Compile Include="CustomSystems\AISystem.cs" />
     <Compile Include="CustomSystems\DynamicObstacleSystem.cs" />
     <Compile Include="CustomSystems\ConsommationEnergieSystem.cs" />
+    <Compile Include="CustomSystems\ElectricSheepSystem.cs" />
     <Compile Include="CustomSystems\ProductionEnergySystem.cs" />
     <Compile Include="CustomSystems\EntitySpawnSystem.cs" />
     <Compile Include="CustomSystems\HazardSystem.cs" />
@@ -228,6 +229,7 @@
     <Content Include="CustomState\DSL\Weapon.qtn" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CustomState\DSL\ElectricSheepID.qtn" />
     <None Include="CustomState\DSL\Energie.qtn" />
     <None Include="CustomState\DSL\KillZone.qtn" />
     <None Include="CustomState\DSL\Knockable.qtn" />

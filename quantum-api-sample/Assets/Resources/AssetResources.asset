@@ -166,6 +166,11 @@ MonoBehaviour:
         Id:
           Value: 1583348271447699218
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/EntityPrototypes/ElectricSheep QPrefab|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 1654655786854209493
+      ResourcePath: DB/EntityPrototypes/ElectricSheep QPrefab
     - Path: Resources/DB/EntityPrototypes/Lion QPrefab|EntityPrototype
       AssetRef:
         Id:
@@ -291,6 +296,11 @@ MonoBehaviour:
         Id:
           Value: 3084711883603238359
       ResourcePath: DB/EntityPrototypes/Stone Round QPrefab
+    - Path: Resources/DB/EntityPrototypes/ElectricSheep QPrefab|EntityView
+      AssetRef:
+        Id:
+          Value: 3089087843169020827
+      ResourcePath: DB/EntityPrototypes/ElectricSheep QPrefab
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|DecreaseTimer_0
       AssetRef:
         Id:

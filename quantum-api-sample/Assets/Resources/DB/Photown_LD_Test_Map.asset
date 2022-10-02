@@ -5295,6 +5295,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []
@@ -5395,6 +5396,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []
@@ -5495,6 +5497,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []
@@ -5595,6 +5598,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []
@@ -5695,6 +5699,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []
@@ -5789,6 +5794,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []
@@ -5883,6 +5889,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []
@@ -5980,6 +5987,76 @@ MonoBehaviour:
           RawValue: -196608
         Y:
           RawValue: 131072
+        Z:
+          RawValue: 0
+      Rotation:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+    View: []
+    PhysicsJoints2D: []
+    PhysicsJoints3D: []
+  - AIBlackboardComponent: []
+    AimObject: []
+    BTAgent: []
+    CharacterInventory: []
+    DynamicObstacle: []
+    ElectricSheepID: []
+    Energie: []
+    EntitySpawner:
+    - Spawned: []
+      NextSpawn:
+        RawValue: 0
+      SpawnRadius:
+        RawValue: 1310720
+      SpawnIntervalMin:
+        RawValue: 32112
+      SpawnIntervalMax:
+        RawValue: 32768
+      MaxSpawnAmount:
+        RawValue: 393216
+      EntityPrototypes:
+      - Id:
+          Value: 1654655786854209493
+    GOAPAgent: []
+    HFSMAgent: []
+    Hazard: []
+    Health: []
+    KillZone: []
+    Knockable: []
+    Mana: []
+    PickUpSlot: []
+    PlayerID: []
+    ProducteurEnergie: []
+    Projectile: []
+    QAnimationState: []
+    ResetPos: []
+    Shield: []
+    UTAgent: []
+    Weapon: []
+    CharacterController2D: []
+    CharacterController3D: []
+    NavMeshAvoidanceAgent: []
+    NavMeshAvoidanceObstacle: []
+    NavMeshPathfinder: []
+    NavMeshSteeringAgent: []
+    PhysicsBody2D: []
+    PhysicsBody3D: []
+    PhysicsCollider2D: []
+    PhysicsCollider3D: []
+    PhysicsCallbacks2D: []
+    PhysicsCallbacks3D: []
+    Transform2D: []
+    Transform2DVertical: []
+    Transform3D:
+    - Position:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
         Z:
           RawValue: 0
       Rotation:

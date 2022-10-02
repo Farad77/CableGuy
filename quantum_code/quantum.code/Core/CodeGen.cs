@@ -2897,6 +2897,28 @@ namespace Quantum {
     }
   }
   [StructLayout(LayoutKind.Explicit)]
+  public unsafe partial struct ElectricSheepID : Quantum.IComponent {
+    public const Int32 SIZE = 32;
+    public const Int32 ALIGNMENT = 8;
+    [FieldOffset(0)]
+    public FP cumulTime;
+    [FieldOffset(8)]
+    public FPVector3 oldPos;
+    public override Int32 GetHashCode() {
+      unchecked { 
+        var hash = 337;
+        hash = hash * 31 + cumulTime.GetHashCode();
+        hash = hash * 31 + oldPos.GetHashCode();
+        return hash;
+      }
+    }
+    public static void Serialize(void* ptr, FrameSerializer serializer) {
+        var p = (ElectricSheepID*)ptr;
+        FP.Serialize(&p->cumulTime, serializer);
+        FPVector3.Serialize(&p->oldPos, serializer);
+    }
+  }
+  [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Energie : Quantum.IComponent {
     public const Int32 SIZE = 40;
     public const Int32 ALIGNMENT = 8;
@@ -2913,7 +2935,7 @@ namespace Quantum {
     public FP RegenBonus;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 337;
+        var hash = 347;
         hash = hash * 31 + CurrentAmount.GetHashCode();
         hash = hash * 31 + Entity.GetHashCode();
         hash = hash * 31 + MaxAmount.GetHashCode();
@@ -2974,7 +2996,7 @@ namespace Quantum {
     }
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 347;
+        var hash = 349;
         hash = hash * 31 + EntityPrototypesPtr.GetHashCode();
         hash = hash * 31 + MaxSpawnAmount.GetHashCode();
         hash = hash * 31 + NextSpawn.GetHashCode();
@@ -3064,7 +3086,7 @@ namespace Quantum {
     }
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 349;
+        var hash = 353;
         hash = hash * 31 + Config.GetHashCode();
         hash = hash * 31 + CurrentActionIndex.GetHashCode();
         hash = hash * 31 + CurrentActionTime.GetHashCode();
@@ -3115,7 +3137,7 @@ namespace Quantum {
     public HFSMData Data;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 353;
+        var hash = 359;
         hash = hash * 31 + Config.GetHashCode();
         hash = hash * 31 + Data.GetHashCode();
         return hash;
@@ -3161,7 +3183,7 @@ namespace Quantum {
     }
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 359;
+        var hash = 367;
         hash = hash * 31 + AlreadyDamagedPtr.GetHashCode();
         hash = hash * 31 + DamageAmount.GetHashCode();
         hash = hash * 31 + DamageDealtPtr.GetHashCode();
@@ -3205,7 +3227,7 @@ namespace Quantum {
     }
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 367;
+        var hash = 373;
         hash = hash * 31 + Amount.GetHashCode();
         hash = hash * 31 + DamageToAbsorbPtr.GetHashCode();
         return hash;
@@ -3232,7 +3254,7 @@ namespace Quantum {
     private fixed Byte _alignment_padding_[4];
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 373;
+        var hash = 379;
         return hash;
       }
     }
@@ -3248,7 +3270,7 @@ namespace Quantum {
     private fixed Byte _alignment_padding_[4];
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 379;
+        var hash = 383;
         return hash;
       }
     }
@@ -3264,7 +3286,7 @@ namespace Quantum {
     public FP Amount;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 383;
+        var hash = 389;
         hash = hash * 31 + Amount.GetHashCode();
         return hash;
       }
@@ -3282,7 +3304,7 @@ namespace Quantum {
     public AssetRefItemBase Item;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 389;
+        var hash = 397;
         hash = hash * 31 + Item.GetHashCode();
         return hash;
       }
@@ -3301,7 +3323,7 @@ namespace Quantum {
     public PlayerRef PlayerRef;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 397;
+        var hash = 401;
         hash = hash * 31 + PlayerRef.GetHashCode();
         return hash;
       }
@@ -3337,7 +3359,7 @@ namespace Quantum {
     }
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 401;
+        var hash = 409;
         hash = hash * 31 + CurrentAmount.GetHashCode();
         hash = hash * 31 + MaxAmount.GetHashCode();
         hash = hash * 31 + NextTick.GetHashCode();
@@ -3376,7 +3398,7 @@ namespace Quantum {
     public AssetRefWeaponSpec WeaponSpec;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 409;
+        var hash = 419;
         hash = hash * 31 + DamageZoneQueryIndex.GetHashCode();
         hash = hash * 31 + PathQueryIndex.GetHashCode();
         hash = hash * 31 + Speed.GetHashCode();
@@ -3406,7 +3428,7 @@ namespace Quantum {
     public FP TimeLapsed;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 419;
+        var hash = 421;
         hash = hash * 31 + AttackAnimation.GetHashCode();
         hash = hash * 31 + IsAnimating.GetHashCode();
         hash = hash * 31 + TimeLapsed.GetHashCode();
@@ -3428,7 +3450,7 @@ namespace Quantum {
     public QBoolean reset;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 421;
+        var hash = 431;
         hash = hash * 31 + reset.GetHashCode();
         return hash;
       }
@@ -3449,7 +3471,7 @@ namespace Quantum {
     public QBoolean IsBlocking;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 431;
+        var hash = 433;
         hash = hash * 31 + BlockPercentage.GetHashCode();
         hash = hash * 31 + IsBlocking.GetHashCode();
         return hash;
@@ -3471,7 +3493,7 @@ namespace Quantum {
     public UtilityReasoner UtilityReasoner;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 433;
+        var hash = 439;
         hash = hash * 31 + Config.GetHashCode();
         hash = hash * 31 + UtilityReasoner.GetHashCode();
         return hash;
@@ -3514,7 +3536,7 @@ namespace Quantum {
     }
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 439;
+        var hash = 443;
         hash = hash * 31 + AlreadyHitPtr.GetHashCode();
         hash = hash * 31 + EnergyCost.GetHashCode();
         hash = hash * 31 + IsEquipped.GetHashCode();
@@ -3554,6 +3576,7 @@ namespace Quantum {
         ComponentTypeId.Add<Quantum.BTAgent>(Quantum.BTAgent.Serialize, null, Quantum.BTAgent.OnRemoved, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.CharacterInventory>(Quantum.CharacterInventory.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.DynamicObstacle>(Quantum.DynamicObstacle.Serialize, null, null, ComponentFlags.None);
+        ComponentTypeId.Add<Quantum.ElectricSheepID>(Quantum.ElectricSheepID.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.Energie>(Quantum.Energie.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.EntitySpawner>(Quantum.EntitySpawner.Serialize, null, Quantum.EntitySpawner.OnRemoved, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.GOAPAgent>(Quantum.GOAPAgent.Serialize, null, Quantum.GOAPAgent.OnRemoved, ComponentFlags.None);
@@ -3592,6 +3615,8 @@ namespace Quantum {
       BuildSignalsArrayOnComponentRemoved<Quantum.CharacterInventory>();
       BuildSignalsArrayOnComponentAdded<Quantum.DynamicObstacle>();
       BuildSignalsArrayOnComponentRemoved<Quantum.DynamicObstacle>();
+      BuildSignalsArrayOnComponentAdded<Quantum.ElectricSheepID>();
+      BuildSignalsArrayOnComponentRemoved<Quantum.ElectricSheepID>();
       BuildSignalsArrayOnComponentAdded<Quantum.Energie>();
       BuildSignalsArrayOnComponentRemoved<Quantum.Energie>();
       BuildSignalsArrayOnComponentAdded<Quantum.EntitySpawner>();
@@ -4352,6 +4377,9 @@ namespace Quantum {
     public virtual void Visit(Prototypes.DynamicObstacle_Prototype prototype) {
       VisitFallback(prototype);
     }
+    public virtual void Visit(Prototypes.ElectricSheepID_Prototype prototype) {
+      VisitFallback(prototype);
+    }
     public virtual void Visit(Prototypes.Energie_Prototype prototype) {
       VisitFallback(prototype);
     }
@@ -4515,6 +4543,7 @@ namespace Quantum {
       Register(typeof(DistanceJoint3D), DistanceJoint3D.SIZE);
       Register(typeof(Quantum.DynamicObstacle), Quantum.DynamicObstacle.SIZE);
       Register(typeof(Quantum.EWorldState), 4);
+      Register(typeof(Quantum.ElectricSheepID), Quantum.ElectricSheepID.SIZE);
       Register(typeof(Quantum.Energie), Quantum.Energie.SIZE);
       Register(typeof(EntityPrototypeRef), EntityPrototypeRef.SIZE);
       Register(typeof(EntityRef), EntityRef.SIZE);
@@ -4974,6 +5003,26 @@ namespace Quantum.Prototypes {
       result.sleep = this.sleep;
       result.speed = this.speed;
       result.targetPos = this.targetPos;
+      MaterializeUser(frame, ref result, in context);
+    }
+    public override void Dispatch(ComponentPrototypeVisitorBase visitor) {
+      ((ComponentPrototypeVisitor)visitor).Visit(this);
+    }
+  }
+  [System.SerializableAttribute()]
+  [Prototype(typeof(ElectricSheepID))]
+  public sealed unsafe partial class ElectricSheepID_Prototype : ComponentPrototype<ElectricSheepID> {
+    public FPVector3 oldPos;
+    public FP cumulTime;
+    partial void MaterializeUser(Frame frame, ref ElectricSheepID result, in PrototypeMaterializationContext context);
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+      ElectricSheepID component = default;
+      Materialize((Frame)f, ref component, in context);
+      return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref ElectricSheepID result, in PrototypeMaterializationContext context) {
+      result.cumulTime = this.cumulTime;
+      result.oldPos = this.oldPos;
       MaterializeUser(frame, ref result, in context);
     }
     public override void Dispatch(ComponentPrototypeVisitorBase visitor) {
@@ -5642,6 +5691,8 @@ namespace Quantum.Prototypes {
     [ArrayLength(0, 1)]
     public List<Prototypes.DynamicObstacle_Prototype> DynamicObstacle;
     [ArrayLength(0, 1)]
+    public List<Prototypes.ElectricSheepID_Prototype> ElectricSheepID;
+    [ArrayLength(0, 1)]
     public List<Prototypes.Energie_Prototype> Energie;
     [ArrayLength(0, 1)]
     public List<Prototypes.EntitySpawner_Prototype> EntitySpawner;
@@ -5683,6 +5734,7 @@ namespace Quantum.Prototypes {
       Collect(BTAgent, target);
       Collect(CharacterInventory, target);
       Collect(DynamicObstacle, target);
+      Collect(ElectricSheepID, target);
       Collect(Energie, target);
       Collect(EntitySpawner, target);
       Collect(GOAPAgent, target);
@@ -5717,6 +5769,9 @@ namespace Quantum.Prototypes {
       }
       public override void Visit(Prototypes.DynamicObstacle_Prototype prototype) {
         Storage.Store(prototype, ref Storage.DynamicObstacle);
+      }
+      public override void Visit(Prototypes.ElectricSheepID_Prototype prototype) {
+        Storage.Store(prototype, ref Storage.ElectricSheepID);
       }
       public override void Visit(Prototypes.Energie_Prototype prototype) {
         Storage.Store(prototype, ref Storage.Energie);

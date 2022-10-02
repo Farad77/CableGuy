@@ -47,6 +47,7 @@ namespace Quantum {
          new MovementSystem(),
          new ProductionEnergySystem(),
          new ConsommationEnergieSystem(),
+         new ElectricSheepSystem(),
         
 
 
