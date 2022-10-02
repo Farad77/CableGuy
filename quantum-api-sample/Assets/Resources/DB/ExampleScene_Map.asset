@@ -36,7 +36,7 @@ MonoBehaviour:
     GridNodeSize: 8
     NavMeshLinks:
     - Id:
-        Value: 2809250576775414798
+        Value: 219336738981506743
     Regions: []
     StaticColliders2D: []
     StaticColliders3D:
@@ -2138,6 +2138,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []
@@ -2238,6 +2239,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []
@@ -2338,6 +2340,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []
@@ -2438,6 +2441,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []
@@ -2538,6 +2542,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []
@@ -2632,6 +2637,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []
@@ -2726,6 +2732,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []
@@ -2840,6 +2847,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     DynamicObstacle: []
+    ElectricSheepID: []
     Energie: []
     EntitySpawner: []
     GOAPAgent: []

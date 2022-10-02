@@ -31,8 +31,8 @@ MonoBehaviour:
       Id:
         Value: 1479761656996172963
     StaticColliders3DTrianglesBinaryFile: 
-    GridSizeX: 6
-    GridSizeY: 6
+    GridSizeX: 12
+    GridSizeY: 12
     GridNodeSize: 8
     NavMeshLinks:
     - Id:
@@ -6011,7 +6011,7 @@ MonoBehaviour:
       NextSpawn:
         RawValue: 0
       SpawnRadius:
-        RawValue: 1310720
+        RawValue: 655360
       SpawnIntervalMin:
         RawValue: 32112
       SpawnIntervalMax:

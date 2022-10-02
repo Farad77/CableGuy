@@ -1,14 +1,14 @@
 {
   "format": 1,
   "restore": {
-    "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj": {}
+    "E:\\ProjetUnity\\CableGuy\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj": {}
   },
   "projects": {
-    "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.code\\quantum.code.csproj": {
+    "E:\\ProjetUnity\\CableGuy\\quantum_code\\quantum.code\\quantum.code.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.code\\quantum.code.csproj",
+        "projectUniqueName": "E:\\ProjetUnity\\CableGuy\\quantum_code\\quantum.code\\quantum.code.csproj",
         "projectName": "quantum.code",
-        "projectPath": "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.code\\quantum.code.csproj",
+        "projectPath": "E:\\ProjetUnity\\CableGuy\\quantum_code\\quantum.code\\quantum.code.csproj",
         "frameworks": {
           "net462": {
             "projectReferences": {}
@@ -19,20 +19,21 @@
         "net462": {}
       }
     },
-    "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj": {
+    "E:\\ProjetUnity\\CableGuy\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj",
+        "projectUniqueName": "E:\\ProjetUnity\\CableGuy\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj",
         "projectName": "quantum.console.runner",
-        "projectPath": "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj",
-        "packagesPath": "C:\\Users\\borneVR\\.nuget\\packages\\",
-        "outputPath": "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.console.runner\\obj\\",
+        "projectPath": "E:\\ProjetUnity\\CableGuy\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj",
+        "packagesPath": "C:\\Users\\farad\\.nuget\\packages\\",
+        "outputPath": "E:\\ProjetUnity\\CableGuy\\quantum_code\\quantum.console.runner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\borneVR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\farad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,8 +47,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.code\\quantum.code.csproj": {
-                "projectPath": "C:\\mesProjetsUnity\\CableGuy\\quantum_code\\quantum.code\\quantum.code.csproj"
+              "E:\\ProjetUnity\\CableGuy\\quantum_code\\quantum.code\\quantum.code.csproj": {
+                "projectPath": "E:\\ProjetUnity\\CableGuy\\quantum_code\\quantum.code\\quantum.code.csproj"
               }
             }
           }
@@ -86,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
         }
       }
     }

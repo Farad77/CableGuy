@@ -27,7 +27,7 @@ public class UIPlayerInventoryEvents : MonoBehaviour
 
         QuantumEvent.Subscribe<EventOnPickUpHealthPotion>(this, OnHealthPotionPickUp);
         QuantumEvent.Subscribe<EventOnPickUpManaPotion>(this, OnManaPotionPickUp);
-             QuantumEvent.Subscribe<EventOnRegenTick>(this, OnRegenTick);
+             //QuantumEvent.Subscribe<EventOnRegenTick>(this, OnRegenTick);
         StartCoroutine(compte());
         // EventOnPickUpCoins.OnRaised += OnCoinsPickUp;
     }
