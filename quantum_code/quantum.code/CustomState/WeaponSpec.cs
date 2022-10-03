@@ -1,4 +1,5 @@
 ﻿using Photon.Deterministic;
+using System;
 
 namespace Quantum
 {
@@ -8,5 +9,6 @@ namespace Quantum
         public LayerMask AttackLayers;
         public FP Damage;
         public FP KnockbackForce;
+        public String projectile;
     }
 }

@@ -29,7 +29,7 @@ namespace Quantum
 
             }
         }
-        private const string PROJECTILE_PROTOTYPE = "Resources/DB/EntityPrototypes/Bullet|EntityPrototype";
+       // private const string PROJECTILE_PROTOTYPE = "Resources/DB/EntityPrototypes/Bullet|EntityPrototype";
 
         private static void Shoot(in Frame f, in EntityRef entity)
         {
@@ -53,9 +53,14 @@ namespace Quantum
             }
 
             var transform = f.Get<Transform3D>(entity);
-           
-         
-            var proto = f.FindAsset<EntityPrototype>(PROJECTILE_PROTOTYPE);
+
+            //Resources/DB/EntityPrototypes/Bullet|EntityPrototype
+
+            //var proto = f.FindAsset<EntityPrototype>(PROJECTILE_PROTOTYPE);
+           // Log.Debug(" weapon id  = " + weapon->WeaponSpec.Id);
+            var weaponSpec = f.FindAsset<WeaponSpec>(weapon->WeaponSpec.Id);
+              //  Log.Debug(" proj = " + weaponSpec.projectile);
+            var proto = f.FindAsset<EntityPrototype>(weaponSpec.projectile);
             EntityRef bulletEntity = f.Create(proto);
           
             var t2 = f.Unsafe.GetPointer<Transform3D>(bulletEntity);

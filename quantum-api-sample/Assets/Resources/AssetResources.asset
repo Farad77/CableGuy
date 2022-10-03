@@ -111,11 +111,21 @@ MonoBehaviour:
         Id:
           Value: 790202748179037258
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/QAssets/WeaponShotGun 1
+      AssetRef:
+        Id:
+          Value: 871885121306266524
+      ResourcePath: DB/QAssets/WeaponShotGun 1
     - Path: Resources/DB/QAssets/DefaultAttackClip
       AssetRef:
         Id:
           Value: 890473571884936016
       ResourcePath: DB/QAssets/DefaultAttackClip
+    - Path: Resources/DB/EntityPrototypes/Laser|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 1061398418128274647
+      ResourcePath: DB/EntityPrototypes/Laser
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|ResetNavMeshTarget_2
       AssetRef:
         Id:
@@ -146,6 +156,11 @@ MonoBehaviour:
         Id:
           Value: 1324923448660611412
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/QAssets/WeaponLaser
+      AssetRef:
+        Id:
+          Value: 1369881669801025545
+      ResourcePath: DB/QAssets/WeaponLaser
     - Path: Resources/DB/Photown_LD_Test_Map_mesh
       AssetRef:
         Id:
@@ -191,6 +206,11 @@ MonoBehaviour:
         Id:
           Value: 1974091036142563792
       ResourcePath: DB/Photown_LD_Test_Map_NavMesh3_data
+    - Path: Resources/DB/EntityPrototypes/ShotGunPellet|EntityView
+      AssetRef:
+        Id:
+          Value: 2058176674628468679
+      ResourcePath: DB/EntityPrototypes/ShotGunPellet
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot
       AssetRef:
         Id:
@@ -301,6 +321,11 @@ MonoBehaviour:
         Id:
           Value: 3089087843169020827
       ResourcePath: DB/EntityPrototypes/ElectricSheep QPrefab
+    - Path: Resources/DB/EntityPrototypes/ShotGunPellet|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 3090606452101618303
+      ResourcePath: DB/EntityPrototypes/ShotGunPellet
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|DecreaseTimer_0
       AssetRef:
         Id:
@@ -366,6 +391,11 @@ MonoBehaviour:
         Id:
           Value: 4022301042981346495
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/EntityPrototypes/Laser|EntityView
+      AssetRef:
+        Id:
+          Value: 4175756547382443856
+      ResourcePath: DB/EntityPrototypes/Laser
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|To Idle Or Not To Idle
       AssetRef:
         Id:

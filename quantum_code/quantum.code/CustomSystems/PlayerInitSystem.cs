@@ -39,8 +39,8 @@ namespace Quantum
             var playerId = f.Unsafe.GetPointer<PlayerID>(playerEntity);
             playerId->PlayerRef = playerRef;
 
-            var weapon = f.Unsafe.GetPointer<Weapon>(playerEntity);
-            weapon->WeaponSpec = f.FindAsset<WeaponSpec>(DEFAULT_WEAPON_SPEC);
+          /*  var weapon = f.Unsafe.GetPointer<Weapon>(playerEntity);
+            weapon->WeaponSpec = f.FindAsset<WeaponSpec>(DEFAULT_WEAPON_SPEC);*/
 
             var qAnimState = f.Unsafe.GetPointer<QAnimationState>(playerEntity);
             qAnimState->AttackAnimation = f.FindAsset<ClipData>(DEFAULT_ATTACK_CLIP);
