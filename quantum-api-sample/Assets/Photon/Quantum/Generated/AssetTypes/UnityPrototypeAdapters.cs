@@ -78,14 +78,12 @@ namespace Quantum.Prototypes.Unity {
     public Photon.Deterministic.FP cumulTime;
     [Quantum.LocalReference]
     public global::EntityPrototype entityPlayerRefToFollow;
-    public Quantum.NavMeshPathfinder pathFinder;
 
     public sealed override Quantum.Prototypes.ElectricSheepID_Prototype Convert(EntityPrototypeConverter converter) {
       var result = new Quantum.Prototypes.ElectricSheepID_Prototype();
       result.oldPos = this.oldPos;
       result.cumulTime = this.cumulTime;
       converter.Convert(this.entityPlayerRefToFollow, out result.entityPlayerRefToFollow);
-      result.pathFinder = this.pathFinder;
       return result;
     }
   }

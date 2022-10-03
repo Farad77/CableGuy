@@ -12,55 +12,24 @@ namespace Quantum
         public EntityRef EntityRef;
         public Transform3D* Transform;
         public ElectricSheepID* ElectricSheep;
-        public NavMeshSteeringAgent* NavMeshSteeringAgent;
+        //public NavMeshSteeringAgent* NavMeshSteeringAgent;
+        public NavMeshPathfinder* NavMeshPathfind;
     }
 
     public unsafe class ElectricSheepSystem : SystemMainThreadFilter<ElectricSheepFilter>
     {
 
 
-        public override void OnInit(Frame f)
-        {
-            base.OnInit(f);
+        //public override void OnInit(Frame f)
+        //{
+        //    base.OnInit(f);
 
-            var entity = f.Create();
+            /*var entity = f.Create();
             f.Set(entity, new Transform3D() { Position = FPVector3.Zero, Rotation = FPQuaternion.Identity });
             var config = f.FindAsset<NavMeshAgentConfig>(NavMeshAgentConfig.DEFAULT_ID);
-            var pathfinder = NavMeshPathfinder.Create(f, entity, config);
-
-            // y a t il des navmesh dispo?
-            Log.Debug("-----");
-            //Log.Debug(f.Map.NavMeshes.Values.
-            foreach(var nvm in f.Map.NavMeshes)
-            {
-                Log.Debug("key : " + nvm.Key + " velue : " + nvm.Value);
-            }
-
-            var result = f.Map.NavMeshes["NavMesh"];
-            if (result != null)
-            {
-                Log.Debug("FOUND NavMesh!!!");
-            }
-            else Log.Debug("damnit NavMesh!!!");
-            foreach (var a in f.DynamicAssetDB.Assets)
-            {
-                Log.Debug(a.ToString());
-                if (a is NavMesh navmeshAsset)
-                {
-                    Log.Debug(navmeshAsset.Name);
-                }
-            }
-            Log.Debug("-----");
-            // find a random point to move to
-            /*var navmesh = f.Map.NavMeshes["NavMesh"];
-            if (navmesh.FindRandomPointOnNavmesh(FPVector3.Zero, FP._10, f.RNG, *f.NavMeshRegionMask, out FPVector3 randomPoint))
-            {
-                pathfinder.SetTarget(f, randomPoint, navmesh);
-            }
-
-            f.Set(entity, pathfinder);
-            f.Set(entity, new NavMeshSteeringAgent());*/
-        }
+            var pathfinder = NavMeshPathfinder.Create(f, entity, config);*/
+            //f.Set(entity, new ElectricSheep() { oldPos  = FPVector3.Zero, cumulTime  = FP._0, entityPlayerRefToFollow  = });
+        //}
 
 
 
@@ -90,9 +59,9 @@ namespace Quantum
 
             }
             var navmesh = f.Map.NavMeshes["NavMesh3"];
-            filter.ElectricSheep->pathFinder.SetTarget(f, f.Unsafe.GetPointer<Transform3D>(filter.ElectricSheep->entityPlayerRefToFollow)->Position, navmesh);
+            //filter.ElectricSheep->pathFinder.SetTarget(f, f.Unsafe.GetPointer<Transform3D>(filter.ElectricSheep->entityPlayerRefToFollow)->Position, navmesh);
+            filter.NavMeshPathfind->SetTarget(f, f.Unsafe.GetPointer<Transform3D>(filter.ElectricSheep->entityPlayerRefToFollow)->Position, navmesh);
             filter.ElectricSheep->cumulTime += f.DeltaTime * FP._8;
-            //filter.Transform->Position = new FPVector3(filter.ElectricSheep->oldPos.X, filter.ElectricSheep->oldPos.Y + FPMath.Abs(FPMath.Sin(filter.ElectricSheep->cumulTime)) * FP._0_20, filter.ElectricSheep->oldPos.Z);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Quantum
             public PlayerID* PlayerId;
         }
         public List<EntityRef> PlayersList;
-        public override void OnInit(Frame f)
+        /*public override void OnInit(Frame f)
         {
             var players = f.Unsafe.FilterStruct<PlayerFilter>();
             var playerStruct = default(PlayerFilter);
@@ -30,7 +30,7 @@ namespace Quantum
             {
                 Log.Debug($"Player entity player->PlayerRef._index : {player->PlayerRef._index}");
             }
-        }
+        }*/
         public override void Update(Frame f)
         {
             ComponentFilterStruct<PlayerFilter> players;
@@ -48,10 +48,11 @@ namespace Quantum
 
 
                     players.Next(&playerStruct);
-                    //while (players.Next(&playerStruct))
-                    //{
-                    //    Log.Debug($"playerStruct.PlayerId->PlayerRef : {playerStruct.PlayerId->PlayerRef}");
-                    //}
+                    /*bool bFoundLocalPlayer = false;
+                    while (players.Next(&playerStruct) && !bFoundLocalPlayer)
+                    {
+                        Log.Debug($"found another playerStruct.PlayerId->PlayerRef : {playerStruct.PlayerId->PlayerRef}");
+                    }*/
                 }
                 //Log.Debug($"Spawner entity value {entity}");
 
@@ -88,23 +89,29 @@ namespace Quantum
             var entityTransform = f.Unsafe.GetPointer<Transform3D>(spawnedEntity);
             var spawnerPosition = f.Unsafe.GetPointer<Transform3D>(spawnerEntityAsPlayer)->Position;
 
+
             var electricSheepID = f.Unsafe.GetPointer<ElectricSheepID>(spawnedEntity);
             electricSheepID->entityPlayerRefToFollow = spawnerEntityAsPlayer;
+            //var nmpf = f.Unsafe.GetPointer<NavMeshPathfinder>(spawnedEntity);
+            //electricSheepID->pathFinder = nmpf;
+
 
             var posX = spawnerPosition.X - f.RNG->Next(-spawner->SpawnRadius, spawner->SpawnRadius);
             var posZ = spawnerPosition.Z - f.RNG->Next(-spawner->SpawnRadius, spawner->SpawnRadius);
             
             entityTransform->Position = new FPVector3(posX, spawnerPosition.Y, posZ);
 
-            var config = f.FindAsset<NavMeshAgentConfig>(NavMeshAgentConfig.DEFAULT_ID);
-            electricSheepID->pathFinder = NavMeshPathfinder.Create(f, spawnedEntity, config);
+            electricSheepID->oldPos = entityTransform->Position; // just for init
+            electricSheepID->cumulTime = FP._0; // just for init
 
-            Log.Debug($"config.StoppingDistance : {config.StoppingDistance}");
-            config.ShowDebugSteering = true;
-            electricSheepID->pathFinder = NavMeshPathfinder.Create(f, spawnedEntity, config);
+            ////var config = f.FindAsset<NavMeshAgentConfig>(NavMeshAgentConfig.DEFAULT_ID);
+            //var config = f.FindAsset<NavMeshAgentConfig>(electricSheepID->pathFinder.NavMeshGuid);
+            //Log.Debug($"config.StoppingDistance : {config.StoppingDistance}");
+            //config.ShowDebugSteering = true;
+            //electricSheepID->pathFinder = NavMeshPathfinder.Create(f, spawnedEntity, config);
 
-            f.Set(spawnedEntity, electricSheepID->pathFinder);
-            f.Set(spawnedEntity, new NavMeshSteeringAgent());
+            //f.Set(spawnedEntity, electricSheepID->pathFinder);
+            //f.Set(spawnedEntity, new NavMeshSteeringAgent());
             //f.Set(spawnedEntity, electricSheepID->pathFinder);
             //f.Set(spawnedEntity, new NavMeshSteeringAgent());
 

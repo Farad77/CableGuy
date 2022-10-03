@@ -38,21 +38,21 @@ public unsafe class ElectricSheepAnimation : MonoBehaviour
         //_animator.SetTrigger(TRIGGER_DAMAGE_HIT);
     }
 
-    //void LateUpdate()
-    //{
-    //    //if (_game.Frames.Verified.IsPredicted) return;
-    //    if (transform.localEulerAngles.y > 0 && transform.localEulerAngles.y < 180)
-    //    {
-    //        //Debug.Log("look right");
-    //        transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-    //    }
-    //    else if (transform.localEulerAngles.y > 180 && transform.localEulerAngles.y < 360)
-    //    {
-    //        //Debug.Log("look left");
-    //        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-    //    }
-    //    transform.rotation = qInitRot; // THB dont rotate this child
-    //}
+    void LateUpdate()
+    {
+        //if (_game.Frames.Verified.IsPredicted) return;
+        if (transform.localEulerAngles.y > 0 && transform.localEulerAngles.y < 180)
+        {
+            //Debug.Log("look right");
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (transform.localEulerAngles.y > 180 && transform.localEulerAngles.y < 360)
+        {
+            //Debug.Log("look left");
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        transform.rotation = qInitRot; // THB dont rotate this child
+    }
 
     public void Death()
     {
