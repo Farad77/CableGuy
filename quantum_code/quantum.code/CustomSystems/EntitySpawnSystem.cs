@@ -99,9 +99,14 @@ namespace Quantum
             var config = f.FindAsset<NavMeshAgentConfig>(NavMeshAgentConfig.DEFAULT_ID);
             electricSheepID->pathFinder = NavMeshPathfinder.Create(f, spawnedEntity, config);
 
+            Log.Debug($"config.StoppingDistance : {config.StoppingDistance}");
+            config.ShowDebugSteering = true;
+            electricSheepID->pathFinder = NavMeshPathfinder.Create(f, spawnedEntity, config);
+
             f.Set(spawnedEntity, electricSheepID->pathFinder);
             f.Set(spawnedEntity, new NavMeshSteeringAgent());
-
+            //f.Set(spawnedEntity, electricSheepID->pathFinder);
+            //f.Set(spawnedEntity, new NavMeshSteeringAgent());
 
             l.Add(spawnedEntity);
         }
