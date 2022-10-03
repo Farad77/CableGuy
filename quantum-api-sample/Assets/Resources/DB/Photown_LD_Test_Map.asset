@@ -789,7 +789,7 @@ MonoBehaviour:
           RawValue: 65536
       Position:
         X:
-          RawValue: 1152414
+          RawValue: 1152415
         Y:
           RawValue: 117702
         Z:
@@ -830,7 +830,7 @@ MonoBehaviour:
           RawValue: 65536
       Position:
         X:
-          RawValue: 1255961
+          RawValue: 1255962
         Y:
           RawValue: 117702
         Z:
@@ -2146,7 +2146,7 @@ MonoBehaviour:
         Y:
           RawValue: 117702
         Z:
-          RawValue: -2540431
+          RawValue: -2540432
       PhysicsMaterial:
         Id:
           Value: 0
@@ -2720,7 +2720,7 @@ MonoBehaviour:
         Y:
           RawValue: 117702
         Z:
-          RawValue: -1085532
+          RawValue: -1085533
       PhysicsMaterial:
         Id:
           Value: 0
@@ -3126,7 +3126,7 @@ MonoBehaviour:
           RawValue: -46262
       Position:
         X:
-          RawValue: -689400
+          RawValue: -689401
         Y:
           RawValue: 117702
         Z:
@@ -4975,7 +4975,7 @@ MonoBehaviour:
         Y:
           RawValue: 32112
         Z:
-          RawValue: -969232
+          RawValue: -969231
       PhysicsMaterial:
         Id:
           Value: 0
@@ -5012,11 +5012,11 @@ MonoBehaviour:
           RawValue: 65535
       Position:
         X:
-          RawValue: -1014898
+          RawValue: -1014899
         Y:
           RawValue: 90792
         Z:
-          RawValue: -711111
+          RawValue: -711112
       PhysicsMaterial:
         Id:
           Value: 0
@@ -5217,7 +5217,7 @@ MonoBehaviour:
           RawValue: 65536
       Position:
         X:
-          RawValue: -239725
+          RawValue: -239726
         Y:
           RawValue: 21626
         Z:
@@ -6017,7 +6017,7 @@ MonoBehaviour:
       SpawnIntervalMax:
         RawValue: 32768
       MaxSpawnAmount:
-        RawValue: 393216
+        RawValue: 4194304
       EntityPrototypes:
       - Id:
           Value: 1654655786854209493

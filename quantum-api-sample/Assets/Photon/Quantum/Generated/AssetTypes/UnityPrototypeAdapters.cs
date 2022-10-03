@@ -72,6 +72,24 @@ namespace Quantum.Prototypes.Unity {
     }
   }
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.ElectricSheepID))]
+  public class ElectricSheepID_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.ElectricSheepID_Prototype> {
+    public Photon.Deterministic.FPVector3 oldPos;
+    public Photon.Deterministic.FP cumulTime;
+    [Quantum.LocalReference]
+    public global::EntityPrototype entityPlayerRefToFollow;
+    public Quantum.NavMeshPathfinder pathFinder;
+
+    public sealed override Quantum.Prototypes.ElectricSheepID_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.ElectricSheepID_Prototype();
+      result.oldPos = this.oldPos;
+      result.cumulTime = this.cumulTime;
+      converter.Convert(this.entityPlayerRefToFollow, out result.entityPlayerRefToFollow);
+      result.pathFinder = this.pathFinder;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Energie))]
   public class Energie_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Energie_Prototype> {
     public Photon.Deterministic.FP CurrentAmount;
