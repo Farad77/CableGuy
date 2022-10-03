@@ -2898,22 +2898,26 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct ElectricSheepID : Quantum.IComponent {
-    public const Int32 SIZE = 32;
+    public const Int32 SIZE = 40;
     public const Int32 ALIGNMENT = 8;
-    [FieldOffset(0)]
-    public FP cumulTime;
     [FieldOffset(8)]
+    public FP cumulTime;
+    [FieldOffset(0)]
+    public EntityRef entityPlayerRefToFollow;
+    [FieldOffset(16)]
     public FPVector3 oldPos;
     public override Int32 GetHashCode() {
       unchecked { 
         var hash = 337;
         hash = hash * 31 + cumulTime.GetHashCode();
+        hash = hash * 31 + entityPlayerRefToFollow.GetHashCode();
         hash = hash * 31 + oldPos.GetHashCode();
         return hash;
       }
     }
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (ElectricSheepID*)ptr;
+        EntityRef.Serialize(&p->entityPlayerRefToFollow, serializer);
         FP.Serialize(&p->cumulTime, serializer);
         FPVector3.Serialize(&p->oldPos, serializer);
     }
@@ -5014,6 +5018,7 @@ namespace Quantum.Prototypes {
   public sealed unsafe partial class ElectricSheepID_Prototype : ComponentPrototype<ElectricSheepID> {
     public FPVector3 oldPos;
     public FP cumulTime;
+    public MapEntityId entityPlayerRefToFollow;
     partial void MaterializeUser(Frame frame, ref ElectricSheepID result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
       ElectricSheepID component = default;
@@ -5022,6 +5027,7 @@ namespace Quantum.Prototypes {
     }
     public void Materialize(Frame frame, ref ElectricSheepID result, in PrototypeMaterializationContext context) {
       result.cumulTime = this.cumulTime;
+      PrototypeValidator.FindMapEntity(this.entityPlayerRefToFollow, in context, out result.entityPlayerRefToFollow);
       result.oldPos = this.oldPos;
       MaterializeUser(frame, ref result, in context);
     }

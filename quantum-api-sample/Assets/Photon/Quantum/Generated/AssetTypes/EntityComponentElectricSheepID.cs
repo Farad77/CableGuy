@@ -4,5 +4,5 @@
 // </auto-generated>
 
 [UnityEngine.DisallowMultipleComponent()]
-public partial class EntityComponentElectricSheepID : EntityComponentBase<Quantum.Prototypes.ElectricSheepID_Prototype> {
+public partial class EntityComponentElectricSheepID : EntityComponentBase<Quantum.Prototypes.ElectricSheepID_Prototype, Quantum.Prototypes.Unity.ElectricSheepID_Prototype> {
 }
