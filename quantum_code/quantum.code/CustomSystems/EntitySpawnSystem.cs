@@ -91,10 +91,10 @@ namespace Quantum
             var electricSheepID = f.Unsafe.GetPointer<ElectricSheepID>(spawnedEntity);
             electricSheepID->entityPlayerRefToFollow = spawnerEntityAsPlayer;
 
-            var posX = spawnerPosition.X + f.RNG->Next(FP._0, spawner->SpawnRadius);
-            var posZ = spawnerPosition.Z + f.RNG->Next(FP._0, spawner->SpawnRadius);
+            var posX = spawnerPosition.X - f.RNG->Next(-spawner->SpawnRadius, spawner->SpawnRadius);
+            var posZ = spawnerPosition.Z - f.RNG->Next(-spawner->SpawnRadius, spawner->SpawnRadius);
             
-            entityTransform->Position = new FPVector3(posX, entityTransform->Position.Y, posZ);
+            entityTransform->Position = new FPVector3(posX, spawnerPosition.Y, posZ);
 
             var config = f.FindAsset<NavMeshAgentConfig>(NavMeshAgentConfig.DEFAULT_ID);
             electricSheepID->pathFinder = NavMeshPathfinder.Create(f, spawnedEntity, config);
