@@ -8,9 +8,7 @@ using UnityEngine.UI;
 
 public unsafe class ElectricSheepAnimation : MonoBehaviour
 {
-    //private PlayerRef _playerRef = default;
     private EntityRef _entityRef = default;
-    //private QuantumGame _game = null;
 
     private Quaternion qInitRot;
     private NavMeshSteeringAgent* _navMeshSteeringAgent = default;
@@ -20,15 +18,9 @@ public unsafe class ElectricSheepAnimation : MonoBehaviour
     {
         qInitRot = transform.rotation;
 
-        //_playerRef = playerRef;
         _entityRef = entityRef;
-        //_game = QuantumRunner.Default.Game;
 
         // Set up Quantum events
-        //QuantumEvent.Subscribe<Quantum.EventPlayerAttack>(this, Attack);
-        //QuantumEvent.Subscribe<Quantum.EventPlayerHit>(this, Hit);
-        //QuantumEvent.Subscribe<EventOnRegenTick>(this, OnRegenTick);
-
         QuantumEvent.Subscribe<EventOnDamageDealt>(this, TakeDamage);
 
     }
