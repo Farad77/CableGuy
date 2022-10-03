@@ -866,7 +866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prototype:
     CurrentAmount:
-      RawValue: 655360
+      RawValue: 3276800
     MaxAmount:
       RawValue: 6553600
     RegenBonus:
