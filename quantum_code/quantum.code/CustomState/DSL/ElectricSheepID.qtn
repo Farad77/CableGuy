@@ -2,4 +2,5 @@ component ElectricSheepID {
 	FPVector3 oldPos;
 	FP cumulTime;
 	EntityRef entityPlayerRefToFollow;
+	NavMeshPathfinder pathFinder;
 }

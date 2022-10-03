@@ -2898,7 +2898,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct ElectricSheepID : Quantum.IComponent {
-    public const Int32 SIZE = 40;
+    public const Int32 SIZE = 136;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(8)]
     public FP cumulTime;
@@ -2906,12 +2906,15 @@ namespace Quantum {
     public EntityRef entityPlayerRefToFollow;
     [FieldOffset(16)]
     public FPVector3 oldPos;
+    [FieldOffset(40)]
+    public NavMeshPathfinder pathFinder;
     public override Int32 GetHashCode() {
       unchecked { 
         var hash = 337;
         hash = hash * 31 + cumulTime.GetHashCode();
         hash = hash * 31 + entityPlayerRefToFollow.GetHashCode();
         hash = hash * 31 + oldPos.GetHashCode();
+        hash = hash * 31 + pathFinder.GetHashCode();
         return hash;
       }
     }
@@ -2920,6 +2923,7 @@ namespace Quantum {
         EntityRef.Serialize(&p->entityPlayerRefToFollow, serializer);
         FP.Serialize(&p->cumulTime, serializer);
         FPVector3.Serialize(&p->oldPos, serializer);
+        NavMeshPathfinder.Serialize(&p->pathFinder, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
@@ -5019,6 +5023,7 @@ namespace Quantum.Prototypes {
     public FPVector3 oldPos;
     public FP cumulTime;
     public MapEntityId entityPlayerRefToFollow;
+    public NavMeshPathfinder pathFinder;
     partial void MaterializeUser(Frame frame, ref ElectricSheepID result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
       ElectricSheepID component = default;
@@ -5029,6 +5034,7 @@ namespace Quantum.Prototypes {
       result.cumulTime = this.cumulTime;
       PrototypeValidator.FindMapEntity(this.entityPlayerRefToFollow, in context, out result.entityPlayerRefToFollow);
       result.oldPos = this.oldPos;
+      result.pathFinder = this.pathFinder;
       MaterializeUser(frame, ref result, in context);
     }
     public override void Dispatch(ComponentPrototypeVisitorBase visitor) {

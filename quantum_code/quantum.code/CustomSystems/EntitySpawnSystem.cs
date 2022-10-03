@@ -95,7 +95,14 @@ namespace Quantum
             var posZ = spawnerPosition.Z + f.RNG->Next(FP._0, spawner->SpawnRadius);
             
             entityTransform->Position = new FPVector3(posX, entityTransform->Position.Y, posZ);
-            
+
+            var config = f.FindAsset<NavMeshAgentConfig>(NavMeshAgentConfig.DEFAULT_ID);
+            electricSheepID->pathFinder = NavMeshPathfinder.Create(f, spawnedEntity, config);
+
+            f.Set(spawnedEntity, electricSheepID->pathFinder);
+            f.Set(spawnedEntity, new NavMeshSteeringAgent());
+
+
             l.Add(spawnedEntity);
         }
 
