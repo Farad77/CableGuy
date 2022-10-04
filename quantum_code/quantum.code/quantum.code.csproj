@@ -231,6 +231,7 @@
   <ItemGroup>
     <None Include="CustomState\DSL\ElectricSheepID.qtn" />
     <None Include="CustomState\DSL\Energie.qtn" />
+    <None Include="CustomState\DSL\Global.qtn" />
     <None Include="CustomState\DSL\KillZone.qtn" />
     <None Include="CustomState\DSL\Knockable.qtn" />
     <None Include="CustomState\DSL\ProducteurEnergie.qtn" />

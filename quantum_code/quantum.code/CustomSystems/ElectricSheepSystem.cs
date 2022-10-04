@@ -20,10 +20,15 @@ namespace Quantum
 
         public override void Update(Frame f, ref ElectricSheepFilter filter)
         {
-
+            if (f.Global->Pause == 1)
+            {
+                filter.NavMeshPathfind->Stop(f,filter.EntityRef,true);
+                return;
+            }
             var navmesh = f.Map.NavMeshes["NavMesh3"];
             filter.NavMeshPathfind->SetTarget(f, f.Unsafe.GetPointer<Transform3D>(filter.ElectricSheep->entityPlayerRefToFollow)->Position, navmesh);
             filter.ElectricSheep->cumulTime += f.DeltaTime * FP._8;
+            
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Quantum
     {
         public override void Update(Frame f)
         {
+            if (f.Global->Pause == 1) return;
             var projectileFilter = f.Unsafe.FilterStruct<ProjectileFilter>();
             var projectile = default(ProjectileFilter);
 

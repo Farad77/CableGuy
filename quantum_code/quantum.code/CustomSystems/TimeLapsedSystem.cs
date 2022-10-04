@@ -7,10 +7,12 @@ namespace Quantum
     {
         public override void Update(Frame f)
         {
+            if (f.Global->Pause == 1) return;
             TimeLapsedAnimation(f);
             PlayerInputAnimation(f);
             TimeLapsedSpawner(f);
             TimeLapsedEntityTimer(f);
+
             TimeLapsedProducteurEnergie(f);
             TimeLapsedConsommateurEnergie(f);
         }

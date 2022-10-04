@@ -18,11 +18,10 @@ MonoBehaviour:
     LockstepSimulation: 0
     AggressiveSendMode: 0
     UpdateFPS: 60
-    ChecksumInterval: 60
+    ChecksumInterval: 0
     RollbackWindow: 60
-    InputPacking: 2
     InputHardTolerance: 8
-    InputRedundancyStagger: 3
+    InputRedundancy: 3
     InputRepeatMaxDistance: 10
     SessionStartTimeout: 1
     TimeCorrectionRate: 4

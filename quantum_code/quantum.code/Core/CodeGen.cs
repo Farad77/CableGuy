@@ -2388,27 +2388,29 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct _globals_ {
-    public const Int32 SIZE = 3576;
+    public const Int32 SIZE = 3584;
     public const Int32 ALIGNMENT = 8;
-    [FieldOffset(48)]
+    [FieldOffset(56)]
     public BotSDKData BotSDKData;
     [FieldOffset(16)]
     public FP DeltaTime;
-    [FieldOffset(72)]
+    [FieldOffset(80)]
     public FrameMetaData FrameMetaData;
     [FieldOffset(0)]
     public AssetRefMap Map;
-    [FieldOffset(24)]
+    [FieldOffset(32)]
     public NavMeshRegionMask NavMeshRegions;
-    [FieldOffset(3280)]
+    [FieldOffset(24)]
+    public FP Pause;
+    [FieldOffset(3288)]
     public PhysicsSceneSettings PhysicsSettings;
     [FieldOffset(8)]
     public BitSet20 PlayerLastConnectionState;
-    [FieldOffset(32)]
+    [FieldOffset(40)]
     public RNGSession RngSession;
-    [FieldOffset(112)]
+    [FieldOffset(120)]
     public BitSet1024 Systems;
-    [FieldOffset(240)]
+    [FieldOffset(248)]
     [FramePrinter.FixedArrayAttribute(typeof(Input), 20)]
     private fixed Byte _input_[3040];
     public FixedArray<Input> input {
@@ -2424,6 +2426,7 @@ namespace Quantum {
         hash = hash * 31 + FrameMetaData.GetHashCode();
         hash = hash * 31 + Map.GetHashCode();
         hash = hash * 31 + NavMeshRegions.GetHashCode();
+        hash = hash * 31 + Pause.GetHashCode();
         hash = hash * 31 + PhysicsSettings.GetHashCode();
         hash = hash * 31 + PlayerLastConnectionState.GetHashCode();
         hash = hash * 31 + RngSession.GetHashCode();
@@ -2437,6 +2440,7 @@ namespace Quantum {
         AssetRefMap.Serialize(&p->Map, serializer);
         Quantum.BitSet20.Serialize(&p->PlayerLastConnectionState, serializer);
         FP.Serialize(&p->DeltaTime, serializer);
+        FP.Serialize(&p->Pause, serializer);
         NavMeshRegionMask.Serialize(&p->NavMeshRegions, serializer);
         RNGSession.Serialize(&p->RngSession, serializer);
         Quantum.BotSDKData.Serialize(&p->BotSDKData, serializer);

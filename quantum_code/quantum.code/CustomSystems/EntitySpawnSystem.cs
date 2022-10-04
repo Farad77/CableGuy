@@ -17,6 +17,7 @@ namespace Quantum
         public List<EntityRef> PlayersList;
         public override void Update(Frame f)
         {
+            if (f.Global->Pause == 1) return;
             ComponentFilterStruct<PlayerFilter> players;
             PlayerFilter playerStruct = default(PlayerFilter);
 

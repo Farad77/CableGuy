@@ -42,15 +42,22 @@ namespace Quantum
         {
            
         }
+        public override void OnInit(Frame f)
+        {
+            base.OnInit(f);
 
+            //f.Global->Pause = 0;
+        }
         public override void Update(Frame f, ref PlayerMovementFilter filter)
         {
-            //Log.Debug("UPDATE PLAYER");
+            Log.Debug("UPDATE PLAYER:" + f.Global->Pause);
             var input = f.GetPlayerInput(filter.PlayerID->PlayerRef);
 
             var aim = filter.aim->Entity;
             var aimObject = f.Unsafe.GetPointer<Transform3D>(aim);
-            
+           if (input->Defend.WasPressed&& f.Global->Pause==0) f.Global->Pause = 1;
+           else if (input->Defend.WasPressed && f.Global->Pause == 1) f.Global->Pause = 0;
+            if (f.Global->Pause == 1) return;
             if (input->MovementHorizontal < 0 && input->MovementVertical == 0)
             {
                 filter.Transform->Rotation = FPQuaternion.AngleAxis(-90, FPVector3.Up);

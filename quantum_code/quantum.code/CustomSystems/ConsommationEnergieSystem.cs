@@ -12,11 +12,13 @@ namespace Quantum
         public override void OnInit(Frame f)
         {
             base.OnInit(f);
+           
             //f.Global->CurrentPlayers = f.AllocateDictionary<Int32, EntityRef>();
         }
         public override void Update(Frame f)
         {
-           // Log.Debug("Ca tick?!1");
+            if (f.Global->Pause == 1) return;
+            // Log.Debug("Ca tick?!1");
             foreach (var (entity, prod) in f.Unsafe.GetComponentBlockIterator<Energie>())
             {
                // Log.Debug("Ca tick?!");
