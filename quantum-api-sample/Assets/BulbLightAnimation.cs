@@ -5,7 +5,8 @@ using Photon.Deterministic;
 using UnityEngine;
 using Quantum;
 using UnityEngine.UI;
-
+using Spine.Unity;
+using Spine.Unity.AttachmentTools;
 public unsafe class BulbLightAnimation : MonoBehaviour // THB
 {
     [SerializeField] private Animator _animator = null;
@@ -18,16 +19,21 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
     private int TriggerWalk = Animator.StringToHash("WalkTrigger");
     private int TriggerAttack = Animator.StringToHash("AttackTrigger");
     private int TriggerHit = Animator.StringToHash("HitTrigger");
+    private int FloatBlendOnOff = Animator.StringToHash("BlendEnergyFloat");
     private int oldAnim;
 
     private Quaternion qInitRot;
 
     //Text _energyCounter;
-    public Slider sliderEnergy;
-    private Transform tCanvasSliderEnergy;
-    private Vector3 scaCanvasSliderEnergyOld;
+    //public Slider sliderEnergy;
+    //private Transform tCanvasSliderEnergy;
+    //private Vector3 scaCanvasSliderEnergyOld;
     private bool bDontMoveWhileAnim;
-
+    public SkeletonRenderer skeletonRenderer;
+    public Spine.PathConstraint constraintX;
+    public float posX;
+    public Spine.Slot slotArmR;
+    public Spine.Attachment saveAttach;
     // This method is registered to the EntityView's OnEntityInstantiated event located on the parent GameObject
     public void Initialize(PlayerRef playerRef, EntityRef entityRef)
     {
@@ -43,34 +49,40 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
         QuantumEvent.Subscribe<Quantum.EventPlayerHit>(this, Hit);
         QuantumEvent.Subscribe<EventOnRegenTick>(this, OnRegenTick);
 
-        tCanvasSliderEnergy = sliderEnergy.transform.parent;
-        scaCanvasSliderEnergyOld = tCanvasSliderEnergy.localScale;
-        sliderEnergy.minValue = 0;
-        sliderEnergy.maxValue = 100;
-        sliderEnergy.value = 50;
+        //tCanvasSliderEnergy = sliderEnergy.transform.parent;
+        //scaCanvasSliderEnergyOld = tCanvasSliderEnergy.localScale;
+        //sliderEnergy.minValue = 0;
+        //sliderEnergy.maxValue = 100;
+        //sliderEnergy.value = 50;
+        _animator.SetFloat(FloatBlendOnOff, 0.5f);
 
         bDontMoveWhileAnim = false;
+
+        /*Debug.Log("skeletonRenderer.skeleton.PathConstraints.Count : " + skeletonRenderer.skeleton.PathConstraints.Count);
+        for (int i = 0; i != skeletonRenderer.skeleton.PathConstraints.Count; i++)
+        {
+            Log.Debug($"Items[{i}].Position : {skeletonRenderer.skeleton.PathConstraints.Items[i].Position}");
+
+        }*/
+        constraintX = skeletonRenderer.skeleton.PathConstraints.Items[0];
+        posX = constraintX.Position;
+
+
+        slotArmR = skeletonRenderer.skeleton.FindSlot("Arm_R");
+        saveAttach = slotArmR.Attachment;
 
     }
 
     void LateUpdate()
     {
         if (_game.Frames.Verified.IsPredicted) return;
-        if(transform.localEulerAngles.y > 0 && transform.localEulerAngles.y < 180)
-        {
-            //Debug.Log("look right");
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            tCanvasSliderEnergy.localScale = new Vector3(-scaCanvasSliderEnergyOld.x, tCanvasSliderEnergy.localScale.y, tCanvasSliderEnergy.localScale.z);
-        }
-        else if (transform.localEulerAngles.y > 180 && transform.localEulerAngles.y < 360)
-        {
-            //Debug.Log("look left");
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            tCanvasSliderEnergy.localScale = new Vector3(scaCanvasSliderEnergyOld.x, tCanvasSliderEnergy.localScale.y, tCanvasSliderEnergy.localScale.z);
-        }
         transform.rotation = qInitRot; // THB dont rotate this child
-        tCanvasSliderEnergy.rotation = qInitRot; // THB dont rotate this OTHER child
+        //tCanvasSliderEnergy.rotation = qInitRot; // THB dont rotate this OTHER child
         //tCanvasSliderEnergy.localScale = scaCanvasSliderEnergyOld; // dont flip it on x
+
+        float whereTo = (transform.localEulerAngles.y - 180.0f) / 360.0f;
+        //if (Mathf.Abs(constraintX.Position - whereTo) > 0.5f) Debug.Log("lerp de ouf");
+        constraintX.Position = Mathf.Lerp(constraintX.Position, whereTo, Time.deltaTime * 8f);
     }
     void Update()
     {
@@ -105,11 +117,13 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
     {
         if (e.PlayerRef != _playerRef) return;
         if (oldAnim != TriggerAttack) ChangeAnim(TriggerAttack);
+        slotArmR.Attachment = null;
     }
     private void Hit(EventPlayerHit e)
     {
         if (e.PlayerRef != _playerRef) return;
         if (oldAnim != TriggerHit) ChangeAnim(TriggerHit);
+        slotArmR.Attachment = saveAttach;
     }
     /*private void Jump(EventPlayerJump e)
     {
@@ -120,7 +134,9 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
     {
         if (e.Target != _entityRef) return;
         //_energyCounter.text = "Energie:" + e.Amount.ToString();
-        sliderEnergy.value = (float)e.Amount;
+        //sliderEnergy.value = (float)e.Amount;
+        _animator.SetFloat(FloatBlendOnOff, Mathf.Min(1f, (float)e.Amount / 100f), 0.05f, Time.deltaTime);
+
 
     }
 

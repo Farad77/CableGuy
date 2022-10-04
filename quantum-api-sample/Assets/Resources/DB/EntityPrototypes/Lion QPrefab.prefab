@@ -363,6 +363,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 0076f648b0313b4469927f2ece38ac43, type: 2}
   - {fileID: 2100000, guid: 9455c272c97387b4ab4f5220d4466998, type: 2}
+  - {fileID: 2100000, guid: 0076f648b0313b4469927f2ece38ac43, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -467,6 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 5415391853813497612}
   sliderEnergy: {fileID: 5438829097421873647}
+  skeletonRenderer: {fileID: 7280414934753570681}
 --- !u!1 &5773639758240696864
 GameObject:
   m_ObjectHideFlags: 0
