@@ -1,0 +1,12 @@
+Mob.png
+size:1024,256
+filter:Linear,Linear
+pma:true
+Mob_Bison
+bounds:2,2,306,179
+Mob_Goose
+bounds:854,13,141,168
+Mob_Ping
+bounds:600,37,252,144
+Mob_Sheep
+bounds:310,17,288,164
