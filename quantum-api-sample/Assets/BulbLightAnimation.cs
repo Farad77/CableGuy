@@ -26,6 +26,7 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
     public Slider sliderEnergy;
     private Transform tCanvasSliderEnergy;
     private Vector3 scaCanvasSliderEnergyOld;
+    private bool bDontMoveWhileAnim;
 
     // This method is registered to the EntityView's OnEntityInstantiated event located on the parent GameObject
     public void Initialize(PlayerRef playerRef, EntityRef entityRef)
@@ -47,6 +48,9 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
         sliderEnergy.minValue = 0;
         sliderEnergy.maxValue = 100;
         sliderEnergy.value = 50;
+
+        bDontMoveWhileAnim = false;
+
     }
 
     void LateUpdate()
@@ -78,30 +82,34 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
     private void MovementAnimation()
     {
         var kcc = _game.Frames.Verified.Unsafe.GetPointer<CharacterController3D>(_entityRef);
-        bool isMoving = kcc->Velocity.Magnitude.AsFloat > 0.2f;
-
-        if (isMoving)
-        {
-            if(oldAnim == TriggerIdle) ChangeAnim(TriggerWalk);
-        }
+        if (bDontMoveWhileAnim) kcc->Velocity = FPVector3.Zero;
         else
         {
-            if (oldAnim == TriggerWalk) ChangeAnim(TriggerIdle);
+            bool isMoving = kcc->Velocity.Magnitude.AsFloat > 0.2f;
+
+            if (isMoving)
+            {
+                if (oldAnim == TriggerIdle) ChangeAnim(TriggerWalk);
+            }
+            else
+            {
+                if (oldAnim == TriggerWalk) ChangeAnim(TriggerIdle);
+            }
+            //_animator.SetBool(BOOL_IS_MOVING, isMoving);
+            //_animator.SetBool(BOOL_IS_GROUNDED, kcc->Grounded);
         }
-        //_animator.SetBool(BOOL_IS_MOVING, isMoving);
-        //_animator.SetBool(BOOL_IS_GROUNDED, kcc->Grounded);
 
     }
 
     private void Attack(EventPlayerAttack e)
     {
         if (e.PlayerRef != _playerRef) return;
-        if(oldAnim != TriggerAttack) ChangeAnim(TriggerAttack);
+        if (oldAnim != TriggerAttack) ChangeAnim(TriggerAttack);
     }
     private void Hit(EventPlayerHit e)
     {
-        if (e.PlayerRef != _playerRef) return; // THB e.Target.Index ça marche ça?
-        _animator.SetTrigger(TriggerHit);
+        if (e.PlayerRef != _playerRef) return;
+        if (oldAnim != TriggerHit) ChangeAnim(TriggerHit);
     }
     /*private void Jump(EventPlayerJump e)
     {
@@ -143,7 +151,7 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
         else if (idAnim == TriggerAttack)
         {
             //oldAnim = TriggerAttack;
-            Debug.Log("attacking");
+            //Debug.Log("attacking");
             _animator.ResetTrigger(TriggerIdle);
             _animator.ResetTrigger(TriggerWalk);
             _animator.SetTrigger(TriggerAttack);
@@ -178,12 +186,16 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
 
     private IEnumerator WaitEndOfAttack(int WhichTrigger)
     {
-        yield return new WaitForSeconds(0.249925f);
+        bDontMoveWhileAnim = true;
+        yield return new WaitForSeconds(0.333f);
+        bDontMoveWhileAnim = false;
         ChangeAnim(WhichTrigger);
     }
     private IEnumerator WaitEndOfHit(int WhichTrigger)
     {
-        yield return new WaitForSeconds(0.249925f);
+        bDontMoveWhileAnim = true;
+        yield return new WaitForSeconds(0.167f);
+        bDontMoveWhileAnim = false;
         ChangeAnim(WhichTrigger);
     }
 }
