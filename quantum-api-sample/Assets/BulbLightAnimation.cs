@@ -29,12 +29,8 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
     private Vector3 scaCanvasSliderEnergyOld;
     private bool bDontMoveWhileAnim;
     public SkeletonRenderer skeletonRenderer;
-    //public Spine.Slot slot;
-    //public Spine.Attachment attach;
     public Spine.PathConstraint constraintX;
-    public Spine.PathConstraint constraintY;
     public float posX;
-    public float posY;
     // This method is registered to the EntityView's OnEntityInstantiated event located on the parent GameObject
     public void Initialize(PlayerRef playerRef, EntityRef entityRef)
     {
@@ -58,55 +54,27 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
 
         bDontMoveWhileAnim = false;
 
-        Debug.Log("skeletonRenderer.skeleton.PathConstraints.Count : " + skeletonRenderer.skeleton.PathConstraints.Count);
-        //foreach(Spine.IkConstraint in skeletonRenderer.skeleton.PathConstraints.Items)
+        /*Debug.Log("skeletonRenderer.skeleton.PathConstraints.Count : " + skeletonRenderer.skeleton.PathConstraints.Count);
         for (int i = 0; i != skeletonRenderer.skeleton.PathConstraints.Count; i++)
         {
             Log.Debug($"Items[{i}].Position : {skeletonRenderer.skeleton.PathConstraints.Items[i].Position}");
 
-        }
-        constraintX = skeletonRenderer.skeleton.PathConstraints.Items[0];
-        constraintY = skeletonRenderer.skeleton.PathConstraints.Items[1];
-        posX = constraintX.Position;
-        posY = constraintY.Position;
-        //string name = "CircleHead";
-        //constraint = 
-        //if (constraint == null) Debug.LogError("constraint not found");
-        /*slot = skeletonRenderer.skeleton.FindSlot(name);
-        if (slot == null)
-        {
-            Debug.LogError("Slot not found: " + name, this);
-        }
-        else
-        {
-            attach = slot.Attachment;
-            
-            Debug.Log("attach.Name: " + attach.Name, this);
         }*/
+        constraintX = skeletonRenderer.skeleton.PathConstraints.Items[0];
+        posX = constraintX.Position;
 
     }
 
     void LateUpdate()
     {
         if (_game.Frames.Verified.IsPredicted) return;
-        /*if(transform.localEulerAngles.y > 0 && transform.localEulerAngles.y < 180)
-        {
-            //Debug.Log("look right");
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            tCanvasSliderEnergy.localScale = new Vector3(-scaCanvasSliderEnergyOld.x, tCanvasSliderEnergy.localScale.y, tCanvasSliderEnergy.localScale.z);
-        }
-        else if (transform.localEulerAngles.y > 180 && transform.localEulerAngles.y < 360)
-        {
-            //Debug.Log("look left");
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            tCanvasSliderEnergy.localScale = new Vector3(scaCanvasSliderEnergyOld.x, tCanvasSliderEnergy.localScale.y, tCanvasSliderEnergy.localScale.z);
-        }*/
         transform.rotation = qInitRot; // THB dont rotate this child
         tCanvasSliderEnergy.rotation = qInitRot; // THB dont rotate this OTHER child
         //tCanvasSliderEnergy.localScale = scaCanvasSliderEnergyOld; // dont flip it on x
 
-        constraintX.Position = Mathf.Lerp(constraintX.Position, (transform.localEulerAngles.y - 180.0f) / 360.0f, Time.deltaTime * 8f);
-        constraintY.Position = Mathf.Lerp(constraintY.Position, (transform.localEulerAngles.y - 180.0f) / 360.0f, Time.deltaTime * 8f);
+        float whereTo = (transform.localEulerAngles.y - 180.0f) / 360.0f;
+        //if (Mathf.Abs(constraintX.Position - whereTo) > 0.5f) Debug.Log("lerp de ouf");
+        constraintX.Position = Mathf.Lerp(constraintX.Position, whereTo, Time.deltaTime * 8f);
     }
     void Update()
     {
