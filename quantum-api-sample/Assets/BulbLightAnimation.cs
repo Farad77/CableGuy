@@ -23,6 +23,7 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
     private int oldAnim;
 
     private Quaternion qInitRot;
+    private Transform tCameraTransform;
 
     //Text _energyCounter;
     public Slider sliderEnergy;
@@ -37,7 +38,7 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
     // This method is registered to the EntityView's OnEntityInstantiated event located on the parent GameObject
     public void Initialize(PlayerRef playerRef, EntityRef entityRef)
     {
-        qInitRot = transform.rotation;
+        //qInitRot = transform.rotation;
         oldAnim = TriggerIdle;
 
         _playerRef = playerRef;
@@ -72,12 +73,20 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
         saveAttach = slotArmR.Attachment;
 
     }
+    private void Start()
+    {
+        qInitRot = transform.rotation;
+        tCameraTransform = Camera.main.transform;
+    }
+
 
     void LateUpdate()
     {
         if (_game.Frames.Verified.IsPredicted) return;
-        transform.rotation = qInitRot; // THB dont rotate this child
-        tCanvasSliderEnergy.rotation = qInitRot; // THB dont rotate this OTHER child
+        //transform.rotation = qInitRot; // THB dont rotate this child
+        transform.rotation = tCameraTransform.rotation * qInitRot; // THB dont rotate this child
+        //tCanvasSliderEnergy.rotation = qInitRot; // THB dont rotate this OTHER child
+        //tCanvasSliderEnergy.rotation = tCameraTransform.rotation * qInitRot;
         tCanvasSliderEnergy.localScale = scaCanvasSliderEnergyOld; // dont flip it on x
         sliderEnergy.value = _animator.GetFloat(FloatBlendOnOff); // get the amount lerped in real time by the animator
 
