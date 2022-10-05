@@ -467,6 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 5415391853813497612}
+  sliderEnergy: {fileID: 5438829097421873647}
   skeletonRenderer: {fileID: 7280414934753570681}
   posX: 0
 --- !u!1 &5773639758240696864

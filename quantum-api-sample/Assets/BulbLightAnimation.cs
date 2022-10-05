@@ -25,9 +25,9 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
     private Quaternion qInitRot;
 
     //Text _energyCounter;
-    //public Slider sliderEnergy;
-    //private Transform tCanvasSliderEnergy;
-    //private Vector3 scaCanvasSliderEnergyOld;
+    public Slider sliderEnergy;
+    private Transform tCanvasSliderEnergy;
+    private Vector3 scaCanvasSliderEnergyOld;
     private bool bDontMoveWhileAnim;
     public SkeletonRenderer skeletonRenderer;
     public Spine.PathConstraint constraintX;
@@ -49,11 +49,11 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
         QuantumEvent.Subscribe<Quantum.EventPlayerHit>(this, Hit);
         QuantumEvent.Subscribe<EventOnRegenTick>(this, OnRegenTick);
 
-        //tCanvasSliderEnergy = sliderEnergy.transform.parent;
-        //scaCanvasSliderEnergyOld = tCanvasSliderEnergy.localScale;
-        //sliderEnergy.minValue = 0;
-        //sliderEnergy.maxValue = 100;
-        //sliderEnergy.value = 50;
+        tCanvasSliderEnergy = sliderEnergy.transform.parent;
+        scaCanvasSliderEnergyOld = tCanvasSliderEnergy.localScale;
+        sliderEnergy.minValue = 0f;
+        sliderEnergy.maxValue = 1f;
+        sliderEnergy.value = 0.5f;
         _animator.SetFloat(FloatBlendOnOff, 0.5f);
 
         bDontMoveWhileAnim = false;
@@ -77,8 +77,10 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
     {
         if (_game.Frames.Verified.IsPredicted) return;
         transform.rotation = qInitRot; // THB dont rotate this child
-        //tCanvasSliderEnergy.rotation = qInitRot; // THB dont rotate this OTHER child
-        //tCanvasSliderEnergy.localScale = scaCanvasSliderEnergyOld; // dont flip it on x
+        tCanvasSliderEnergy.rotation = qInitRot; // THB dont rotate this OTHER child
+        tCanvasSliderEnergy.localScale = scaCanvasSliderEnergyOld; // dont flip it on x
+        sliderEnergy.value = _animator.GetFloat(FloatBlendOnOff); // get the amount lerped in real time by the animator
+
 
         float whereTo = (transform.localEulerAngles.y - 180.0f) / 360.0f;
         //if (Mathf.Abs(constraintX.Position - whereTo) > 0.5f) Debug.Log("lerp de ouf");
