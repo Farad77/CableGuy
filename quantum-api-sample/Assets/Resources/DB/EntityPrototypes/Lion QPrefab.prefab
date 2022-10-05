@@ -491,7 +491,6 @@ GameObject:
   - component: {fileID: 1380177152737893433}
   - component: {fileID: 1062937891993649270}
   - component: {fileID: 6909693008981432066}
-  - component: {fileID: 2599216542420004145}
   m_Layer: 15
   m_Name: Lion QPrefab
   m_TagString: Untagged
@@ -898,20 +897,6 @@ MonoBehaviour:
     consommateur: []
     NextTick:
       RawValue: 0
---- !u!114 &2599216542420004145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5773639758240696864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abb2f11a4fd8c6646bd2fc6937711eac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Prototype:
-    Entity: {fileID: 0}
 --- !u!1 &7173530013198164881
 GameObject:
   m_ObjectHideFlags: 0

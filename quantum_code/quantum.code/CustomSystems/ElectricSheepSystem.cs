@@ -20,6 +20,7 @@ namespace Quantum
 
         public override void Update(Frame f, ref ElectricSheepFilter filter)
         {
+            if (filter.ElectricSheep->entityPlayerRefToFollow == default) return;
             if (f.Global->Pause == 1)
             {
                 filter.NavMeshPathfind->Stop(f,filter.EntityRef,true);

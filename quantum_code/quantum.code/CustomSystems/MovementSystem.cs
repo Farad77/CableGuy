@@ -9,7 +9,7 @@ namespace Quantum
         public PlayerID* PlayerID;
         public Transform3D* Transform;
         public CharacterController3D* Kcc;
-        public AimObject* aim;
+       
         
     }
  
@@ -50,13 +50,13 @@ namespace Quantum
         }
         public override void Update(Frame f, ref PlayerMovementFilter filter)
         {
-            Log.Debug("UPDATE PLAYER:" + f.Global->Pause);
+           // Log.Debug("UPDATE PLAYER:" + f.Global->Pause);
             var input = f.GetPlayerInput(filter.PlayerID->PlayerRef);
 
-            var aim = filter.aim->Entity;
-            var aimObject = f.Unsafe.GetPointer<Transform3D>(aim);
-           if (input->Defend.WasPressed&& f.Global->Pause==0) f.Global->Pause = 1;
-           else if (input->Defend.WasPressed && f.Global->Pause == 1) f.Global->Pause = 0;
+          //  var aim = filter.aim->Entity;
+           // var aimObject = f.Unsafe.GetPointer<Transform3D>(aim);
+           /*if (input->Defend.WasPressed&& f.Global->Pause==0) f.Global->Pause = 1;
+           else if (input->Defend.WasPressed && f.Global->Pause == 1) f.Global->Pause = 0;*/
             if (f.Global->Pause == 1) return;
             if (input->MovementHorizontal < 0 && input->MovementVertical == 0)
             {
@@ -109,9 +109,9 @@ namespace Quantum
             }
 
             filter.Kcc->Move(f, filter.EntityRef, inputVector );
-            aimObject->Position = filter.Transform->Position;
+            //aimObject->Position = filter.Transform->Position;
           //  Log.Debug("player :" + filter.PlayerID->PlayerRef.ToString()+"vise avec "+ filter.aim->Entity + " angle="+ input->Angle);
-            aimObject->Rotation= FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
+           // aimObject->Rotation= FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
 
              // aimObject->Rotation = filter.Transform->Rotation;
             // FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));

@@ -14,24 +14,28 @@ namespace Quantum
             if (DoesPlayerExist(f, playerRef)) return;
             var aimPrototype = f.FindAsset<EntityPrototype>(AIM_PROTOTYPE);
             var aimEntity = f.Create(aimPrototype);
+            var aimObject = f.Unsafe.GetPointer<AimObject>(aimEntity);
+            
+
 
             var playerPrototype = f.FindAsset<EntityPrototype>(PLAYER_PROTOTYPE);
             var playerEntity = f.Create(playerPrototype);
             var transform = f.Unsafe.GetPointer<Transform3D>(playerEntity);
 
+           
             //TODO: changer le spawn en not hardcoded, 1 spawn par player
             transform->Position = new FPVector3(FP.FromFloat_UNSAFE(5.72f), FP.FromFloat_UNSAFE(1.39f), FP.FromFloat_UNSAFE(-13.85f));
 
             
-            var aim = f.Unsafe.GetPointer<AimObject>(playerEntity);
-            aim->Entity= aimEntity;
+           // var aim = f.Unsafe.GetPointer<AimObject>(playerEntity);
+            //aim->Entity= aimEntity;
             //Log.Debug("entite player " + playerEntity + " associer a aim " + aim->Entity);
 
 
 
             var playerIdAim = f.Unsafe.GetPointer<PlayerID>(aimEntity);
             playerIdAim->PlayerRef = playerRef;
-
+            
 
            /* var transform = f.Unsafe.GetPointer<Transform3D>(playerEntity);
             transform->Position = FPVector3.Up;*/
@@ -44,6 +48,7 @@ namespace Quantum
 
             var qAnimState = f.Unsafe.GetPointer<QAnimationState>(playerEntity);
             qAnimState->AttackAnimation = f.FindAsset<ClipData>(DEFAULT_ATTACK_CLIP);
+            aimObject->player = playerEntity;
         }
 
         private bool DoesPlayerExist(Frame f, PlayerRef playerRef)

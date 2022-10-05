@@ -172,11 +172,11 @@
     <Compile Include="CustomState\ItemPotionMana.cs" />
     <Compile Include="CustomState\Knockable.cs" />
     <Compile Include="CustomState\WeaponSpec.cs" />
-    <Compile Include="CustomSystems\AimHelperMovementSystem.cs" />
     <Compile Include="CustomSystems\AISystem.cs" />
     <Compile Include="CustomSystems\DynamicObstacleSystem.cs" />
     <Compile Include="CustomSystems\ConsommationEnergieSystem.cs" />
     <Compile Include="CustomSystems\ElectricSheepSystem.cs" />
+    <Compile Include="CustomSystems\AimMovementSystem.cs" />
     <Compile Include="CustomSystems\ProductionEnergySystem.cs" />
     <Compile Include="CustomSystems\EntitySpawnSystem.cs" />
     <Compile Include="CustomSystems\HazardSystem.cs" />

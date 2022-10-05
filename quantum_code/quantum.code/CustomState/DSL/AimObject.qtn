@@ -1,3 +1,4 @@
 ﻿component AimObject {
  EntityRef Entity;
+ EntityRef player;
 }

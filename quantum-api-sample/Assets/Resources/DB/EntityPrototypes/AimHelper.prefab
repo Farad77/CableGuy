@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2692892060926827082}
-  - component: {fileID: 8718080413643370273}
   - component: {fileID: 5916607542754358803}
   - component: {fileID: 9141841939285998924}
   - component: {fileID: -9199534504380757375}
+  - component: {fileID: 1867954369780253320}
   m_Layer: 0
   m_Name: AimHelper
   m_TagString: Untagged
@@ -36,19 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8718080413643370273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2168098420673755759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7379d6909ae024d439a8b924685f6ee5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angle: 0
 --- !u!114 &5916607542754358803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +229,21 @@ MonoBehaviour:
   Prototype:
     PlayerRef:
       _index: 0
+--- !u!114 &1867954369780253320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2168098420673755759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb2f11a4fd8c6646bd2fc6937711eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prototype:
+    Entity: {fileID: 0}
+    player: {fileID: 0}
 --- !u!1 &4484020431230874600
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,10 +64,13 @@ namespace Quantum.Prototypes.Unity {
   public class AimObject_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.AimObject_Prototype> {
     [Quantum.LocalReference]
     public global::EntityPrototype Entity;
+    [Quantum.LocalReference]
+    public global::EntityPrototype player;
 
     public sealed override Quantum.Prototypes.AimObject_Prototype Convert(EntityPrototypeConverter converter) {
       var result = new Quantum.Prototypes.AimObject_Prototype();
       converter.Convert(this.Entity, out result.Entity);
+      converter.Convert(this.player, out result.player);
       return result;
     }
   }

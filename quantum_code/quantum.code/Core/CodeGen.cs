@@ -2718,20 +2718,24 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct AimObject : Quantum.IComponent {
-    public const Int32 SIZE = 8;
+    public const Int32 SIZE = 16;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(0)]
     public EntityRef Entity;
+    [FieldOffset(8)]
+    public EntityRef player;
     public override Int32 GetHashCode() {
       unchecked { 
         var hash = 311;
         hash = hash * 31 + Entity.GetHashCode();
+        hash = hash * 31 + player.GetHashCode();
         return hash;
       }
     }
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (AimObject*)ptr;
         EntityRef.Serialize(&p->Entity, serializer);
+        EntityRef.Serialize(&p->player, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
@@ -4759,6 +4763,7 @@ namespace Quantum.Prototypes {
   [Prototype(typeof(AimObject))]
   public sealed unsafe partial class AimObject_Prototype : ComponentPrototype<AimObject> {
     public MapEntityId Entity;
+    public MapEntityId player;
     partial void MaterializeUser(Frame frame, ref AimObject result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
       AimObject component = default;
@@ -4767,6 +4772,7 @@ namespace Quantum.Prototypes {
     }
     public void Materialize(Frame frame, ref AimObject result, in PrototypeMaterializationContext context) {
       PrototypeValidator.FindMapEntity(this.Entity, in context, out result.Entity);
+      PrototypeValidator.FindMapEntity(this.player, in context, out result.player);
       MaterializeUser(frame, ref result, in context);
     }
     public override void Dispatch(ComponentPrototypeVisitorBase visitor) {

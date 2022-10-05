@@ -24,7 +24,7 @@ public unsafe class PlayerSetup : MonoBehaviour
         FindObjectOfType<UIPlayerInventoryEvents>().Initialize(entityRef);
         FindObjectOfType<UISpawnEnemy>().Initialize(_playerRef);
 
-        FindObjectOfType<LocalInputCustom>().AimDirection = FindObjectOfType<AimObject>();
+        
     }
 
     private void InitAnimation(EntityRef entityRef)

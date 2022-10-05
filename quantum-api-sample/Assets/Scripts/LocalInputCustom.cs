@@ -29,7 +29,7 @@ public class LocalInputCustom : MonoBehaviour
     private void OnEnable()
     {
         QuantumCallback.Subscribe<CallbackPollInput>(this, PollInput);
-
+       
         // EnableNewUnityInput();
     }
 
@@ -48,7 +48,7 @@ public class LocalInputCustom : MonoBehaviour
     private void PollUnityInput(CallbackPollInput pollInput)
     {
         // QuantumRunner.ShutdownAll();
-        
+        AimDirection = GetComponentInChildren<AimObject>();
         var i = new QInput();
         
         i.MovementHorizontal = FP.FromFloat_UNSAFE(UInput.GetAxis(AXIS_MOVEMENT_HORIZONTAL));
