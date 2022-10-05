@@ -9,7 +9,7 @@ namespace Quantum
         public PlayerID* PlayerID;
         public Transform3D* Transform;
      
-        public AimObject aim;
+        public AimObject* aim;
         
     }
  
