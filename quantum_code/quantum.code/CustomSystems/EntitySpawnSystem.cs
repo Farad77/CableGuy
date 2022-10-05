@@ -9,35 +9,48 @@ namespace Quantum
 {
     public unsafe class EntitySpawnSystem : SystemMainThread
     {
-        struct PlayerFilter
+        public struct PlayerFilter
         {
             public EntityRef Entity;
             public PlayerID* PlayerId;
         }
         public List<EntityRef> PlayersList;
+        public int IdNextPlayer = 0;
         public override void Update(Frame f)
         {
             if (f.Global->Pause == 1) return;
+
             ComponentFilterStruct<PlayerFilter> players;
             PlayerFilter playerStruct = default(PlayerFilter);
 
+            players = f.Unsafe.FilterStruct<PlayerFilter>();
+            playerStruct = default(PlayerFilter);
+            if(!players.Next(&playerStruct)) return;
+            
 
+            EntityRef eEntPlRef = EntityRef.None;
             bool bInit = false;
             foreach (var (entity, spawner) in f.Unsafe.GetComponentBlockIterator<EntitySpawner>())
             {
                 if(!bInit)
                 {
                     bInit = true;
+
                     players = f.Unsafe.FilterStruct<PlayerFilter>();
-                    playerStruct = default(PlayerFilter);
-
-
-                    players.Next(&playerStruct);
-                    /*bool bFoundLocalPlayer = false;
-                    while (players.Next(&playerStruct) && !bFoundLocalPlayer)
+                    PlayersList = new List<EntityRef>();
+                    while (players.Next(&playerStruct))
                     {
                         Log.Debug($"found another playerStruct.PlayerId->PlayerRef : {playerStruct.PlayerId->PlayerRef}");
-                    }*/
+                        PlayersList.Add(playerStruct.Entity);
+                    }
+
+
+                    if (PlayersList.Count > 0)
+                    {
+                        if (IdNextPlayer >= PlayersList.Count) IdNextPlayer = 0; // just to be sure it didnt change
+                        eEntPlRef = PlayersList[IdNextPlayer];
+                    }
+                    //else eEntPlRef = EntityRef.None;
                 }
                 //Log.Debug($"Spawner entity value {entity}");
 
@@ -45,9 +58,12 @@ namespace Quantum
 
                 if (spawner->NextSpawn > FP._0) continue;
 
-                SpawnEntity(f, spawner, playerStruct.Entity);
+                SpawnEntity(f, spawner, eEntPlRef);
                 ResetTimer(f, spawner);
             }
+            IdNextPlayer++;
+            if (IdNextPlayer >= PlayersList.Count) IdNextPlayer = 0; // regular loop
+
         }
 
         private static void CheckSpawnedList(Frame f, EntitySpawner* spawner)
@@ -71,11 +87,20 @@ namespace Quantum
             var spawnedEntity = f.Create(lp[f.RNG->Next(0, lp.Count)]);
 
             var entityTransform = f.Unsafe.GetPointer<Transform3D>(spawnedEntity);
-            var spawnerPosition = f.Unsafe.GetPointer<Transform3D>(spawnerEntityAsPlayer)->Position;
-
 
             var electricSheepID = f.Unsafe.GetPointer<ElectricSheepID>(spawnedEntity);
-            electricSheepID->entityPlayerRefToFollow = spawnerEntityAsPlayer;
+            FPVector3 spawnerPosition = FPVector3.Zero;
+            if (spawnerEntityAsPlayer != EntityRef.None)
+            {
+                spawnerPosition = f.Unsafe.GetPointer<Transform3D>(spawnerEntityAsPlayer)->Position;
+                electricSheepID->entityPlayerRefToFollow = spawnerEntityAsPlayer;
+            }
+            else
+            {
+                Log.Debug("Couldn't find a Player... this mob will be its own target");
+                spawnerPosition = FPVector3.Zero;
+                electricSheepID->entityPlayerRefToFollow = spawnedEntity;
+            }
 
             var posX = spawnerPosition.X - f.RNG->Next(-spawner->SpawnRadius, spawner->SpawnRadius);
             var posZ = spawnerPosition.Z - f.RNG->Next(-spawner->SpawnRadius, spawner->SpawnRadius);
