@@ -32,7 +32,6 @@ public unsafe class ElectricSheepAnimation : MonoBehaviour
         QuantumEvent.Subscribe<EventOnDamageDealt>(this, TakeDamage);
 
         oldAnim = TriggerWalk;
-        //qInitRot = transform.parent.rotation;
     }
     private void TakeDamage(EventOnDamageDealt obj)
     {
@@ -59,7 +58,6 @@ public unsafe class ElectricSheepAnimation : MonoBehaviour
             //Debug.Log("look left");
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
-        //transform.parent.rotation = qInitRot; // THB dont rotate this child
         transform.rotation = tCameraTransform.rotation * qInitRot;
     }
 

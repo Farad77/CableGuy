@@ -25,10 +25,7 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
     private Quaternion qInitRot;
     private Transform tCameraTransform;
 
-    //Text _energyCounter;
     public Slider sliderEnergy;
-    private Transform tCanvasSliderEnergy;
-    private Vector3 scaCanvasSliderEnergyOld;
     private bool bDontMoveWhileAnim;
     public SkeletonRenderer skeletonRenderer;
     public Spine.PathConstraint constraintX;
@@ -38,7 +35,6 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
     // This method is registered to the EntityView's OnEntityInstantiated event located on the parent GameObject
     public void Initialize(PlayerRef playerRef, EntityRef entityRef)
     {
-        //qInitRot = transform.rotation;
         oldAnim = TriggerIdle;
 
         _playerRef = playerRef;
@@ -50,8 +46,6 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
         QuantumEvent.Subscribe<Quantum.EventPlayerHit>(this, Hit);
         QuantumEvent.Subscribe<EventOnRegenTick>(this, OnRegenTick);
 
-        tCanvasSliderEnergy = sliderEnergy.transform.parent;
-        scaCanvasSliderEnergyOld = tCanvasSliderEnergy.localScale;
         sliderEnergy.minValue = 0f;
         sliderEnergy.maxValue = 1f;
         sliderEnergy.value = 0.5f;
@@ -59,12 +53,6 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
 
         bDontMoveWhileAnim = false;
 
-        /*Debug.Log("skeletonRenderer.skeleton.PathConstraints.Count : " + skeletonRenderer.skeleton.PathConstraints.Count);
-        for (int i = 0; i != skeletonRenderer.skeleton.PathConstraints.Count; i++)
-        {
-            Log.Debug($"Items[{i}].Position : {skeletonRenderer.skeleton.PathConstraints.Items[i].Position}");
-
-        }*/
         constraintX = skeletonRenderer.skeleton.PathConstraints.Items[0];
         posX = constraintX.Position;
 
@@ -83,11 +71,7 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
     void LateUpdate()
     {
         if (_game.Frames.Verified.IsPredicted) return;
-        //transform.rotation = qInitRot; // THB dont rotate this child
         transform.rotation = tCameraTransform.rotation * qInitRot; // THB dont rotate this child
-        //tCanvasSliderEnergy.rotation = qInitRot; // THB dont rotate this OTHER child
-        //tCanvasSliderEnergy.rotation = tCameraTransform.rotation * qInitRot;
-        tCanvasSliderEnergy.localScale = scaCanvasSliderEnergyOld; // dont flip it on x
         sliderEnergy.value = _animator.GetFloat(FloatBlendOnOff); // get the amount lerped in real time by the animator
 
 
@@ -118,8 +102,6 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
             {
                 if (oldAnim == TriggerWalk) ChangeAnim(TriggerIdle);
             }
-            //_animator.SetBool(BOOL_IS_MOVING, isMoving);
-            //_animator.SetBool(BOOL_IS_GROUNDED, kcc->Grounded);
         }
 
     }
@@ -136,15 +118,9 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
         if (oldAnim != TriggerHit) ChangeAnim(TriggerHit);
         slotArmR.Attachment = saveAttach;
     }
-    /*private void Jump(EventPlayerJump e)
-    {
-        if (e.PlayerRef != _playerRef) return;
-        _animator.SetTrigger(TRIGGER_JUMP);
-    }*/
     private void OnRegenTick(EventOnRegenTick e)
     {
         if (e.Target != _entityRef) return;
-        //_energyCounter.text = "Energie:" + e.Amount.ToString();
         //sliderEnergy.value = (float)e.Amount;
         _animator.SetFloat(FloatBlendOnOff, Mathf.Min(1f, (float)e.Amount / 100f), 0.05f, Time.deltaTime);
 
@@ -190,7 +166,7 @@ public unsafe class BulbLightAnimation : MonoBehaviour // THB
         else if (idAnim == TriggerHit)
         {
             //oldAnim = TriggerAttack;
-            Debug.Log("hit");
+            //Debug.Log("hit");
             _animator.ResetTrigger(TriggerIdle);
             _animator.ResetTrigger(TriggerWalk);
             _animator.ResetTrigger(TriggerAttack);

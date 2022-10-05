@@ -13,9 +13,4 @@ public unsafe class ElectricSheepSetup : MonoBehaviour
 
         _electricSheepAnimation.Initialize(entityRef);
     }
-    /*private void Update()
-    {
-        var entityRef = GetComponent<EntityView>().EntityRef;
-        var electricSheepID = QuantumRunner.Default.Game.Frames.Verified.Unsafe.GetPointer<ElectricSheepID>(entityRef);
-    }*/
 }
