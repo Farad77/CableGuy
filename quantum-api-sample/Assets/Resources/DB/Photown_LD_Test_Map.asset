@@ -6017,7 +6017,7 @@ MonoBehaviour:
       SpawnIntervalMax:
         RawValue: 32768
       MaxSpawnAmount:
-        RawValue: 1572864
+        RawValue: 786432
       EntityPrototypes:
       - Id:
           Value: 1654655786854209493
