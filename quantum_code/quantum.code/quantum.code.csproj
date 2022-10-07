@@ -143,6 +143,7 @@
     <Compile Include="Core\CodeGen.cs" />
     <Compile Include="CommandSetup.Legacy.cs" />
     <Compile Include="Core\Core.cs" />
+    <Compile Include="CustomState\Commands\CommandPause.cs" />
     <Compile Include="CustomState\Commands\CommandSpawnEnemy.cs" />
     <Compile Include="CustomState\CustomAI\Actions\DecreaseTimer.cs" />
     <Compile Include="CustomState\CustomAI\Actions\ResetNavMeshTarget.cs" />

@@ -5313,7 +5313,7 @@ MonoBehaviour:
       MaxAmount:
         RawValue: -65470464
       Regen:
-        RawValue: 655360
+        RawValue: 1966080
       consommateur: []
       NextTick:
         RawValue: 0
@@ -5378,7 +5378,7 @@ MonoBehaviour:
         X:
           RawValue: 661612
         Y:
-          RawValue: 81264
+          RawValue: 206030
         Z:
           RawValue: -1852191
       Rotation:
@@ -5414,7 +5414,7 @@ MonoBehaviour:
       MaxAmount:
         RawValue: -65470464
       Regen:
-        RawValue: 655360
+        RawValue: 1966080
       consommateur: []
       NextTick:
         RawValue: 0
@@ -5479,7 +5479,7 @@ MonoBehaviour:
         X:
           RawValue: 427648
         Y:
-          RawValue: 90243
+          RawValue: 215009
         Z:
           RawValue: 33934
       Rotation:
@@ -5515,7 +5515,7 @@ MonoBehaviour:
       MaxAmount:
         RawValue: -65470464
       Regen:
-        RawValue: 655360
+        RawValue: 1966080
       consommateur: []
       NextTick:
         RawValue: 0
@@ -5580,7 +5580,7 @@ MonoBehaviour:
         X:
           RawValue: -201955
         Y:
-          RawValue: 21626
+          RawValue: 146393
         Z:
           RawValue: -205534
       Rotation:
@@ -5616,7 +5616,7 @@ MonoBehaviour:
       MaxAmount:
         RawValue: -65470464
       Regen:
-        RawValue: 655360
+        RawValue: 1966080
       consommateur: []
       NextTick:
         RawValue: 0
@@ -5681,7 +5681,7 @@ MonoBehaviour:
         X:
           RawValue: -1449957
         Y:
-          RawValue: 25034
+          RawValue: 149801
         Z:
           RawValue: -983184
       Rotation:

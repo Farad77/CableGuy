@@ -14,7 +14,7 @@ public class LocalInputCustom : MonoBehaviour
     private const string BUTTON_DEFEND = "Fire2";
     private const string BUTTON_ACTION = "Fire3";
     private const string BUTTON_JUMP = "Jump";
-    public AimObject AimDirection;
+ 
     #region New Unity Input System Variables
 
     // [SerializeField] private UInput.InputAction movementAxes = null;
@@ -44,11 +44,11 @@ public class LocalInputCustom : MonoBehaviour
     {
         PollUnityInput(pollInput);
     }
-
+    public GameObject cube;
     private void PollUnityInput(CallbackPollInput pollInput)
     {
         // QuantumRunner.ShutdownAll();
-        AimDirection = GetComponentInChildren<AimObject>();
+       
         var i = new QInput();
         
         i.MovementHorizontal = FP.FromFloat_UNSAFE(UInput.GetAxis(AXIS_MOVEMENT_HORIZONTAL));
@@ -59,19 +59,54 @@ public class LocalInputCustom : MonoBehaviour
         i.Defend = UInput.GetButton(BUTTON_DEFEND);
         i.Action = UInput.GetButton(BUTTON_ACTION);
         i.Jump = UInput.GetButton(BUTTON_JUMP);
-        if (AimDirection != null)
-        {
+       
             // Cursor.lockState = CursorLockMode.Locked;
             //Cursor.visible = false;
             /*  i.AimDirection = AimDirection.gameObject.GetComponentInChildren<Transform>().transform.position.ToFPVector3();
               i.AimForward = AimDirection.gameObject.GetComponentInChildren<Transform>().transform.forward.ToFPVector3();*/
-            i.AimDirection = AimDirection.transform.position.ToFPVector3();
-            i.AimForward = AimDirection.transform.forward.ToFPVector3();
-            i.Angle = (AimDirection.angle +90).ToFP();
+            /* i.AimDirection = AimDirection.transform.position.ToFPVector3();
+             i.AimForward = AimDirection.transform.forward.ToFPVector3();*/
+             Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
+
+            //Get the Screen position of the mouse
+             Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(UnityEngine.Input.mousePosition);
+            // i.AimDirection = mouseOnScreen.ToFPVector2();
+            //Get the angle between the points
+             i.Angle = Mathf.RoundToInt(AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen))+90;
+        //  i.Angle = (AimDirection.angle +90).ToFP();
+        //  i.AimDirection = new FPVector3();
+        if (UnityEngine.Input.GetMouseButtonDown(0))
+        {
+            Ray ray;
+            RaycastHit hit;
+            ray = Camera.main.ScreenPointToRay(UnityEngine.Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+
+                i.AimDirection = hit.point.ToFPVector3();
+                Debug.Log(" " + hit.point);
+                //cube.transform.position = hit.point;
+
+            }
+            else
+            {
+
+            }
         }
+
+
         pollInput.SetInput(i, DeterministicInputFlags.Repeatable);
     }
-    
+    float AngleBetweenTwoPoints(Vector2 a, Vector2 b)
+    {
+        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
+    }
+
+    public void LateUpdate()
+    {
+       
+    }
+
     #region New Unity Input System Functions
 
     // private void PollNewUnityInput(CallbackPollInput pollInput)

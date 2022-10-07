@@ -33,12 +33,14 @@ namespace Quantum
         }
        // private const string PROJECTILE_PROTOTYPE = "Resources/DB/EntityPrototypes/Bullet|EntityPrototype";
 
-        private static void Shoot(in Frame f, in EntityRef entity)
+        private  void Shoot(in Frame f, in EntityRef entity)
         {
+           
 
             var playerId = f.Get<PlayerID>(entity);
             var input = f.GetPlayerInput(playerId.PlayerRef);
             var weapon = f.Unsafe.GetPointer<Weapon>(entity);
+            var aimEntity = weapon->aimEntity;
 
             var consom = f.Unsafe.GetPointer<Energie>(entity);
             if (consom->CurrentAmount <= 0) { 
@@ -53,9 +55,9 @@ namespace Quantum
                
                 f.Events.OnRegenTick(consom->CurrentAmount, entity);
             }
-
+            //Log.Debug("tir");
             var transform = f.Get<Transform3D>(entity);
-
+            var aimTransform = f.Unsafe.GetPointer<Transform3D>(aimEntity);
             //Resources/DB/EntityPrototypes/Bullet|EntityPrototype
 
             //var proto = f.FindAsset<EntityPrototype>(PROJECTILE_PROTOTYPE);
@@ -66,17 +68,52 @@ namespace Quantum
             EntityRef bulletEntity = f.Create(proto);
           
             var t2 = f.Unsafe.GetPointer<Transform3D>(bulletEntity);
-          
 
-            t2->Position = input->AimDirection + input->AimForward * FP._1_50;
-            t2->Rotation = FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
-          
+            aimTransform->Position = transform.Position;
+            t2->Position = aimTransform->Position + aimTransform->Forward * FP._1_50;
+            FPVector3 target = aim(f, transform, bulletEntity);
+            if (target == default)
+            {
+                return;
+            }
+            var lookPos = target- t2->Position ;
+            lookPos.Y = 0;
+            lookPos = lookPos.Normalized;
+            Log.Debug("look: " + lookPos);
+            //t2->Rotation = FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
+            t2->Rotation = FPQuaternion.LookRotation(lookPos);
+            aimTransform->Rotation = FPQuaternion.LookRotation(lookPos);
+
 
 
         }
-       
-        
-       
+        public FPVector3 aim(Frame f,Transform3D origin,EntityRef me)
+        {
+            var hits = f.Physics3D.OverlapShape(origin, Shape3D.CreateSphere(5));
+            EntityRef targetEntity = default;
+            for (int i = 0; i < hits.Count; i++)
+            {
+                var hit = hits[i];
+               // Log.Debug("HIT: " + hits.Count);
+                if (hit.Entity != me && f.Has<ElectricSheepID>(hit.Entity))
+                {
+                  
+                    targetEntity = hit.Entity;
+                    Log.Debug("c'est un mob! " + targetEntity);
+                    return f.Get<Transform3D>(targetEntity).Position;
+                }
+
+            }
+           // Log.Debug("c'est pas un mob!");
+            return default;
+        }
+
+         FP AngleBetweenTwoPoints(FPVector2 a, FPVector2 b)
+        {
+            return FP.FromFloat_UNSAFE((float)(Math.Atan2((float)(a.Y - b.Y), (float)(a.X - b.X)) * 57.29578F));
+            
+        }
+
 
         private static void ResetTimer(Frame f, Energie* prod)
         {

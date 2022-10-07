@@ -18,6 +18,7 @@ namespace Quantum
                 {
                     var conso = f.ResolveList<EntityRef>(prod->consommateur);
                     conso.Add(info.Other);
+                    f.Events.PlayerBeginCharge(info.Other, f.Get<Transform3D>(info.Entity));
                 }
                 catch(Exception e)
                 {
@@ -25,6 +26,7 @@ namespace Quantum
 
                     var conso = f.ResolveList<EntityRef>(prod->consommateur);
                     conso.Add(info.Other);
+                    f.Events.PlayerBeginCharge(info.Other, f.Get<Transform3D>(info.Entity));
                 }
 
              
@@ -100,15 +102,16 @@ namespace Quantum
 
         public void OnTriggerExit3D(Frame f, ExitInfo3D info)
         {
-            Log.Debug("Trigger exit recharge?");
+            //Log.Debug("Trigger exit recharge?");
             if (f.Has<ProducteurEnergie>(info.Entity) && f.Has<PlayerID>(info.Other))
             {
                 var prod = f.Unsafe.GetPointer<ProducteurEnergie>(info.Entity);
-                Log.Debug("Trigger exit recharge ");
+               // Log.Debug("Trigger exit recharge ");
                 try
                 {
                     var conso = f.ResolveList<EntityRef>(prod->consommateur);
                     conso.Remove(info.Other);
+                    f.Events.PlayerEndCharge(info.Other,f.Get<Transform3D>(info.Entity));
                 }
                 catch (Exception e)
                 {
@@ -116,6 +119,7 @@ namespace Quantum
 
                     var conso = f.ResolveList<EntityRef>(prod->consommateur);
                     conso.Remove(info.Other);
+                    f.Events.PlayerEndCharge(info.Other, f.Get<Transform3D>(info.Entity));
                 }
             }
         }

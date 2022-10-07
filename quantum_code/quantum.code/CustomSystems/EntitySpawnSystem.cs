@@ -40,7 +40,7 @@ namespace Quantum
                     PlayersList = new List<EntityRef>();
                     while (players.Next(&playerStruct))
                     {
-                        Log.Debug($"found another playerStruct.PlayerId->PlayerRef : {playerStruct.PlayerId->PlayerRef}");
+                       // Log.Debug($"found another playerStruct.PlayerId->PlayerRef : {playerStruct.PlayerId->PlayerRef}");
                         PlayersList.Add(playerStruct.Entity);
                     }
 
@@ -62,7 +62,7 @@ namespace Quantum
                 ResetTimer(f, spawner);
             }
             IdNextPlayer++;
-            if (IdNextPlayer >= PlayersList.Count) IdNextPlayer = 0; // regular loop
+            if (PlayersList!=null&&IdNextPlayer >= PlayersList.Count) IdNextPlayer = 0; // regular loop
 
         }
 

@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonDataAsset: {fileID: 11400000, guid: 45003a41ff6187a4b8343c928a9213f3, type: 2}
-  initialSkinName: Goose
+  initialSkinName: Sheep
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
   initialFlipY: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
           RawValue: 0
       BoxExtents:
         X:
-          RawValue: 108789
+          RawValue: 124518
         Y:
           RawValue: 32768
         Z:
@@ -387,7 +387,19 @@ MonoBehaviour:
         m_CallState: 2
   OnEntityDestroyed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3334546972537570352}
+        m_TargetAssemblyTypeName: ElectricSheepAnimation, Assembly-CSharp
+        m_MethodName: Death
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2356869757738257275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,7 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prototype:
     Amount:
-      RawValue: 1310720
+      RawValue: 327680
     DamageToAbsorb: []
 --- !u!114 &5881884979405728308
 MonoBehaviour:

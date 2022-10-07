@@ -21,7 +21,7 @@ public class AimObject : MonoBehaviour
 
         //Get the angle between the points
         angle = Mathf.RoundToInt(AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen));
-        Debug.Log("Angle calculé = " + angle);
+        //Debug.Log("Angle calculé = " + angle);
         //Ta Daaa
        // transform.rotation = Quaternion.Euler(new Vector3(0f, -angle-90, 0f));
     }

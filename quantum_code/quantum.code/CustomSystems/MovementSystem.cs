@@ -21,7 +21,7 @@ namespace Quantum
         public void OnTriggerEnter3D(Frame f, TriggerInfo3D info)
         {
             // Log.Debug("Trigger enter "+ f.Has<KillZone>(info.Entity)+ " "+ f.Has<PlayerID>(info.Other)+" "+info.Other.ToString());
-            Log.Debug("Trigger enter");
+          //  Log.Debug("Trigger enter");
             //TODO:rajouter check joueur
             if (f.Has<KillZone>(info.Entity) && f.Has<PlayerID>(info.Other))
             {

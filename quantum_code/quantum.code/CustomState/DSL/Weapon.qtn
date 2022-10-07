@@ -3,5 +3,6 @@
     asset_ref<WeaponSpec> WeaponSpec;
     [HideInInspector] list<EntityRef> AlreadyHit;
     FP EnergyCost;
+    EntityRef aimEntity;
    
 }

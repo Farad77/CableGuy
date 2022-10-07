@@ -15,11 +15,17 @@ public class UISpawnEnemy : MonoBehaviour
     }
     public void SpawnEnemy()
     {
-        CommandSpawnEnemy command = new CommandSpawnEnemy()
+        /*  CommandSpawnEnemy command = new CommandSpawnEnemy()
+          {
+              enemyPrototypeGUID = enemyPrototype.Settings.Guid.Value,
+          };
+          QuantumRunner.Default.Game.SendCommand(command);
+          compteur++;*/
+        CommandPause command = new CommandPause()
         {
-            enemyPrototypeGUID = enemyPrototype.Settings.Guid.Value,
+            enemyPrototypeGUID = 0,
         };
         QuantumRunner.Default.Game.SendCommand(command);
-        compteur++;
+        Debug.Log("Pause?");
     }
 }

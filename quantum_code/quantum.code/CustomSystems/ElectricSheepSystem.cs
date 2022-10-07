@@ -13,6 +13,7 @@ namespace Quantum
         public Transform3D* Transform;
         public ElectricSheepID* ElectricSheep;
         public NavMeshPathfinder* NavMeshPathfind;
+        public NavMeshSteeringAgent* agent;
     }
 
     public unsafe class ElectricSheepSystem : SystemMainThreadFilter<ElectricSheepFilter>
@@ -26,6 +27,7 @@ namespace Quantum
                 filter.NavMeshPathfind->Stop(f,filter.EntityRef,true);
                 return;
             }
+            
             var navmesh = f.Map.NavMeshes["NavMesh3"];
             filter.NavMeshPathfind->SetTarget(f, f.Unsafe.GetPointer<Transform3D>(filter.ElectricSheep->entityPlayerRefToFollow)->Position, navmesh);
             filter.ElectricSheep->cumulTime += f.DeltaTime * FP._8;

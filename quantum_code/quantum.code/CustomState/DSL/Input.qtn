@@ -3,7 +3,7 @@
 	FP MovementVertical;
 	button MoveBack;
 	FPVector3 AimDirection;
-	FPVector3 AimForward;
+	FPVector2 AimForward;
 	FP Angle;
 
 	FP ViewHorizontal;

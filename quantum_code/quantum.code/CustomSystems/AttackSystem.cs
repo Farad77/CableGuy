@@ -41,7 +41,7 @@ namespace Quantum
             //            var transform = f.Unsafe.GetPointer<Transform3D>(entity);
             var transform = f.Get<Transform3D>(entity);
             var weapon = f.Unsafe.GetPointer<Weapon>(entity);
-            //var aimHelper = weapon->Aimhelper;
+            var aimHelper = f.Get<Transform3D>(weapon->aimEntity);
             /*var weaponSpec = f.FindAsset<WeaponSpec>(weapon->WeaponSpec.Id);
             var attackShape = weaponSpec.AttackShape.CreateShape(f);*/
             var proto = f.FindAsset<EntityPrototype>(PROJECTILE_PROTOTYPE);
@@ -49,12 +49,13 @@ namespace Quantum
             // var speed = f.Get<Projectile>(bulletEntity).Speed;
             //var transform2Pos = transform.Position + transform.Forward;
             var t2 = f.Unsafe.GetPointer<Transform3D>(bulletEntity);
-           // var transformHelper = f.Get<Transform3D>(aimHelper);
+            // var transformHelper = f.Get<Transform3D>(aimHelper);
 
-          //  var transform2Pos = transform.Position + transformHelper.Position + transformHelper.Forward;
+            //  var transform2Pos = transform.Position + transformHelper.Position + transformHelper.Forward;
             //Log.Debug(" pos ="+transform);
-            t2->Position = input->AimDirection +input->AimForward*2;
-            t2->Rotation = FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
+            // t2->Position = input->AimDirection +input->AimForward*2;
+            //t2->Position = aimHelper.Position + aimHelper.Forward * 2;
+          //  t2->Rotation = FPQuaternion.SimpleLookAt(aimHelper.Forward);
             //f.Set<Transform3D>(bulletEntity, transform);
             /* PhysicsBody3D* rigid = f.Unsafe.GetPointer<PhysicsBody3D>(bulletEntity);
              rigid->AddLinearImpulse(transform.Forward * speed);*/

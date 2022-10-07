@@ -10,6 +10,9 @@ namespace Quantum
             {
                 var command = f.GetPlayerCommand(i) as CommandSpawnEnemy;
                 command?.Execute(f);
+
+                var command2 = f.GetPlayerCommand(i) as CommandPause;
+                command2?.Execute(f);
             }
         }
     }

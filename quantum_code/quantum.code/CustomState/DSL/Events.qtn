@@ -21,6 +21,16 @@ event EnemyDeath {
     EntityRef EntityRef;
 }
 
+event PlayerBeginCharge {
+    EntityRef EntityRef;
+    Transform3D transform;
+}
+
+event PlayerEndCharge {
+    EntityRef EntityRef;
+     Transform3D transform;
+}
+
 // Resources management events
 abstract event ResourceEvent{
 	FP Amount;

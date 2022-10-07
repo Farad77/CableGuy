@@ -24,7 +24,8 @@ namespace Quantum
             foreach(var (entity, health) in f.Unsafe.GetComponentBlockIterator<Health>())
             {
                 if (health->Amount > FP._0) continue;
-                f.Destroy(entity);
+                f.Events.EnemyDeath(entity);
+                 f.Destroy(entity);
             }
         }
 

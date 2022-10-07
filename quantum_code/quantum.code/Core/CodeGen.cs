@@ -2168,14 +2168,14 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Input {
-    public const Int32 SIZE = 152;
+    public const Int32 SIZE = 144;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(40)]
     public Button Action;
-    [FieldOffset(104)]
+    [FieldOffset(120)]
     public FPVector3 AimDirection;
-    [FieldOffset(128)]
-    public FPVector3 AimForward;
+    [FieldOffset(104)]
+    public FPVector2 AimForward;
     [FieldOffset(0)]
     public FP Angle;
     [FieldOffset(52)]
@@ -2253,8 +2253,8 @@ namespace Quantum {
         Button.Serialize(&p->Defend, serializer);
         Button.Serialize(&p->Jump, serializer);
         Button.Serialize(&p->MoveBack, serializer);
+        FPVector2.Serialize(&p->AimForward, serializer);
         FPVector3.Serialize(&p->AimDirection, serializer);
-        FPVector3.Serialize(&p->AimForward, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
@@ -2388,7 +2388,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct _globals_ {
-    public const Int32 SIZE = 3584;
+    public const Int32 SIZE = 3424;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(56)]
     public BotSDKData BotSDKData;
@@ -2402,7 +2402,7 @@ namespace Quantum {
     public NavMeshRegionMask NavMeshRegions;
     [FieldOffset(24)]
     public FP Pause;
-    [FieldOffset(3288)]
+    [FieldOffset(3128)]
     public PhysicsSceneSettings PhysicsSettings;
     [FieldOffset(8)]
     public BitSet20 PlayerLastConnectionState;
@@ -2412,10 +2412,10 @@ namespace Quantum {
     public BitSet1024 Systems;
     [FieldOffset(248)]
     [FramePrinter.FixedArrayAttribute(typeof(Input), 20)]
-    private fixed Byte _input_[3040];
+    private fixed Byte _input_[2880];
     public FixedArray<Input> input {
       get {
-        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 152, 20); }
+        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 144, 20); }
       }
     }
     public override Int32 GetHashCode() {
@@ -3526,18 +3526,20 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Weapon : Quantum.IComponent {
-    public const Int32 SIZE = 24;
+    public const Int32 SIZE = 32;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(0)]
     [HideInInspector()]
     [FramePrinter.PtrQListAttribute(typeof(EntityRef))]
     private Ptr AlreadyHitPtr;
-    [FieldOffset(16)]
+    [FieldOffset(24)]
     public FP EnergyCost;
     [FieldOffset(4)]
     public QBoolean IsEquipped;
     [FieldOffset(8)]
     public AssetRefWeaponSpec WeaponSpec;
+    [FieldOffset(16)]
+    public EntityRef aimEntity;
     public QListPtr<EntityRef> AlreadyHit {
       get {
         return new QListPtr<EntityRef>(AlreadyHitPtr);
@@ -3553,6 +3555,7 @@ namespace Quantum {
         hash = hash * 31 + EnergyCost.GetHashCode();
         hash = hash * 31 + IsEquipped.GetHashCode();
         hash = hash * 31 + WeaponSpec.GetHashCode();
+        hash = hash * 31 + aimEntity.GetHashCode();
         return hash;
       }
     }
@@ -3568,6 +3571,7 @@ namespace Quantum {
         QList.Serialize(p->AlreadyHit, &p->AlreadyHitPtr, serializer, StaticDelegates.SerializeEntityRef);
         QBoolean.Serialize(&p->IsEquipped, serializer);
         Quantum.AssetRefWeaponSpec.Serialize(&p->WeaponSpec, serializer);
+        EntityRef.Serialize(&p->aimEntity, serializer);
         FP.Serialize(&p->EnergyCost, serializer);
     }
   }
@@ -3715,7 +3719,7 @@ namespace Quantum {
     public unsafe partial struct FrameSignals {
     }
     public unsafe partial struct FrameEvents {
-      public const Int32 EVENT_TYPE_COUNT = 13;
+      public const Int32 EVENT_TYPE_COUNT = 15;
       public static Int32 GetParentEventID(Int32 eventID) {
         switch (eventID) {
           case EventOnDamageDealt.ID: return EventResourceEvent.ID;
@@ -3735,6 +3739,8 @@ namespace Quantum {
           case EventPlayerHit.ID: return typeof(EventPlayerHit);
           case EventPlayerWeaponEquip.ID: return typeof(EventPlayerWeaponEquip);
           case EventEnemyDeath.ID: return typeof(EventEnemyDeath);
+          case EventPlayerBeginCharge.ID: return typeof(EventPlayerBeginCharge);
+          case EventPlayerEndCharge.ID: return typeof(EventPlayerEndCharge);
           case EventResourceEvent.ID: return typeof(EventResourceEvent);
           case EventOnDamageDealt.ID: return typeof(EventOnDamageDealt);
           case EventOnUsedHealthPotion.ID: return typeof(EventOnUsedHealthPotion);
@@ -3774,6 +3780,20 @@ namespace Quantum {
       public EventEnemyDeath EnemyDeath(EntityRef EntityRef) {
         var ev = _f.Context.AcquireEvent<EventEnemyDeath>(EventEnemyDeath.ID);
         ev.EntityRef = EntityRef;
+        _f.AddEvent(ev);
+        return ev;
+      }
+      public EventPlayerBeginCharge PlayerBeginCharge(EntityRef EntityRef, Transform3D transform) {
+        var ev = _f.Context.AcquireEvent<EventPlayerBeginCharge>(EventPlayerBeginCharge.ID);
+        ev.EntityRef = EntityRef;
+        ev.transform = transform;
+        _f.AddEvent(ev);
+        return ev;
+      }
+      public EventPlayerEndCharge PlayerEndCharge(EntityRef EntityRef, Transform3D transform) {
+        var ev = _f.Context.AcquireEvent<EventPlayerEndCharge>(EventPlayerEndCharge.ID);
+        ev.EntityRef = EntityRef;
+        ev.transform = transform;
         _f.AddEvent(ev);
         return ev;
       }
@@ -4054,8 +4074,62 @@ namespace Quantum {
       }
     }
   }
-  public abstract unsafe partial class EventResourceEvent : EventBase {
+  public unsafe partial class EventPlayerBeginCharge : EventBase {
     public new const Int32 ID = 5;
+    public EntityRef EntityRef;
+    public Transform3D transform;
+    protected EventPlayerBeginCharge(Int32 id, EventFlags flags) : 
+        base(id, flags) {
+    }
+    public EventPlayerBeginCharge() : 
+        base(5, EventFlags.Server|EventFlags.Client) {
+    }
+    public new QuantumGame Game {
+      get {
+        return (QuantumGame)base.Game;
+      }
+      set {
+        base.Game = value;
+      }
+    }
+    public override Int32 GetHashCode() {
+      unchecked {
+        var hash = 59;
+        hash = hash * 31 + EntityRef.GetHashCode();
+        hash = hash * 31 + transform.GetHashCode();
+        return hash;
+      }
+    }
+  }
+  public unsafe partial class EventPlayerEndCharge : EventBase {
+    public new const Int32 ID = 6;
+    public EntityRef EntityRef;
+    public Transform3D transform;
+    protected EventPlayerEndCharge(Int32 id, EventFlags flags) : 
+        base(id, flags) {
+    }
+    public EventPlayerEndCharge() : 
+        base(6, EventFlags.Server|EventFlags.Client) {
+    }
+    public new QuantumGame Game {
+      get {
+        return (QuantumGame)base.Game;
+      }
+      set {
+        base.Game = value;
+      }
+    }
+    public override Int32 GetHashCode() {
+      unchecked {
+        var hash = 61;
+        hash = hash * 31 + EntityRef.GetHashCode();
+        hash = hash * 31 + transform.GetHashCode();
+        return hash;
+      }
+    }
+  }
+  public abstract unsafe partial class EventResourceEvent : EventBase {
+    public new const Int32 ID = 7;
     public FP Amount;
     public EntityRef Target;
     protected EventResourceEvent(Int32 id, EventFlags flags) : 
@@ -4071,40 +4145,6 @@ namespace Quantum {
     }
     public override Int32 GetHashCode() {
       unchecked {
-        var hash = 59;
-        hash = hash * 31 + Amount.GetHashCode();
-        hash = hash * 31 + Target.GetHashCode();
-        return hash;
-      }
-    }
-  }
-  public unsafe partial class EventOnDamageDealt : EventResourceEvent {
-    public new const Int32 ID = 6;
-    protected EventOnDamageDealt(Int32 id, EventFlags flags) : 
-        base(id, flags) {
-    }
-    public EventOnDamageDealt() : 
-        base(6, EventFlags.Server|EventFlags.Client|EventFlags.Synced) {
-    }
-    public override Int32 GetHashCode() {
-      unchecked {
-        var hash = 61;
-        hash = hash * 31 + Amount.GetHashCode();
-        hash = hash * 31 + Target.GetHashCode();
-        return hash;
-      }
-    }
-  }
-  public unsafe partial class EventOnUsedHealthPotion : EventResourceEvent {
-    public new const Int32 ID = 7;
-    protected EventOnUsedHealthPotion(Int32 id, EventFlags flags) : 
-        base(id, flags) {
-    }
-    public EventOnUsedHealthPotion() : 
-        base(7, EventFlags.Server|EventFlags.Client|EventFlags.Synced) {
-    }
-    public override Int32 GetHashCode() {
-      unchecked {
         var hash = 67;
         hash = hash * 31 + Amount.GetHashCode();
         hash = hash * 31 + Target.GetHashCode();
@@ -4112,12 +4152,12 @@ namespace Quantum {
       }
     }
   }
-  public unsafe partial class EventOnUsedManaPotion : EventResourceEvent {
+  public unsafe partial class EventOnDamageDealt : EventResourceEvent {
     public new const Int32 ID = 8;
-    protected EventOnUsedManaPotion(Int32 id, EventFlags flags) : 
+    protected EventOnDamageDealt(Int32 id, EventFlags flags) : 
         base(id, flags) {
     }
-    public EventOnUsedManaPotion() : 
+    public EventOnDamageDealt() : 
         base(8, EventFlags.Server|EventFlags.Client|EventFlags.Synced) {
     }
     public override Int32 GetHashCode() {
@@ -4129,12 +4169,12 @@ namespace Quantum {
       }
     }
   }
-  public unsafe partial class EventOnPickUpHealthPotion : EventResourceEvent {
+  public unsafe partial class EventOnUsedHealthPotion : EventResourceEvent {
     public new const Int32 ID = 9;
-    protected EventOnPickUpHealthPotion(Int32 id, EventFlags flags) : 
+    protected EventOnUsedHealthPotion(Int32 id, EventFlags flags) : 
         base(id, flags) {
     }
-    public EventOnPickUpHealthPotion() : 
+    public EventOnUsedHealthPotion() : 
         base(9, EventFlags.Server|EventFlags.Client|EventFlags.Synced) {
     }
     public override Int32 GetHashCode() {
@@ -4146,12 +4186,12 @@ namespace Quantum {
       }
     }
   }
-  public unsafe partial class EventOnPickUpManaPotion : EventResourceEvent {
+  public unsafe partial class EventOnUsedManaPotion : EventResourceEvent {
     public new const Int32 ID = 10;
-    protected EventOnPickUpManaPotion(Int32 id, EventFlags flags) : 
+    protected EventOnUsedManaPotion(Int32 id, EventFlags flags) : 
         base(id, flags) {
     }
-    public EventOnPickUpManaPotion() : 
+    public EventOnUsedManaPotion() : 
         base(10, EventFlags.Server|EventFlags.Client|EventFlags.Synced) {
     }
     public override Int32 GetHashCode() {
@@ -4163,12 +4203,12 @@ namespace Quantum {
       }
     }
   }
-  public unsafe partial class EventOnPickUpCoins : EventResourceEvent {
+  public unsafe partial class EventOnPickUpHealthPotion : EventResourceEvent {
     public new const Int32 ID = 11;
-    protected EventOnPickUpCoins(Int32 id, EventFlags flags) : 
+    protected EventOnPickUpHealthPotion(Int32 id, EventFlags flags) : 
         base(id, flags) {
     }
-    public EventOnPickUpCoins() : 
+    public EventOnPickUpHealthPotion() : 
         base(11, EventFlags.Server|EventFlags.Client|EventFlags.Synced) {
     }
     public override Int32 GetHashCode() {
@@ -4180,17 +4220,51 @@ namespace Quantum {
       }
     }
   }
-  public unsafe partial class EventOnRegenTick : EventResourceEvent {
+  public unsafe partial class EventOnPickUpManaPotion : EventResourceEvent {
     public new const Int32 ID = 12;
-    protected EventOnRegenTick(Int32 id, EventFlags flags) : 
+    protected EventOnPickUpManaPotion(Int32 id, EventFlags flags) : 
         base(id, flags) {
     }
-    public EventOnRegenTick() : 
+    public EventOnPickUpManaPotion() : 
         base(12, EventFlags.Server|EventFlags.Client|EventFlags.Synced) {
     }
     public override Int32 GetHashCode() {
       unchecked {
         var hash = 89;
+        hash = hash * 31 + Amount.GetHashCode();
+        hash = hash * 31 + Target.GetHashCode();
+        return hash;
+      }
+    }
+  }
+  public unsafe partial class EventOnPickUpCoins : EventResourceEvent {
+    public new const Int32 ID = 13;
+    protected EventOnPickUpCoins(Int32 id, EventFlags flags) : 
+        base(id, flags) {
+    }
+    public EventOnPickUpCoins() : 
+        base(13, EventFlags.Server|EventFlags.Client|EventFlags.Synced) {
+    }
+    public override Int32 GetHashCode() {
+      unchecked {
+        var hash = 97;
+        hash = hash * 31 + Amount.GetHashCode();
+        hash = hash * 31 + Target.GetHashCode();
+        return hash;
+      }
+    }
+  }
+  public unsafe partial class EventOnRegenTick : EventResourceEvent {
+    public new const Int32 ID = 14;
+    protected EventOnRegenTick(Int32 id, EventFlags flags) : 
+        base(id, flags) {
+    }
+    public EventOnRegenTick() : 
+        base(14, EventFlags.Server|EventFlags.Client|EventFlags.Synced) {
+    }
+    public override Int32 GetHashCode() {
+      unchecked {
+        var hash = 101;
         hash = hash * 31 + Amount.GetHashCode();
         hash = hash * 31 + Target.GetHashCode();
         return hash;
@@ -5302,7 +5376,7 @@ namespace Quantum.Prototypes {
     public FP MovementVertical;
     public Button MoveBack;
     public FPVector3 AimDirection;
-    public FPVector3 AimForward;
+    public FPVector2 AimForward;
     public FP Angle;
     public FP ViewHorizontal;
     public FP ViewVertical;
@@ -5668,6 +5742,7 @@ namespace Quantum.Prototypes {
     [DynamicCollectionAttribute()]
     public MapEntityId[] AlreadyHit = {};
     public FP EnergyCost;
+    public MapEntityId aimEntity;
     partial void MaterializeUser(Frame frame, ref Weapon result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
       Weapon component = default;
@@ -5689,6 +5764,7 @@ namespace Quantum.Prototypes {
       result.EnergyCost = this.EnergyCost;
       result.IsEquipped = this.IsEquipped;
       result.WeaponSpec = this.WeaponSpec;
+      PrototypeValidator.FindMapEntity(this.aimEntity, in context, out result.aimEntity);
       MaterializeUser(frame, ref result, in context);
     }
     public override void Dispatch(ComponentPrototypeVisitorBase visitor) {

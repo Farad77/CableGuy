@@ -42,18 +42,33 @@ namespace Quantum
             var aimObject = f.Unsafe.GetPointer<AimObject>(aim);
             var transform = f.Unsafe.GetPointer<Transform3D>(aim);
             if (aimObject->player == default) return;
-            Log.Debug(" gameobject trouve " + filter.EntityRef.ToString() + " angle=" + -input->Angle);
+           // Log.Debug(" gameobject trouve " + filter.EntityRef.ToString() + " angle=" + -input->Angle);
             var transformToFollow = f.Unsafe.GetPointer<Transform3D>(aimObject->player);
             //aimObject->Position = filter.Transform->Position;
             transform->Position = transformToFollow->Position;
-            //  Log.Debug("player :" + filter.PlayerID->PlayerRef.ToString()+"vise avec "+ filter.aim->Entity + " angle="+ input->Angle);
-            transform->Rotation= FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
+            
+            var lookPos = input->AimDirection - transformToFollow->Position;
+            lookPos.Y = 0;
+            FP angle = FPVector3.Angle(input->AimDirection, transformToFollow->Position);
+            //Log.Debug("player :" + filter.PlayerID->PlayerRef.ToString() + "vise avec " + aimObject->Entity + " angle=" + input->Angle +"vs "+angle);
+            //transform->Rotation = FPQuaternion.SimpleLookAt(lookPos);
+           // transform->Rotation = FPQuaternion.Euler(new FPVector3(0,angle, 0));
 
-             // aimObject->Rotation = filter.Transform->Rotation;
+            //transform->Rotation= FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
+            /* FP angle = AngleBetweenTwoPoints(transform->Position.XY, input->AimDirection);
+
+             transform->Rotation = FPQuaternion.Euler(new FPVector3(0, angle, 0));*/
+
+            // aimObject->Rotation = filter.Transform->Rotation;
             // FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
 
         }
+        FP AngleBetweenTwoPoints(FPVector2 a, FPVector2 b)
+        {
+            return FP.FromFloat_UNSAFE((float)(Math.Atan2((float)(a.Y - b.Y), (float)(a.X - b.X)) * 57.29578F));
 
+        }
     }
    
+
 }

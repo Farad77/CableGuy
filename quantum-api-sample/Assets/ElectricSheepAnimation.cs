@@ -30,8 +30,28 @@ public unsafe class ElectricSheepAnimation : MonoBehaviour
 
         // Set up Quantum events
         QuantumEvent.Subscribe<EventOnDamageDealt>(this, TakeDamage);
-
+        QuantumEvent.Subscribe<EventEnemyDeath>(this, EventEnemyDeath);
         oldAnim = TriggerWalk;
+        SkeletonMecanim skel = this.GetComponent<SkeletonMecanim>();
+        int skinId = UnityEngine.Random.Range(0, 4);
+        switch (skinId)
+        {
+            case 0: skel.Skeleton.SetSkin("Bison"); break;
+            case 1: skel.Skeleton.SetSkin("Goose"); break;
+            case 2: skel.Skeleton.SetSkin("Ping"); break;
+            case 3: skel.Skeleton.SetSkin("Sheep"); break;
+
+        }
+      
+        skel.Skeleton.SetSlotsToSetupPose();
+        skel.LateUpdate();
+    }
+    private void EventEnemyDeath(EventEnemyDeath e)
+    {
+        if (e.EntityRef != _entityRef) return;
+        Debug.Log("Je suis mort!");
+        Death();
+        //_electricSheepAnimation.
     }
     private void TakeDamage(EventOnDamageDealt obj)
     {
@@ -68,7 +88,7 @@ public unsafe class ElectricSheepAnimation : MonoBehaviour
     }
     public IEnumerator WaitB4Death()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
 }
