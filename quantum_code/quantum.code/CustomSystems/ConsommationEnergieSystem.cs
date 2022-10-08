@@ -43,6 +43,7 @@ namespace Quantum
             var aimEntity = weapon->aimEntity;
 
             var consom = f.Unsafe.GetPointer<Energie>(entity);
+            playerClose(f, entity);
             if (consom->CurrentAmount <= 0) { 
 
                 consom->CurrentAmount = 0;
@@ -79,13 +80,44 @@ namespace Quantum
             var lookPos = target- t2->Position ;
             lookPos.Y = 0;
             lookPos = lookPos.Normalized;
-            Log.Debug("look: " + lookPos);
+            //Log.Debug("look: " + lookPos);
             //t2->Rotation = FPQuaternion.Euler(new FPVector3(0, -input->Angle, 0));
             t2->Rotation = FPQuaternion.LookRotation(lookPos);
             aimTransform->Rotation = FPQuaternion.LookRotation(lookPos);
 
 
 
+        }
+
+        public void playerClose(Frame f,EntityRef player)
+        {
+            var t = f.Get<Transform3D>(player);
+            var hits = f.Physics3D.OverlapShape(t, Shape3D.CreateSphere(5));
+          
+            for (int i = 0; i < hits.Count; i++)
+            {
+                var hit = hits[i];
+                // Log.Debug("HIT: " + hits.Count);
+                if (hit.Entity != player && f.Has<PlayerID>(hit.Entity))
+                {
+                   
+                    var t2 = f.Get<Transform3D>(hit.Entity);
+
+                    if (FPVector3.Distance(t.Position, t2.Position) < 3)
+                    {
+                       // Log.Debug("je  touche: " + hit.Entity + " je suis " + player);
+                        f.Events.PlayerBeginCharge(hit.Entity, t);
+                    }
+                    else
+                    {
+                        f.Events.PlayerEndCharge(hit.Entity, t);
+                    }
+                }
+               
+
+            }
+            // Log.Debug("c'est pas un mob!");
+           // return default;
         }
         public FPVector3 aim(Frame f,Transform3D origin,EntityRef me)
         {
@@ -94,12 +126,14 @@ namespace Quantum
             for (int i = 0; i < hits.Count; i++)
             {
                 var hit = hits[i];
-               // Log.Debug("HIT: " + hits.Count);
-                if (hit.Entity != me && f.Has<ElectricSheepID>(hit.Entity))
+                // Log.Debug("HIT: " + hits.Count);
+                
+                
+                    if (hit.Entity != me && f.Has<ElectricSheepID>(hit.Entity))
                 {
                   
                     targetEntity = hit.Entity;
-                    Log.Debug("c'est un mob! " + targetEntity);
+                   // Log.Debug("c'est un mob! " + targetEntity);
                     return f.Get<Transform3D>(targetEntity).Position;
                 }
 

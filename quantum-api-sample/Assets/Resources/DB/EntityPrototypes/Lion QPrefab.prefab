@@ -729,8 +729,8 @@ GameObject:
   - component: {fileID: -8261374204732140653}
   - component: {fileID: 1380177152737893433}
   - component: {fileID: 1062937891993649270}
-  - component: {fileID: 6909693008981432066}
-  - component: {fileID: 1460868347934275478}
+  - component: {fileID: 4604322809602182151}
+  - component: {fileID: 1751729270912064201}
   m_Layer: 15
   m_Name: Lion QPrefab
   m_TagString: Untagged
@@ -805,7 +805,7 @@ MonoBehaviour:
     Material:
       Id:
         Value: 0
-    SourceCollider: {fileID: 7402455309531621924}
+    SourceCollider: {fileID: 0}
     IsEnabled: 1
     Shape2D:
       ShapeType: 0
@@ -845,11 +845,11 @@ MonoBehaviour:
           RawValue: 0
       BoxExtents:
         X:
-          RawValue: 32768
+          RawValue: 115998
         Y:
-          RawValue: 49152
+          RawValue: 119930
         Z:
-          RawValue: 32768
+          RawValue: 143523
       RotationOffset:
         X:
           RawValue: 0
@@ -860,7 +860,7 @@ MonoBehaviour:
       UserTag: 0
       IsPersistent: 1
       CompoundShapes: []
-      IsSetFromSourceCollider: 1
+      IsSetFromSourceCollider: 0
     Layer: 15
     CallbackFlags:
       Value: 0
@@ -1117,7 +1117,7 @@ MonoBehaviour:
     NextTick:
       RawValue: 0
     Entity: {fileID: 0}
---- !u!114 &6909693008981432066
+--- !u!114 &4604322809602182151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1139,7 +1139,7 @@ MonoBehaviour:
     consommateur: []
     NextTick:
       RawValue: 0
---- !u!114 &1460868347934275478
+--- !u!114 &1751729270912064201
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

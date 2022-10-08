@@ -9,11 +9,11 @@ namespace Quantum
 
             public void OnTriggerEnter3D(Frame f, TriggerInfo3D info)
         {
-           
+            //Log.Debug("Trigger enter recharge? sur "+info.Entity+" de "+info.Other);
             if (f.Has<ProducteurEnergie>(info.Entity) && f.Has<PlayerID>(info.Other))
             {
                 var prod = f.Unsafe.GetPointer<ProducteurEnergie>(info.Entity);
-                //Log.Debug("Trigger enter recharge " + currentRegen);
+                //Log.Debug("Trigger enter recharge " );
                 try
                 {
                     var conso = f.ResolveList<EntityRef>(prod->consommateur);

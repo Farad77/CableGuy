@@ -18,7 +18,8 @@ public unsafe class PlayerSetup : MonoBehaviour
         _playerRef = playerId->PlayerRef;
         
         InitAnimation(entityRef);
-        
+        QuantumEvent.Subscribe<EventPlayerBeginCharge>(this, EventPlayerBeginCharge);
+        QuantumEvent.Subscribe<EventPlayerEndCharge>(this, EventPlayerEndCharge);
         if (!QuantumRunner.Default.Game.PlayerIsLocal(_playerRef)) return;
 
         InitLocalCamera();
@@ -27,8 +28,7 @@ public unsafe class PlayerSetup : MonoBehaviour
         FindObjectOfType<LocalInputCustom>().transform.position = Vector3.zero;
         FindObjectOfType<UISpawnEnemy>().Initialize(_playerRef);
        
-        QuantumEvent.Subscribe<EventPlayerBeginCharge>(this, EventPlayerBeginCharge);
-        QuantumEvent.Subscribe<EventPlayerEndCharge>(this, EventPlayerEndCharge);
+   
 
     }
     Spine.Attachment ori;
@@ -44,7 +44,7 @@ public unsafe class PlayerSetup : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, prod.gameObject.transform.position) < min)
             {
-                if (prod.gameObject == gameObject) continue;
+                if (prod.gameObject.name == gameObject.name) continue;
                 min = Vector3.Distance(transform.position, prod.gameObject.transform.position);
                 minGo = prod.gameObject;
                 
