@@ -19,16 +19,23 @@ namespace Quantum
         {
             if (f.Global->Pause == 1) return;
             // Log.Debug("Ca tick?!1");
+            FP totalEnergie = 0;
             foreach (var (entity, prod) in f.Unsafe.GetComponentBlockIterator<Energie>())
             {
-               // Log.Debug("Ca tick?!");
+                // Log.Debug("Ca tick?!");
+                totalEnergie += prod->CurrentAmount;
                 if (prod->NextTick > FP._0) continue;
+                
                 Shoot(f, entity);
                 // Log.Debug("On a un consommateur!");
                 /* Regen(f, prod);
                  ResetTimer(f, prod);*/
                 ResetTimer(f, prod);
 
+            }
+            if (totalEnergie < 1)
+            {
+                f.Events.GameOver();
             }
         }
        // private const string PROJECTILE_PROTOTYPE = "Resources/DB/EntityPrototypes/Bullet|EntityPrototype";
@@ -97,7 +104,7 @@ namespace Quantum
             for (int i = 0; i < hits.Count; i++)
             {
                 var hit = hits[i];
-                // Log.Debug("HIT: " + hits.Count);
+                // 2 joueurs se branchent
                 if (hit.Entity != player && f.Has<PlayerID>(hit.Entity))
                 {
                    
@@ -105,12 +112,50 @@ namespace Quantum
 
                     if (FPVector3.Distance(t.Position, t2.Position) < 3)
                     {
-                       // Log.Debug("je  touche: " + hit.Entity + " je suis " + player);
-                        f.Events.PlayerBeginCharge(hit.Entity, t);
+                        //TODO: Choisir celui avec le plus d'energie comme producteur et l'autre
+                        //comme consommateur
+                        var prod = f.Unsafe.GetPointer<ProducteurEnergie>(hit.Entity);
+                        var prod2 = f.Unsafe.GetPointer<ProducteurEnergie>(player);
+
+                        var nrj = f.Unsafe.GetPointer<Energie>(hit.Entity);
+                        var nrj2 = f.Unsafe.GetPointer<Energie>(player);
+
+                        //Log.Debug("Trigger enter recharge " );
+                        try
+                        {
+                            var conso = f.ResolveList<EntityRef>(prod->consommateur);
+                            conso.Add(player);
+                            f.Events.PlayerBeginCharge(player, f.Get<Transform3D>(hit.Entity));
+                        }
+                        catch (Exception e)
+                        {
+                            prod->consommateur = f.AllocateList<EntityRef>();
+
+                            var conso = f.ResolveList<EntityRef>(prod->consommateur);
+                            conso.Add(player);
+                            f.Events.PlayerBeginCharge(player, f.Get<Transform3D>(hit.Entity));
+                        }
+                       // f.Events.PlayerBeginCharge(hit.Entity, t);
                     }
                     else
                     {
-                        f.Events.PlayerEndCharge(hit.Entity, t);
+                        var prod = f.Unsafe.GetPointer<ProducteurEnergie>(hit.Entity);
+                        // Log.Debug("Trigger exit recharge ");
+                        try
+                        {
+                            var conso = f.ResolveList<EntityRef>(prod->consommateur);
+                            conso.Remove(player);
+                            f.Events.PlayerEndCharge(player, f.Get<Transform3D>(hit.Entity));
+                        }
+                        catch (Exception e)
+                        {
+                            prod->consommateur = f.AllocateList<EntityRef>();
+
+                            var conso = f.ResolveList<EntityRef>(prod->consommateur);
+                            conso.Remove(player);
+                            f.Events.PlayerEndCharge(player, f.Get<Transform3D>(hit.Entity));
+                        }
+                      //  f.Events.PlayerEndCharge(hit.Entity, t);
                     }
                 }
                

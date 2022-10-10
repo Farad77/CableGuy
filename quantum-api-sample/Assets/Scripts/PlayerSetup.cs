@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Quantum;
 using Spine.Unity;
+using UnityEngine.SceneManagement;
 
 public unsafe class PlayerSetup : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public unsafe class PlayerSetup : MonoBehaviour
         
         InitAnimation(entityRef);
         QuantumEvent.Subscribe<EventPlayerBeginCharge>(this, EventPlayerBeginCharge);
+        QuantumEvent.Subscribe<EventGameOver>(this, EventGameOver);
+        QuantumEvent.Subscribe<EventPlayerHit>(this, EventPlayerHit);
         QuantumEvent.Subscribe<EventPlayerEndCharge>(this, EventPlayerEndCharge);
         if (!QuantumRunner.Default.Game.PlayerIsLocal(_playerRef)) return;
 
@@ -30,6 +33,19 @@ public unsafe class PlayerSetup : MonoBehaviour
        
    
 
+    }
+    private void EventGameOver(EventGameOver e)
+    {
+        SceneManager.LoadScene("Menu");
+    }
+    [SerializeField] private Animator _animator = null;
+    private int TriggerHit = Animator.StringToHash("HitTrigger");
+    private void EventPlayerHit(EventPlayerHit e)
+    {
+
+
+        if (e.PlayerRef != _playerRef) return;
+        _animator.SetTrigger(TriggerHit);
     }
     Spine.Attachment ori;
     private void EventPlayerBeginCharge(EventPlayerBeginCharge e)

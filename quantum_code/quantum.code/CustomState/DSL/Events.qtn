@@ -30,6 +30,8 @@ event PlayerEndCharge {
     EntityRef EntityRef;
      Transform3D transform;
 }
+event GameOver{
+}
 
 // Resources management events
 abstract event ResourceEvent{

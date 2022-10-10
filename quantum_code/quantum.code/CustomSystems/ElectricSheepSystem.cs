@@ -16,8 +16,19 @@ namespace Quantum
         public NavMeshSteeringAgent* agent;
     }
 
-    public unsafe class ElectricSheepSystem : SystemMainThreadFilter<ElectricSheepFilter>
+    public unsafe class ElectricSheepSystem : SystemMainThreadFilter<ElectricSheepFilter>, ISignalOnTriggerEnter3D
     {
+        public void OnTriggerEnter3D(Frame f, TriggerInfo3D info)
+        {
+            if (f.Has<ElectricSheepID>(info.Entity) && f.Has<PlayerID>(info.Other))
+            {
+                var nrj = f.Unsafe.GetPointer<Energie>(info.Other);
+                nrj->CurrentAmount -= 10;
+                ///TODO:animation hit
+                var playerId = f.Unsafe.GetPointer<PlayerID>(info.Other);
+                f.Events.PlayerHit(playerId->PlayerRef);
+            }
+            }
 
         public override void Update(Frame f, ref ElectricSheepFilter filter)
         {
